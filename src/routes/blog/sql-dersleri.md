@@ -1,15 +1,16 @@
 ---
 title: SQL Dersleri
 date: "2014-12-29"
-subtitle: Bugüne kadar vaktim ve motivasyonum oldukça yazdığım SQL makalelerini tek çatı altında toplamanın vakti geldi. SELECT sorguları için temel konuların tamamı anlatıldı diyebilirim. Yine de anlatılacak çok şey var. Bundan sonra yine vakit ve motivasyon değişkenlerinin alacağı değerlerin müsaade ettiği ölçüde yeni makaleler eklemeyi düşünüyorum. Umarım faydalı olur.
+subtitle: Bugüne kadar vaktim ve motivasyonum oldukça yazdığım SQL makalelerini tek çatı altında toplamanın vakti geldi. SELECT sorguları için temel konuların tamamı anlatıldı diyebilirim.
 ---
 
-<img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/Schema-SQL1.jpg">
+<img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
 Bugüne kadar vaktim ve motivasyonum oldukça yazdığım SQL makalelerini tek çatı altında toplamanın vakti geldi. SELECT sorguları için temel konuların tamamı anlatıldı diyebilirim. Yine de anlatılacak çok şey var. Bundan sonra yine vakit ve motivasyon değişkenlerinin alacağı değerlerin müsaade ettiği ölçüde yeni makaleler eklemeyi düşünüyorum. Umarım faydalı olur.
 
 Veritabanı Tasarımı ve SQL 01: Veritabanına Genel Bakış ( Neden veritabanı? sorusuna cevap niteliğinde bir yazı. Bu yazıdan sonra ER-şemaları ile devam edecektim ancak 2. makaleyi yazmak bir türlü nasip olmadı.)
 
+- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
 - [SQL 01: Select İfadesi](/sql-select-ifadesi)
 - [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
 - [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)

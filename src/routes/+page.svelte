@@ -8,11 +8,11 @@
 			<h2 class="post-title">{post.meta.title}</h2>
 			<h3 class="post-subtitle">{post.meta.subtitle}</h3>
 		</a>
-		<p class="post-meta">
+		<!-- <p class="post-meta">
 			Posted by
 			<a href="#!">Start Bootstrap</a>
 			on {post.meta.date}
-		</p>
+		</p> -->
 	</div>
 	<!-- Divider-->
 	<hr class="my-4" />
