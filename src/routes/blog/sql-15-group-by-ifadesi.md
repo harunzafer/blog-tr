@@ -1,6 +1,6 @@
 ---
 title: 'SQL 15: GROUP BY İfadesi'
-date: '1888-01-01'
+date: '2010-09-10'
 subtitle: 'Bir önceki makalede SQL kümeleme fonksiyonlarını anlatmıştık. Çünkü kümeleme fonksiyonları genelde GROUP BY ifadesi ile birlikte kullanılır. Adından da anlaşılacağı üzere GROUP BY ifadesi gruplama yapar.'
 ---
 

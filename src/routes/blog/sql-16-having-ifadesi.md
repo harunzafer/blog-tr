@@ -1,6 +1,6 @@
 ---
 title: 'SQL 16: HAVING İfadesi'
-date: '1888-01-01'
+date: '2010-10-16'
 subtitle: 'Son iki yazımda SQL kümeleme fonksiyonlarını ve GROUP BY ifadesini anlatmıştım. HAVING ifadesi bu iki yazıda anlatılanların devamı, çünkü sadece GROUP BY ifadesi ile birlikte kullanılan bir ifade.'
 ---
 

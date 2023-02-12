@@ -1,6 +1,6 @@
 ---
 title: 'SQL 18: Join Türleri'
-date: '1888-01-01'
+date: '2013-01-22'
 subtitle: 'Önceki iki yazıda SQL''deki temel join sorguları üzerinde durmuştuk. O yazılarda anlatılan join''in en çok kullanılan türü olan inner join''di.'
 ---
 

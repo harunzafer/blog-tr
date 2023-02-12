@@ -1,6 +1,6 @@
 ---
 title: 'SQL 17: Örnek Okul Veritabanı'
-date: '1888-01-01'
+date: '2012-05-29'
 subtitle: 'Bundan sonraki SQL derslerinde üzerinde çeşitli sorgular çalıştırabileceğimiz, sade, anlaşılır ve yeterince veri içeren bir veritabanına ihtiyacımız olacak. Okul veritabanını temelde bu amaçla hazırladım.'
 ---
 

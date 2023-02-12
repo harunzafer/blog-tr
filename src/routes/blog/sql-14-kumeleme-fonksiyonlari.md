@@ -1,6 +1,6 @@
 ---
 title: 'SQL 14: Kümeleme Fonksiyonları'
-date: '1888-01-01'
+date: '2010-09-10'
 subtitle: 'Programlama dillerinde olduğu gibi SQL''de de bir çok yerleşik (built-in) fonksiyon mevcuttur. Bunlar temel olarak kümeleme (aggregate) fonksiyonları ve skalar (scalar - iyi bir önerisi olan?) fonksiyonlar diye ikiye ayrılır.'
 ---
 
