@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 14: Kümeleme Fonksiyonları</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Programlama dillerinde olduğu gibi SQL’de de bir çok yerleşik (built-in) fonksiyon mevcuttur. Bunlar temel olarak kümeleme (aggregate) fonksiyonları ve skalar (scalar - iyi bir önerisi olan?) fonksiyonlar diye ikiye ayrılır. Bu yazıda en çok kullanılan kümeleme fonksiyonlarını ele alacağız. Yine sık kullanılan skalar fonksiyonlar ise bir başka makalenin konusu olacak. </p>
+<p>Kümeleme fonksiyonları tablodaki bir kolon (alan) üzerindeki değerler için belli matematiksel hesaplamalar yapar ve sonuç döndürürler. Örneğin AVG (average-ortalama) fonksiyonu bir kolondaki tüm değerlerin ortalamasını hesaplamamıza yardımcı olur. Makale boyunca örnek sorgular aşağıdaki <em>kisiler</em> tablosu üzerinde işletilecektir. Tabloya söyle bir göz atıp devam edelim. </p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<table><thead><tr><th>id</th>
+<th>Ad</th>
+<th>Soyad</th>
+<th>Yas</th>
+<th>Cinsiyet</th>
+<th>Şehir</th>
+<th>Ülke</th>
+<th>Maaş</th></tr></thead>
+<tbody><tr><td>2</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>1</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>3</td>
+<td>Mehmet</td>
+<td>Efe</td>
+<td>22</td>
+<td>1</td>
+<td>Bolu</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>4</td>
+<td>Ayşe</td>
+<td>Can</td>
+<td>23</td>
+<td>0</td>
+<td>İstanbul</td>
+<td>Türkiye</td>
+<td>3500</td></tr>
+<tr><td>5</td>
+<td>Fatma</td>
+<td>Ak</td>
+<td>35</td>
+<td>0</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>3200</td></tr>
+<tr><td>6</td>
+<td>John</td>
+<td>Smith</td>
+<td>45</td>
+<td>1</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>7</td>
+<td>Ellen</td>
+<td>Smith</td>
+<td>40</td>
+<td>0</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>8</td>
+<td>Hans</td>
+<td>Müller</td>
+<td>30</td>
+<td>1</td>
+<td>Berlin</td>
+<td>Almanya</td>
+<td>4000</td></tr>
+<tr><td>9</td>
+<td>Frank</td>
+<td>Cesanne</td>
+<td>35</td>
+<td>1</td>
+<td>Paris</td>
+<td>Fransa</td>
+<td>3700</td></tr>
+<tr><td>10</td>
+<td>Abbas</td>
+<td>Demir</td>
+<td>26</td>
+<td>1</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>11</td>
+<td>Hatice</td>
+<td>Topçu</td>
+<td>26</td>
+<td>0</td>
+<td>Hatay</td>
+<td>Türkiye</td>
+<td>2200</td></tr>
+<tr><td>12</td>
+<td>Gülsüm</td>
+<td>Demir</td>
+<td>35</td>
+<td>0</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr></tbody></table>
+<p><strong>AVG() Fonksiyonu</strong></p>
+<p>Ortalama hesaplar. Örneğin çalışanların ortalama ne kadar maaş aldığını hesaplamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>2872.7273</td></tr></tbody></table>
+<p>Eğer çıktının biraz daha okunur olmasını arzu edersek sorgu üzerinde ufak bir değişiklik yapabiliriz:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">as</span> OrtalamaMaaş <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>OrtalamaMaaş</th></tr></thead>
+<tbody><tr><td>2872.7273</td></tr></tbody></table>
+<p>Eğer yalnızca Türkiye’de çalışanların maaş ortalamasını hesaplamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">as</span> OrtalamaMaaş <span class="token keyword">FROM</span> kisiler <span class="token keyword">WHERE</span> ülke<span class="token operator">=</span><span class="token string">'Türkiye'</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>OrtalamaMaaş</th></tr></thead>
+<tbody><tr><td>2414.2857</td></tr></tbody></table>
+<p><strong>COUNT() Fonksiyonu</strong></p>
+<p>Bir alandaki değerlerin kaç adet olduğunu yani sayısını hesaplar. Örneğin kaç çalışanın olduğunu hesaplamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">as</span> Sayı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>Sayı</th></tr></thead>
+<tbody><tr><td>11</td></tr></tbody></table>
+<p>Sorguyu aşağıdaki gibi değiştirsek de sonuç değişmez:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token keyword">as</span> Sayı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Çünkü COUNT fonksiyonu alandaki değerlerin ne olduğu ile ilgilenmez, sadece kaç adet değer olduğu ile ilgilenir. Eğer boş (NULL) değerler var ise bunlar hesaba katılmaz. Yani yukarıdaki tabloda eğer bir çalışanın maaş bilgisi boş olsaydı, <code>COUNT(maaş)</code> sorgusu 10 sonucunu verirken <code>COUNT(id)</code> sorgusu 11 sonucunu verecekti.   </p>
+<p><strong>COUNT(*) Kullanımı</strong></p>
+<p>Eğer kesin olarak kayıt sayısını istiyorsak her zaman ifadeyi <code>COUNT(*)</code> şeklinde kullanmalıyız. Bu ifade her zaman tablodaki ya da sonuç kümesindeki kayıt sayısını (satır sayısını) döndürür.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> Sayı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Sorgu kisiler tablosunda kaç kayıt olduğunu hesaplar:</p>
+<table><thead><tr><th>Sayı</th></tr></thead>
+<tbody><tr><td>11</td></tr></tbody></table>
+<p>Eğer Amerika’da çalışanların sayısını hesaplamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">as</span> Sayı <span class="token keyword">FROM</span> kisiler <span class="token keyword">WHERE</span> ülke<span class="token operator">=</span><span class="token string">'USA'</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>Sayı</th></tr></thead>
+<tbody><tr><td>2</td></tr></tbody></table>
+<p><strong>COUNT (DISTINCT kolon_adı) Kullanımı</strong></p>
+<p>DISTINCT ifadesini <a href="http://www.hrzafer.com/sql-distinct-ifadesi" rel="nofollow">bu makalede</a> anlatmıştım. Eğer bilmiyorsanız önce o kısa makaleyi okumanızı öneririm. Eğer bir kolondaki farklı değerlerin sayısını öğrenmek istiyorsak COUNT ifadesini <code>COUNT (DISTINCT kolon_adı)</code> şeklinde kullanırız. Örneğin kaç farklı ülkeden çalışan olduğunu hesaplamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">Distinct</span> ülke<span class="token punctuation">)</span> <span class="token keyword">as</span> ÜlkeSayısı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Tabloda ülke alanında 4 farklı değer (Türkiye, USA, Fransa, Almanya) olduğundan çıktı aşağıdaki gibi olacaktır.</p>
+<table><thead><tr><th>ÜlkeSayısı</th></tr></thead>
+<tbody><tr><td>4</td></tr></tbody></table>
+<p><strong>FIRST() Fonksiyonu</strong></p>
+<p>Bir alandaki ilk değeri döndürür. Örneğin tablodaki ilk ismi öğrenmek istiyorsak.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">FIRST</span><span class="token punctuation">(</span>Ad<span class="token punctuation">)</span> <span class="token keyword">as</span> ilkİsim <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Çıktı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ilkİsim</th></tr></thead>
+<tbody><tr><td>Ahmet</td></tr></tbody></table>
+<p>Ancak bu MySQL First fonksiyonunu desteklemez. Aynı işi yapan sorgu MySQL’de aşağıdaki gibidir.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ad <span class="token keyword">as</span> ilkİsim <span class="token keyword">FROM</span> kisiler <span class="token keyword">LIMIT</span> <span class="token number">1</span></code><!-- HTML_TAG_END --></pre>
+<p>Bu arada Limit konusu <a href="http://www.hrzafer.com/sql-07-top-veya-limit-mysql" rel="nofollow">bu makalede</a> anlatıldı. Bilmiyorsanız bir göz atmanızda fayda var.   </p>
+<p><strong>LAST() Fonksiyonu</strong></p>
+<p>Tahmin edebileceğiniz gibi en sondaki değeri döndürür. Ve yine tahmin edebileceğiniz gibi MySQL tarafından desteklenmez. Tablodaki son soyisim değerini döndüren sorgunun standart SQL ve MySQL versiyonları aşağıdaki gibidir:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">LAST</span><span class="token punctuation">(</span>Soyad<span class="token punctuation">)</span> <span class="token keyword">as</span> SonSoyad <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> soyad <span class="token keyword">as</span> SonSoyad <span class="token keyword">FROM</span> kisiler <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">DESC</span> <span class="token keyword">LIMIT</span> <span class="token number">1</span></code><!-- HTML_TAG_END --></pre>
+<p>Her iki sorgunun çıktısı aşağıdaki gibidir.</p>
+<table><thead><tr><th>SonSoyad</th></tr></thead>
+<tbody><tr><td>Demir</td></tr></tbody></table>
+<p><strong>MAX() ve MIN() Fonksiyonları</strong></p>
+<p>Bir alandaki en büyük ve en küçük değerleri döndürürler. En yaşlı ve en genç çalışanları belirlemek istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MAX</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span> <span class="token keyword">as</span> EnYaşlı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Çıktı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>EnYaşlı</th></tr></thead>
+<tbody><tr><td>45</td></tr></tbody></table>
+<p> </p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">MIN</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span> <span class="token keyword">as</span> EnGenç <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Çıktı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>EnGenç</th></tr></thead>
+<tbody><tr><td>20</td></tr></tbody></table>
+<p><strong>Dikkat:</strong> Eğer en yaşlı çalışanı ismi ile birlikte sorgulamak isteseydik aşağıdaki gibi bir sorgunun işimizi görebileğini düşünebilirsiniz. Ancak bu sorgu hatalıdır.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ad<span class="token punctuation">,</span> <span class="token function">MAX</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span> <span class="token keyword">as</span> EnYaşlı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Sorgu ad alanına tablodaki ilk ismi getirirken MAX(yas) alanına maksimum yaşı getirir:</p>
+<table><thead><tr><th>ad</th>
+<th>EnYaşlı</th></tr></thead>
+<tbody><tr><td>Ahmet</td>
+<td>45</td></tr></tbody></table>
+<p>Ancak Ahmet isimli çalışanın yaşı 45 değildir. Fonksiyonun sadece maksimum değer ile ilgilendiğini unutmayalım. En yaşlı çalışanı ismi ile birlikte bulabilmek için iç-içe (iki seviyeli) sorgu yazmamız gerekiyor ki bu da ileriki bir makalenin konusu olacak inş.   </p>
+<p><strong>SUM() Fonksiyonu</strong></p>
+<p>Sayısal değerler içeren bir kolondaki değerlerin toplamını döndürür. Örneğin aylık ödenen toplam maaşı öğrenmek istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">SUM</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">as</span> ToplamMaaş <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
+<p>Çıktı aşağıdaki gibidir:</p>
+<table><thead><tr><th>ToplamMaaş</th></tr></thead>
+<tbody><tr><td>31600</td></tr></tbody></table>
+<p>Son olarak kümeleme fonksiyonlarının <code>GROUP BY</code> ifadesi ile birlikte sıkça kullanıldığını hatırlatalım. Bunun yanında iç-içe sorgularda da sıkça kümeleme fonksiyonu kullanılır. Sonraki makalelerde her iki konuyu da örneklerle inceleyeceğiz.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1">SQL 12: Sorguda Birden Fazla Tablo Kullanma: Join-1</a></li>
+<li><a href="/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2">SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2</a></li>
+<li><a href="/sql-15-group-by-ifadesi">SQL 15: GROUP BY İfadesi</a></li>
+<li><a href="/sql-16-having-ifadesi">SQL 16: HAVING İfadesi</a></li></ul>
+
+  <p>1 Ocak 1888 Pazar tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="wg7978">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="wg7978"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

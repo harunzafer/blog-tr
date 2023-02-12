@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>Hunspell-tr</h1></div>
+	
+	
+	<h3>Hunspell-tr Nedir</h3>
+<p><a href="https://github.com/hrzafer/hunspell-tr" rel="nofollow">Hunspell-tr</a> projesi imla denetimi için Hunspell’i kullanan Firefox, OpenOffice, LibreOffice, Mac OS X, Safari gibi <a href="http://en.wikipedia.org/wiki/Hunspell#Uses" rel="nofollow">pek çok yazılım</a> için Hunspell uyumlu Türkçe imla denetimi sözlük dosyaları üretmeyi amaçlar. Bu sözlük dosyaları sayesinde tüm bu yazılımlarda etkili ve verimli Türkçe imla denetimi desteği mümkün olmaktadır.</p>
+<h3>Nasıl Çalışır</h3>
+<p>Hunspell C++ ile kodlanmış, dilden bağımsız, hızlı ve bellekte az yer kaplayan bir imla denetimi aracıdır. Hunspell her hangi bir dilde imla denetimi yapmak için 2 sözlük dosyasına ihtiyaç duyar. 1- Kökler sözlüğü (.dic uzantılı) 2- Ekler sözlüğü   (.aff uzantılı) Mesela bir dil için sözlük dosyamız aşağıdaki gibi olsun:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">merhaba
+gel/MEK
+araba/LAR
+ev/LER</code><!-- HTML_TAG_END --></pre>
+<p>Ek dosyamız da böyle olsun:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">SFX LAR N 1
+SFX LAR 0 lar .
+SFX LER N 1
+SFX LER 0 ler .
+SFX MEK N 1
+SFX MEK 0 mak .</code><!-- HTML_TAG_END --></pre>
+<p>Bu dildeki mümkün tüm kelimeler aşağıdaki gibidir:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">merhaba, gel, gelmek, araba, arabalar, ev, evler</code><!-- HTML_TAG_END --></pre>
+<p>İngilizce gibi birçok dil için bu dosyalar el ile hazırlanabilirken; Türkçe gibi karmaşık morfolojiye sahip, sondan eklemeli diller için bu dosyaların elle hazırlanması mümkün görünmemektedir. Hunspell-tr bu dosyaların <a href="https://github.com/hrzafer/nuve" rel="nofollow">bir morfolojik çözümleyici</a> yardımı ile otomatik olarak üretilmesini sağlayan araçtır.</p>
+<h3>Ne İşe Yarar</h3>
+<p>Üretilen sözlük dosyaları yukarıda bahsedilen bir çok yazılımda Türkçe imla denetiminin etkinleştirilmesi için yeterlidir. Hunspell-tr ile üretilen sözlük dosyaları kullanılarak şu ana kadar hazırlanan imla denetimi eklentileri şöyledir:</p>
+<ul><li><a href="https://addons.mozilla.org/en-US/firefox/addon/t%C3%BCrk%C3%A7e-imla-denetimi/" rel="nofollow">Mozilla Firefox için imla denetimi eklentisi</a></li>
+<li><a href="http://extensions.openoffice.org/en/project/turkish-spellcheck-dictionary" rel="nofollow">Apache OpenOffice için imla denetimi eklentisi</a></li>
+<li><a href="http://extensions.libreoffice.org/extension-center/turkish-spellcheck-dictionary" rel="nofollow">LibreOffice için imla denetimi eklentisi</a></li></ul>
+<p>Hunspell-tr projesi geliştikçe, kullanıcı geri bildirimleri geldikçe ve sözlüğü üretmek için kullanılan <a href="http://tr.wiktionary.org/wiki/derlem" rel="nofollow">derlem</a> genişledikçe daha kapsamlı ve başarılı sözlük dosyaları üretilecektir. Sözlük dosyaları yenilendikçe yukarıda bahsedilen eklentiler de güncellenerek yeni sürüm numaraları ile yayınlanacaktır.</p>
+<h3>Mevcut Durum ve Yapılacaklar</h3>
+<p>Sözlük dosyaları yeterince büyük olmayan bir derlemdeki kelimeler analiz edilerek üretildiklerinden, bazı doğru kelimeler yanlış olarak tanımlanabiliyor. Yukarıdaki eklentileri kullanıyorsanız bu tür kelimeleri <a href="/iletisim">bildirerek</a>katkıda bulunabilirsiniz. Mevcut sözlük dosyaları yanlış tespitinde başarılı sayılabilir. Ancak yanlış kelimeler için yapılan öneriler konusunda biraz daha mesafe almak gerekiyor. Hunspell OpenOffice gibi metin düzenleme araçları için “eş ve yakın anlamlı kelimeler” ve “kesme işareti” desteği de veriyor. Bunlar için bahsedilen 2 sözlük dosyasından ayrı olarak birer dosya hazırlanması gerekiyor.</p>
+<h3>İlgili Yazılar</h3>
+<ul><li><a href="/turkce-imla-denetimi-uzerine">Türkçe İmla Denetimi Üzerine</a></li></ul>
+
+  <p>29 Aralık 2014 Pazartesi tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="ky9e1c">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="ky9e1c"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

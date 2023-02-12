@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 18: Join Türleri</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Önceki <a href="http://www.hrzafer.com/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1" rel="nofollow">iki yazıda</a> SQL’deki temel join sorguları üzerinde durmuştuk. O yazılarda anlatılan join’in en çok kullanılan türü olan inner join’di. Bu yazıda ise genel olarak inner, outer, left, right, full gibi join türlerinin benzer ve farklı yönlerini örneklerle açıklamaya çalışacağım. Eğer join konusuna tamamen yeni iseniz öncelikle ilk iki makaleyi çalışmanızı öneririm. </p>
+<p>Bildiğiniz gibi üzerinde çalıştığımız veritabanları için kullanılan genel isim ”<strong>ilişkisel</strong> veritabanı”dır. Yani tablolar birbiri ile ilişkilidir ve bu ilişki bir tablodaki birincil anahtar (primary key) ile diğer tablodaki yabancı anahtar (foreign key) üzerinden kurulur. Aşağıdaki okul veritabanında bu tablolar arasındaki ilişkiler açıkça görülüyor. </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_hrzafer.png" alt="okul_vt_hrzafer"></p>
+<p>Join türlerini örneklendirmek için yukarıdaki tablolardan Öğrenci ve Bölüm tablolarını kullanalım: </p>
+<p><strong>Inner Join</strong></p>
+<p>Inner join en çok kullanılan join türüdür ve her iki tablodaki ortak kayıtları döndürür. Bir başka ifade ile iki tablonun kesişimini döndürür. Mesela bölüm ve öğrenci tablolarını birleştirmek istersek</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">inner</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun sonuç kümesi aşağıdaki gibi olacaktır. </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_inner.png" alt="bolum_ogrenci_inner"></p>
+<p>Sonuç kümesindeki ilk 4 kolon bölüm tablosunda sonraki 5 kolon ise öğrenci tablosuna aittir. Her iki tablonun bid alanlarına bakarsanız bire-bir eşleştiklerini görürsünüz. Yani sorgu iki tablonun kesişimini döndürmüş oluyor. </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/k%C3%BCmeler_inner.png" alt="kümeler_inner"></p>
+<p><strong>Left ve Right Outer join</strong></p>
+<p>Eğer bir tablodaki tüm kayıtlar ile diğer tablodaki birleştirme koşulunu sağlayan kayıtları döndürmek istersek right ve veya left outer join kullanırız. Mesela tüm bölümleri (hiç öğrencisi olmayanlar da dahil) ve bir bölüme kayıtlı öğrencileri sorgulamak istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">left</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_left_outer.png" alt="bolum_ogrenci_left_outer"></p>
+<p>Son kayıda dikkat ederseniz hiç öğrencisi olmayan bölüm de sonuç kümesinde mevcut.  Yani soldaki tablodan (bölüm) tüm kayıtlar, sağdaki tablodan ise sadece kesişen kayıtlar gelmiş oldu. </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_left_outer.png" alt="kumeler_left_outer"></p>
+<p>Yukarıdaki sorguyuda  left (sol) yerine right (sağ) sözcüğünü kullanmış olsaydık, tüm öğrenciler ile en az bir öğrencisi olan bölümler seçilirdi. Yani left ve right tüm kayıtların seçileceği tablonun sağdaki mi yoksa soldaki mi olacağını belirtiyor yalnzıca.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">right</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Bu sorguda tabloların yerini değiştirisek tekrar tüm bölümleri ve bir bölüme kayıtlı öğrencileri seçmiş oluruz.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> ogrenci o <span class="token keyword">right</span> <span class="token keyword">join</span> bolum b  <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Sadece sonuç kümesinde tabloların yeri değişmiş olur. Aşağıda görüldüğü gibi: </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_right_outer.png" alt="bolum_ogrenci_right_outer"></p>
+<p>Eğer yalnızca hiç öğrencisi olmayan bölümleri seçmek istersek <strong>where</strong> ifadesi ile öğrenci tablosundaki tüm kayıtları aşağıdaki gibi eleyebiliriz.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">left</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">ON</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid <span class="token keyword">where</span> o<span class="token punctuation">.</span>bid <span class="token operator">is</span> <span class="token boolean">null</span></code><!-- HTML_TAG_END --></pre>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_left_only.png" alt="bolum_ogrenci_left_only"></p>
+<p>Yaptığımız işlemi Venn şeması ile gösterecek olursak: </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_left_only.png" alt="kumeler_left_only"></p>
+<p><strong>Full Outer Join</strong></p>
+<p>Tüm öğrencileri ve tüm bölümleri seçmek istersek full outer  join kullanırız.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">full</span> <span class="token keyword">outer</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Full outer join çok da gerekli olmadığından MySQL’de mevcut değildir. Ancak aşağıdaki gibi bir sorgu ile (union kullanarak) aynı sonuç elde edilebilir.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">left</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid
+<span class="token keyword">UNION</span>
+<span class="token keyword">Select</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">right</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Yaptığımız işlemi Venn şeması ile gösterecek olursak: </p>
+<p><img src="http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_full_outer.png" alt="kumeler_full_outer"></p>
+<p><strong>Sintaks</strong></p>
+<p>SQL join sintaksı ile ilgili olarak şunları hatırlatmakta yarar var. </p>
+<ul><li><strong>Inner Join</strong> yerine sadece <strong>Join</strong> yazmamız yeterli </li>
+<li><strong>Left Outer Join</strong> yerine sadece <strong>Left Join</strong> yazmamız yeterli </li>
+<li><strong>Right Outer Join</strong> yerine sadece <strong>Right Join</strong> yazmamız yeterli <strong>Natural Join</strong> Bir de natural join var ki yazımda kolaylık sağladığı için öğrenciler tarafından tercih edilebiliyor.  Mesela aşağıdaki iki sorgu aynı işi yapar:</li></ul>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">natural</span> <span class="token keyword">join</span> ogrenci o</code><!-- HTML_TAG_END --></pre>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">right</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid</code><!-- HTML_TAG_END --></pre>
+<p>Ancak gerçek hayatta Natural Join kullanımı sakıncalıdır.  Çünkü Natural Join iki tablodaki aynı isme sahip tüm alanların (kolonların) eşleşip eşleşmediğine bakar. Öğrenci ve Bölüm tablolarında sadece bid alanları aynı isme sahip olduğundan bir problem çıkarmıyor ancak Bölüm tablosunda bölümün ismini tutan için <strong>badi</strong> alanı <strong>adi</strong> şeklinde isimlendirilseydi Öğrenci tablosunda da aynı isimli bir alan bulunduğundan sorgu bu kez aşağıdaki sorgu ile eşdeğer olacaktı.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> bolum b <span class="token keyword">right</span> <span class="token keyword">join</span> ogrenci o <span class="token keyword">on</span> b<span class="token punctuation">.</span>bid <span class="token operator">=</span> o<span class="token punctuation">.</span>bid <span class="token operator">AND</span> o<span class="token punctuation">.</span>adi<span class="token operator">=</span>b<span class="token punctuation">.</span>adi</code><!-- HTML_TAG_END --></pre>
+<p>Kısacası natural join sorgusunda tam olarak hangi alanların karşılaştırıldığı belli değildir ve bu hata riskini artırtığı için profesyoneller tarafından tercih edilmez. <a href="http://www.hrzafer.com/sql-17-ornek-okul-veritabani" rel="nofollow">Buradan</a> okul veritabanını indirerek bu ve benzeri sorguları denemenizi öneririm. Umarım bu yazı sizler için faydalı olmuştur.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li>
+<li><a href="/sql-15-group-by-ifadesi">SQL 15: GROUP BY İfadesi</a></li>
+<li><a href="/sql-16-having-ifadesi">SQL 16: HAVING İfadesi</a></li>
+<li><a href="/sql-17-ornek-okul-veritabani">SQL 17: Örnek Okul Veritabanı</a></li></ul>
+
+  <p>1 Ocak 1888 Pazar tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="qie7sx">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="qie7sx"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

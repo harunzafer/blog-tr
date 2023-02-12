@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 01: Select İfadesi</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Veritabanından istediğimiz kriterlere uygun verileri getiren sorgulara SELECT sorguları diyebiliriz. Bunların dışında veritabanındaki verileri güncelleyen, yenilerini ekleyen ya da silen INSERT, UPDATE ve DELETE sorguları da vardır. Ancak SELECT sorgularını iyi anlayan birisinin genelde daha basit olan bu sorguları da rahatlıkla yazabileceğini düşünüyorum. Bu yüzden bu makale dizisinde öncelikle SELECT sorguları anlatılacak. İleride vaktim olursa INSERT, UPDATE, DELETE ve dahi SQL’e dair bir çok ayrıntıyı anlatmak isterim. Select (seç) ifadesi bir veritabanından kayıt seçmek için kullanılır. Genel sözdizimi (syntax) aşağıdaki gibidir:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> kolon_adı<span class="token punctuation">(</span>ları<span class="token punctuation">)</span> <span class="token keyword">FROM</span> tablo_adı</code><!-- HTML_TAG_END --></pre>
+<p>veya</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> tablo_adı</code><!-- HTML_TAG_END --></pre>
+<p>Bu sorgulardan dönen kayıtlar bir tablo olarak karşımıza gelir.</p>
+<p><strong>Örnek-1:</strong> “Kişiler” tablosundan basit bir SELECT sorgusu ile kayıt çekelim.</p>
+<table><thead><tr><th>ID</th>
+<th>Soyad</th>
+<th>Ad</th>
+<th>Adres</th>
+<th>Şehir</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>Has</td>
+<td>Okan</td>
+<td>Kadıköy 10</td>
+<td>İstanbul</td></tr>
+<tr><td>2</td>
+<td>Sevim</td>
+<td>Tuğrul</td>
+<td>Bakırköy 23</td>
+<td>İstanbul</td></tr>
+<tr><td>3</td>
+<td>Pıtırcık</td>
+<td>Kerem</td>
+<td>Sincan 20</td>
+<td>Ankara</td></tr></tbody></table>
+<p>Bu tablodan “Soyad” ve “Ad” alanlarını seçmek için, aşağıdaki SELECT ifadesini kullanırız:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> Soyad<span class="token punctuation">,</span> Ad <span class="token keyword">FROM</span> Kişiler</code><!-- HTML_TAG_END --></pre>
+<p><strong>Sonuç-kümesi</strong> aşağıdaki gibidir. (Bir sorgudan dönen kayıtlar her zaman bir tablo şeklinde olurlar ve bu tabloya sonuç-kümesi (result-set) denir.)</p>
+<table><thead><tr><th>Soyad</th>
+<th>Ad</th></tr></thead>
+<tbody><tr><td>Has</td>
+<td>Okan</td></tr>
+<tr><td>Sevim</td>
+<td>Tuğrul</td></tr>
+<tr><td>Pıtırcık</td>
+<td>Kerem</td></tr></tbody></table>
+<p><strong>Örnek-2:</strong> Eğer bütün alanları (kolonları) seçmek istiyorsak, yıldız karakteri -asteriks de denir- (<strong>*</strong>) kullanılır.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Kişiler</code><!-- HTML_TAG_END --></pre>
+<p>Sonuç-kümesi aşağıdaki gibi olacaktır. (Sonuç kümesinin tablonun kendisi olduğunu farkettiniz mi?)</p>
+<table><thead><tr><th>ID</th>
+<th>Soyad</th>
+<th>Ad</th>
+<th>Adres</th>
+<th>Şehir</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>Has</td>
+<td>Okan</td>
+<td>Kadıköy 10</td>
+<td>İstanbul</td></tr>
+<tr><td>2</td>
+<td>Sevim</td>
+<td>Tuğrul</td>
+<td>Bakırköy 23</td>
+<td>İstanbul</td></tr>
+<tr><td>3</td>
+<td>Pıtırcık</td>
+<td>Kerem</td>
+<td>Sincan 20</td>
+<td>Ankara</td></tr></tbody></table>
+<p><strong>Not:</strong> SQL dili karakter boyutuna duyarlı değildir. Aşağıdaki sorguların hepsi geçerlidir.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> Kişiler
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kişiler
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> KişiLER</code><!-- HTML_TAG_END --></pre>
+<p>
+</p><h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-dersleri">SQL Dersleri</a></li>
+<li><a href="/sql-distinct-ifadesi">SQL 02: Distinct İfadesi</a></li>
+<li><a href="/sql-where-clause">SQL 03: WHERE Yan Cümlesi (Clause)</a></li>
+<li><a href="/veritabanina-genel-bakis">Veritabanına Genel Bakış</a></li></ul>
+<p>Herkese kolay gelsin</p>
+
+  <p>22 Temmuz 2009 Çarşamba tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="1d629rm">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="1d629rm"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

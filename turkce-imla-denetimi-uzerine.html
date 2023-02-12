@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>Türkçe İmla Denetimi Üzerine</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/spellcheck.png">
+<p>Geçenlerde üzerinde çalıştığım bir proje gereği kapsamlı bir Türkçe kelime listesine ihtiyaç duydum. Buradaki listeden kastım standart bir Türkçe sözlükte bulunan kelimelerin listesi değil bunların ek almış hallerinin de bulunduğu geniş bir listeydi. Mesela “ev” kelimesinin “evim”, “evimiz”, “evimdeki” gibi biçimlerini de içeren bir liste. Peki, böyle bir liste kaç kelime ihtiva eder?</p>
+<p>Soruyu şu şekilde de sorabilirdik: Türkçedeki “mümkün” tüm kelimelerin sayısı nedir? Mümkün (imkân dâhilinde) kelimesi size garip geldiyse hemen birkaç örnek vereyim; “bardaklaşıyordum”, “dondurmalandırmacı”  gibi. Bu garip kelimeler teorikte mümkün ve Türkçenin gramer kuralları açısından doğru ancak hali hazırda anlamlı değiller ve kullanılmıyorlar. Ama ileride mesela “bardaklaşmak” deyimi geçerli bir anlam kazanabilir. Tıpkı bir zamanlar “havalandırmacı” kelimesinin bir anlam ifade etmediği gibi.</p>
+<p>Dilbilimci <a href="http://dl.acm.org/citation.cfm?id=86174" rel="nofollow">Hankamer’e göre</a> Türkçede bu şekilde <strong>200 milyar</strong> farklı kelime üretmek mümkün. Gerçek hayatta ise bunların yaklaşık 2-3 milyon kadarını kullandığımızı sanıyorum ben. Zira ODTÜ’nün 1990 ve sonrası pek çok Türkçe metni bir araya getirerek oluşturduğu derlemde 2 milyon farklı kelime var. Ben de aslında aşağı yukarı bu uzunlukta bir liste arıyordum.</p>
+<p>Diyelim ki elimizde böyle bir liste var. Bu listeye dayanarak imla denetimi yapabilir miyiz? Mesela yazılan bir kelime listemizde yoksa, yani bu 2 milyon kelimeden biri değilse altını kırmızı ile çizelim ve yanlış olarak kabul edelim. O halde yukarıdaki “bardaklaşmak” kelimesi muhtemelen yanlış sayılacaktır. Peki ya fantastik edebiyat türünde eser veren bir yazar “tabaklar bardaklaşıyordu” gibi bir cümle kuruyorsa ve bu cümle eser içerisinde gayet anlamlıysa? Sonuç olarak bu tür bir liste ile Türkçe imla denetimi yapmak ideal bir çözüm olmasa da çoğu zaman işimizi göreceğini de kabul etmek gerekir.</p>
+<p>Aslında çoğu imla denetim sistemi bir dildeki mümkün bütün kelimeleri üretmek ve yeni gelen kelimelerin bunlardan biri olup olmadığını kontrol etmek mantığı üzerine kuruludur. Açık kaynak yazılımların neredeyse tamamı, hatta kapalı kaynak yazılımların da bir çoğu imla denetimi için <a href="http://hunspell.sourceforge.net/" rel="nofollow">Hunspell</a> ve benzeri sistemleri (aspell, ispell, myspell vs) kullanıyorlar. Apple Mac OS X, Firefox, Chrome, Open Office ve <a href="http://en.wikipedia.org/wiki/Hunspell#Uses" rel="nofollow">daha pek çok yazılım</a> Hunspell aracılığıyla imla denetimi yapıyor. </p>
+<p>Hunspell bir dilde imla denetimi yapabilmek, yani o dildeki mümkün olan tüm kelimeleri oluşturabilmek için 2 dosyaya ihtiyaç duyuyor. Bunlar: </p>
+<ol><li>Sözlük (.dic uzantılı dictionary dosyası)</li>
+<li>Ekler (.aff uzantılı affix dosyası)</li></ol>
+<p>Mesela bir dil için sözlük dosyamız aşağıdaki gibi olsun:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">merhaba
+gel/MEK
+araba/LAR
+ev/LER</code><!-- HTML_TAG_END --></pre>
+<p>Ek dosyamız da böyle olsun:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">SFX LAR N 1
+SFX LAR 0 lar .
+SFX LER N 1
+SFX LER 0 ler .
+SFX MEK N 1
+SFX MEK 0 mak .</code><!-- HTML_TAG_END --></pre>
+<p>Bu dildeki mümkün tüm kelimeler aşağıdaki gibidir:</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">merhaba, gel, gelmek, araba, arabalar, ev, evler</code><!-- HTML_TAG_END --></pre>
+<p>Bu kelimelerin dışında kalan bütün kelimeler ise geçersiz yani yanlış sayılacaktır. Hunspell ve benzeri (aspell, myspell, ispell vs.) sistemler tasarlanırlen her ne kadar tüm dilleri kapsamaları hedeflenmiş olsa da, Türkçe gibi eklerin ardı ardına geldiği dillerde dil paketi hazırlamak çok ama çok zahmetli bir iş. Hatta Türkçe için bu sistemde ideale yakın bir imla denetiminin mümkün olup olmadığı tartışılır. Zira henüz bunu becerebilen yok. Bendeniz de yaklaşık 4 yıl kadar önce bir heves ile bunu denemiş ancak işin zorluğunu fark edince tek başıma yapamayacağıma kanaat getirmiştim. Beni işten asıl soğutan ise sistemin aslında Türkçe’nin yapısına uygun olmayışı idi. Yani ne kadar zorlarsam zorlayayım muhtemelen muvaffak olamayacaktım.</p>
+<p>Motivasyonum ise Türkçe için bu 2 dosya -yani dil paketi- hazırlandığında yukarıda saydığım yazılımlar ve daha birçoğunun Türkçe imla denetimi yeteneği kazanacak olmalarıydı. En fazla da Firefox’ta ihtiyaç duyuyordum. Aynı ihtiyacı benden bir kaç yıl önce Open Office için hissedenler ise <a href="http://zemberek-web.appspot.com/" rel="nofollow">Zemberek</a> ekibiydi. Onlar da sanırım bir müddet <a href="https://code.google.com/p/tr-spell/" rel="nofollow">kastırdıktan</a> sonra Hunspell ile etkili ve verimli bir Türkçe imla denetiminin mümkün olmadığına karar kıldılar ve bunun yerine Zemberek’i kodlamaya başladılar. Daha sonra da bir eklenti olarak Open Office’e entegre edildi Zemberek. Ancak Zemberek’i her yazılıma kolayca entegre etmek mümkün değil. Hatta bazıları için imkansız.</p>
+<p>Sonuç olarak Hunspell Türkçe dil paketi önemli bir ihtiyaç olarak duruyordu. Sonunda Zemberek ekibi derledikleri Türkçe metinlerden elde ettikleri 1,4 milyon farklı kelimeyi tanıyabilecek bir Hunspell dil paketi oluşturmayı başardılar. Bu da bir <a href="https://addons.mozilla.org/en-US/firefox/addon/turkce-imla-denetimi/" rel="nofollow">Firefox eklentisi</a> olarak yayınlanmış durumda. Bu paket Zemberek yazılımı tarafından otomatik olarak hazırlanmış durumda. Sözlük dosyasında 250 bin kelime, ek dosyasında ise 20 bin ek var. Ve sistemin %97-98 oranında doğru çalıştığını söyleyebiliriz. Yüksek bir oran gibi gelebilir ancak tersinden baktığımızda %2-3 hata payı var. Yani yazdığımız her 100 kelimeden ikisi-üçü hatalı olarak denetleniyor. Neticede ideal bir çözüm olmasa da oldukça işe yaradığını söylemeliyim. Özellikle e-posta yazarken yapılan küçük hataları büyük oranda yakalıyor ki imlası bozuk bir e-postanın yazıştığınız insanlar nazarındaki saygınlığınızı <a href="http://bitsandpieces1.blogspot.com/2007/11/spellcheck.html" rel="nofollow">azaltacağına</a> inananlardanım. Bu paketi hazırlayanlara teşekkürlerimi de ileteyim buradan.</p>
+<p>Mevcut Hunspell dil paketini incelemek, üzerinde çalışmak ve başarımını yükseltmek isteyenler pakete <a href="download/dict.zip">buradan</a> erişebilirler. Ayrıca paketin tanıdığı tüm kelimelerin listesi de <a href="download/kelimeler_test.zip">burada</a>. </p>
+<p>Yazıyı bitirirken, Türkçe için imla denetimi yapan mevcut yazılımlar içerisinde en oturmuş olanın yine de MS Word olduğunu belirtelim. Zemberek ise onun hemen ardından geliyor. Aralarındaki temel farklılık Zemberek’in teorikte mümkün olan tüm kelimeleri doğru kabul etme eğiliminde yatıyor. Zembereğin <a href="http://zemberek-web.appspot.com/" rel="nofollow">saçmala</a> butonuna bastığınızda bu teorikte doğru ama çoğu pratikte kullanılmayan yeterince kelime göreceksiniz. Mesela “bardaklaşmak” kelimesini MS Word yanlış kabul ederken Zemberek doğru kabul ediyor. Ben birinci yaklaşımın gerçek hayatta daha çok işe yarayacağını düşünüyorum ama Zemberek’in sadece bir imla denetim yazılımı olmadığını ve pek çok bilimsel çalışmada kullanıldığını hatırlatalım. Yani Zemberek için ikinci yaklaşım daha doğru aslında.</p>
+<p>Umarım faydalı bir yazı olmuştur. Herkese kolay gelsin.</p>
+<h3>İlgili Yazılar</h3>
+<ul><li><a href="/hunspell-tr">Hunspell-tr Nedir</a></li></ul>
+
+  <p>5 Eylül 2012 Çarşamba tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="6x3nfs">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="6x3nfs"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 1</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/netbeans-java-mySQL.jpg">
+<p>Bu makalede Netbeans, Java ve MySQL ile basit bir veritabanı uygulaması gerçekleştireceğiz. Uygulama basitçe bir tabloya kayıt ekleme, silme ve tablodan kayıt getirme işlemleri yapacak. Bunları yaparken Java Swing paketini kullanarak basit bir görsel arayüz de kullanacağız. </p>
+<p>Öncelikle sistemimizde <a href="http://netbeans.org/downloads/" rel="nofollow">NetBeans</a> + <a href="http://java.sun.com/javase/downloads/index.jsp" rel="nofollow">JDK</a> ve <a href="http://dev.mysql.com/downloads/mysql/" rel="nofollow">MySQL</a> kurulu olması gerekiyor. Daha sonra NetBeans ile MySQL bağlantısını yapmamız ve uygulamada kullanacağımız örnek veritabanının oluşturmamız gerekiyor.  İşin bu kısmını görünlütü olarak anlatmak daha kolay olacağından aşağıdaki videoyu hazırladım. Videoyu izledikten sonra devamında kodlar ve açıklamalar var. Yazının sonunda ise kaynak kodların tamamını indirebilirsiniz. </p>
+<p><strong>Not:</strong> Videoyu izlemekte problem yaşıyorsanız, <a href="https://www.dropbox.com/s/cwixoxf53yyacul/NetBeans_Java_MySQL.zip" rel="nofollow">buradan</a> indirebilirsiniz. </p>
+<iframe src="//www.youtube.com/embed/5BfbT1vJ7zY" width="640" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+<p>Örnek veritabanı için gerekli kodlar aşağıdaki gibidir: Veritabanını oluşturmak için:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> vt<span class="token punctuation">;</span>
+<span class="token keyword">USE</span> vt<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<p><code>Kisiler</code> Tablosunu oluşturmak için:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">DROP</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token keyword">EXISTS</span> <span class="token identifier"><span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span></span><span class="token punctuation">;</span>
+<span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token identifier"><span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span></span> <span class="token punctuation">(</span>
+<span class="token identifier"><span class="token punctuation">&#96;</span>id<span class="token punctuation">&#96;</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">&#96;</span>Ad<span class="token punctuation">&#96;</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">&#96;</span>Soyad<span class="token punctuation">&#96;</span></span> <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">45</span><span class="token punctuation">)</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">&#96;</span>Yas<span class="token punctuation">&#96;</span></span> <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token identifier"><span class="token punctuation">&#96;</span>Cinsiyet<span class="token punctuation">&#96;</span></span> <span class="token keyword">tinyint</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token keyword">unsigned</span> <span class="token operator">NOT</span> <span class="token boolean">NULL</span><span class="token punctuation">,</span>
+<span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">&#96;</span>id<span class="token punctuation">&#96;</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">ENGINE</span><span class="token operator">=</span><span class="token keyword">InnoDB</span> <span class="token keyword">AUTO_INCREMENT</span><span class="token operator">=</span><span class="token number">6</span> <span class="token keyword">DEFAULT</span> <span class="token keyword">CHARSET</span><span class="token operator">=</span>utf8<span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<p><code>Kisiler</code> Tablosuna örnek kayıtları eklemek için:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token identifier"><span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span></span> <span class="token punctuation">(</span><span class="token identifier"><span class="token punctuation">&#96;</span>id<span class="token punctuation">&#96;</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">&#96;</span>Ad<span class="token punctuation">&#96;</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">&#96;</span>Soyad<span class="token punctuation">&#96;</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">&#96;</span>Yas<span class="token punctuation">&#96;</span></span><span class="token punctuation">,</span><span class="token identifier"><span class="token punctuation">&#96;</span>Cinsiyet<span class="token punctuation">&#96;</span></span><span class="token punctuation">)</span> <span class="token keyword">VALUES</span>
+<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Harun Reşit'</span><span class="token punctuation">,</span><span class="token string">'Zafer'</span><span class="token punctuation">,</span><span class="token number">27</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Derya'</span><span class="token punctuation">,</span><span class="token string">'Deniz'</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Emir'</span><span class="token punctuation">,</span><span class="token string">'Aydın'</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'Levent'</span><span class="token punctuation">,</span><span class="token string">'Denizeri'</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'Abbas'</span><span class="token punctuation">,</span><span class="token string">'Yolcu'</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<br>
+<h3>Veritabanına Bağlantı</h3>
+<br>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">//Bağlantı nesnemiz</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> url <span class="token operator">=</span> <span class="token string">"jdbc:mysql://localhost:3306/"</span><span class="token punctuation">;</span> <span class="token comment">//veritabanının adresi ve portu</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> dbName <span class="token operator">=</span> <span class="token string">"vt"</span><span class="token punctuation">;</span> <span class="token comment">//veritabanının ismi</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> properties<span class="token operator">=</span> <span class="token string">"?useUnicode=true&amp;characterEncoding=utf8"</span><span class="token punctuation">;</span> <span class="token comment">//Türkçe karakter problemi yaşamamak için</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> driver <span class="token operator">=</span> <span class="token string">"com.mysql.jdbc.Driver"</span><span class="token punctuation">;</span> <span class="token comment">//MySQL-Java bağlantısını sağlayan JDBC sürücüsü</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> userName <span class="token operator">=</span> <span class="token string">"root"</span><span class="token punctuation">;</span> <span class="token comment">//veritabanı için kullanıcı adı</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> password <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span> <span class="token comment">//kullanıcı şifresi</span>
+<span class="token keyword">private</span> <span class="token class-name">ResultSet</span> res<span class="token punctuation">;</span> <span class="token comment">// sorgulardan dönecek kayıtlar (sonuç kümesi) bu nesne içerisinde tutulacak</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıdaki kodda driver isimli değişken önemli. Bu sürücüyü projemize eklememiz gerekiyor. Bunun için resimde gördüğünüz “Libraries” düğümünün üzerine sağ tıklayıp “add library” deyip, açılan pencereden MySQL JDBC Driver’ı seçin ve “Add Library” butonuna tıklayın. </p>
+<p><img src="img/blog/netbeans-java-mysql-01.jpg" alt="ScreenHunter_01 Jan. 24 19.57"></p>
+<p>Bu sürücüyü projemize dahil etmeden, programımızın çalışmayacağını hatırlatalım. Aşağıdaki fonksiyonlar bağlantı açmak ve kapamak için kullanılıyor. Dikkat ederseniz yukarıdaki değerleri aşağıda kullanıyoruz.</p>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">Statement</span> <span class="token function">baglantiAc</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span>driver<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    conn <span class="token operator">=</span> <span class="token class-name">DriverManager</span><span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span>url <span class="token operator">+</span> dbName <span class="token operator">+</span> properties<span class="token punctuation">,</span> userName<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//bağlantı açılıyor</span>
+    <span class="token keyword">return</span> conn<span class="token punctuation">.</span><span class="token function">createStatement</span><span class="token punctuation">(</span><span class="token class-name">ResultSet</span><span class="token punctuation">.</span><span class="token constant">TYPE_SCROLL_INSENSITIVE</span><span class="token punctuation">,</span> <span class="token class-name">ResultSet</span><span class="token punctuation">.</span><span class="token constant">CONCUR_UPDATABLE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//return conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıda <code>ResultSet.CONCUR_UPDATABLE</code> yerine <code>ResultSet.CONCUR_READ_ONLY</code> yazarsak veritabanı salt okunur olarak açılır. Bu durumda kayıtları okuyabiliriz ama kayıt ekle/sil/güncelle işlemlerini yapamayız.</p>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">baglantiKapat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+    conn<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıdaki fonksiyon da bağlantıyı kapatıyor. </p>
+<h3>Kayıtların Tablodan Alınması</h3>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java">st <span class="token operator">=</span> <span class="token function">baglantiAc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//veritabanına bağlanılıyor</span>
+res <span class="token operator">=</span> st<span class="token punctuation">.</span><span class="token function">executeQuery</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM  kisiler"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//tablodaki kayıtlar getiriliyor</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıdaki sorgunun sonuç kümesi (bu sorgu için tablonun tamamı) res isimli ResultSet nesnesine aktarılıyor. Bu işlem bir kere programın başında yapılıyor. Programın geri kalanında hep <code>res</code> isimli <code>ResultSet</code> nesnemizi kullanarak veritabanı işlemlerini gerçekleştireceğiz. </p>
+<h3>Kayıtların Metin Kutularına Yazılması</h3>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java">res<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//tablonun ilk kaydını göster.</span>
+
+adTextField<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"Ad"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+soyadTextField<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"Soyad"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+yasTextField<span class="token punctuation">.</span><span class="token function">setText</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">getString</span><span class="token punctuation">(</span><span class="token string">"Yas"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span><span class="token function">getInt</span><span class="token punctuation">(</span><span class="token string">"Cinsiyet"</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    cinsiyetComboBox<span class="token punctuation">.</span><span class="token function">setSelectedIndex</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+    cinsiyetComboBox<span class="token punctuation">.</span><span class="token function">setSelectedIndex</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<br>
+<h3>Kayıtlar Arasında Gezinme</h3>
+<p><code>res.next()</code> komutu ilk defa kullanıldığında res nesnesinin barındırdığı tablonun ilk kaydına (satırına) gelinir. Daha sonra her <code>res.next()</code> komutu ile bir sonraki kayıda gidilir. ResultSet nesnesinin ilgili diğer metodları aşağıdaki gibidir:</p>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java">res<span class="token punctuation">.</span><span class="token function">previous</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// bir önceki kayıta git</span>
+res<span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//ilk kayıta git</span>
+res<span class="token punctuation">.</span><span class="token function">last</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//son kayıta git</span>
+res<span class="token punctuation">.</span><span class="token function">absolute</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//3. kayıta git.</span></code><!-- HTML_TAG_END --></pre>
+<br>
+<h3>Kayıt Ekleme</h3>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java">res<span class="token punctuation">.</span><span class="token function">moveToInsertRow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Kaydın ekleneceği yeni satıra git</span>
+res<span class="token punctuation">.</span><span class="token function">updateString</span><span class="token punctuation">(</span><span class="token string">"Ad"</span><span class="token punctuation">,</span> adTextField<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"Ad" alanına metin kutusuna girilen değeri ekle</span>
+res<span class="token punctuation">.</span><span class="token function">updateString</span><span class="token punctuation">(</span><span class="token string">"Soyad"</span><span class="token punctuation">,</span> soyadTextField<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"Soyad" alanına "   "    "</span>
+res<span class="token punctuation">.</span><span class="token function">updateInt</span><span class="token punctuation">(</span><span class="token string">"yas"</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>yasTextField<span class="token punctuation">.</span><span class="token function">getText</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//"yas" alanına "    "   "</span>
+<span class="token keyword">boolean</span> cns<span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>cinsiyetComboBox<span class="token punctuation">.</span><span class="token function">getSelectedIndex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+   cns<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span>
+<span class="token punctuation">&#123;</span>
+   cns<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+res<span class="token punctuation">.</span><span class="token function">updateBoolean</span><span class="token punctuation">(</span><span class="token string">"cinsiyet"</span><span class="token punctuation">,</span>cns<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//cinsiyet alanına 1 veya 0 değeri ekleniyor</span>
+res<span class="token punctuation">.</span><span class="token function">insertRow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//Kaydı (satırı) tabloya ekle</span></code><!-- HTML_TAG_END --></pre>
+<br>
+<h3>Kayıt Güncelleme</h3>
+<p>Kayıt eklemeye çok benzediğinden bir daha burada eklemedim. Kodları indirdiğinizde görebilirsiniz. </p>
+<h3>Kayıt Silme</h3>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java">res<span class="token punctuation">.</span><span class="token function">deleteRow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<p>Görüldüğü gibi oldukça basit. O an üzerinde bulunulan kaydı (satırı) siliyor. </p>
+<h3>Programın Genel Akış Mantığı</h3>
+<p>Programın koduna dikkat ederseniz veritabanı bağlantısının program başlarken <code>baglantiAc()</code> ile 1 kere yapıldığını, program sonlanana kadar açık kaldığını ve program kapanırken, bağlantının da <code>baglantiKapat()</code> ile  kapatıldığını göreceksiniz. Bir diğer göze çarpan husus ise ekle/güncelle/sil gibi komutlar için bildiğimiz INSERT/UPDATE/DELETE gibi SQL komutlarının kodda yer <strong>almaması.</strong> Bu kodlar geri planda çalıştırılıyor. </p>
+<p>Peki neden bağlantıyı yalnızca bir defa açıp kapamak için iki metod yazdık? Bunun cevabını bir sonraki örnekte anlayacağız. O örnekte SQL komutlarını bizzat kendimiz yazıp kullanırken, her veritabanı işlemi için bağlantıyı açıp işlem bittikten hemen sonra bağlantıyı kapatacağız. </p>
+<h3>Peki ama hangi yaklaşım daha iyi?</h3>
+<p>Elbette ikinci örneği de görüp anlamadan bu soruya cevap aramak anlamsız.  Kodların tamamını NetBeans projesi olarak  <a href="download/vt_hrzafer.zip">buradan</a> indirebilirsiniz. </p>
+<p><strong>Not:</strong> Yaklaşık 1,5 yıl sonra kodda bir hata (Türkçe karakter problemi) farkettim ve yukarıdaki koda “properties” adında bir string daha ekledim. Bu değişikliği kodların bulunduğu proje dosyasında yapmadım. Bunu da ödev olarak size bırakıyorum 🙂.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Yazılar</h3>
+<ul><li><a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-2">Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 2</a></li>
+<li><a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-3">Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 3</a></li>
+<li><a href="/java-ve-sqlite-ornek-veritabani-uygulamasi">Java ve SQLite: Örnek Veritabanı Uygulaması – 4</a></li></ul>
+
+  <p>24 Ocak 2010 Pazar tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="na3320">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="na3320"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

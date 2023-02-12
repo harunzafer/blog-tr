@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 15: GROUP BY İfadesi</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p><a href="http://www.hrzafer.com/sql-14-kumeleme-fonksiyonlari" rel="nofollow">Bir önceki makalede</a> SQL kümeleme fonksiyonlarını anlatmıştık. Çünkü kümeleme fonksiyonları genelde GROUP BY ifadesi ile birlikte kullanılır. Adından da anlaşılacağı üzere GROUP BY ifadesi gruplama yapar. Yani sonuç kümesini bir veya birden fazla kolona göre gruplar. Öncelikle bir önceki makalede de kullandığımız aşağıdaki <em>kisiler</em> tablosunu inceleyelim. Sonra bu tablo üzerinde biraz gruplama yapacağız. </p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<table><thead><tr><th>id</th>
+<th>Ad</th>
+<th>Soyad</th>
+<th>Yas</th>
+<th>Cinsiyet</th>
+<th>Şehir</th>
+<th>Ülke</th>
+<th>Maaş</th></tr></thead>
+<tbody><tr><td>2</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>1</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>3</td>
+<td>Mehmet</td>
+<td>Efe</td>
+<td>22</td>
+<td>1</td>
+<td>Bolu</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>4</td>
+<td>Ayşe</td>
+<td>Can</td>
+<td>23</td>
+<td>0</td>
+<td>İstanbul</td>
+<td>Türkiye</td>
+<td>3500</td></tr>
+<tr><td>5</td>
+<td>Fatma</td>
+<td>Ak</td>
+<td>35</td>
+<td>0</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>3200</td></tr>
+<tr><td>6</td>
+<td>John</td>
+<td>Smith</td>
+<td>45</td>
+<td>1</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>7</td>
+<td>Ellen</td>
+<td>Smith</td>
+<td>40</td>
+<td>0</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>8</td>
+<td>Hans</td>
+<td>Müller</td>
+<td>30</td>
+<td>1</td>
+<td>Berlin</td>
+<td>Almanya</td>
+<td>4000</td></tr>
+<tr><td>9</td>
+<td>Frank</td>
+<td>Cesanne</td>
+<td>35</td>
+<td>1</td>
+<td>Paris</td>
+<td>Fransa</td>
+<td>3700</td></tr>
+<tr><td>10</td>
+<td>Abbas</td>
+<td>Demir</td>
+<td>26</td>
+<td>1</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>11</td>
+<td>Hatice</td>
+<td>Topçu</td>
+<td>26</td>
+<td>0</td>
+<td>Hatay</td>
+<td>Türkiye</td>
+<td>2200</td></tr>
+<tr><td>12</td>
+<td>Gülsüm</td>
+<td>Demir</td>
+<td>35</td>
+<td>0</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr></tbody></table>
+<p>Şimdi yukarıdaki tabloyu ülkelere göre gruplasaydık ne olurdu? Görüldüğü gibi 4 farklı ülke olduğuna göre 4 farklı grup oluşacaktı. Bu gruplar Türkiye’de çalışanlar, Amerika’da çalışanlar, Fransa’da çalışanlar ve Almanya’da çalışanlar olarak ifade edilebilir. Bu ifade biçimi oldukça anlaşılır zira saf Türkçe. Biraz daha teknik bir ifade kullanmak istersek; Ülke <strong>alan</strong>ında Türkiye, Amerika, Fransa veya Almanya <strong>değer</strong>leri bulunan <strong>kayıt</strong>ların <strong>grup</strong>laşması diyebiliriz. Hemen bu örneği sorgu olarak yazalım:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th></tr></thead>
+<tbody><tr><td>Almanya</td></tr>
+<tr><td>Fransa</td></tr>
+<tr><td>Türkiye</td></tr>
+<tr><td>USA</td></tr></tbody></table>
+<p>Burada SELECT ifadesinden sonra <em>ülke</em> kolonu dışında kolonlar yazarsak, bu kolonlar için gelecek olan değerler anlamlı olmayacaktır. Mesela:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Anlamsız sonuçlar verir</p>
+<table><thead><tr><th>id</th>
+<th>Ad</th>
+<th>Soyad</th>
+<th>Yas</th>
+<th>Cinsiyet</th>
+<th>Şehir</th>
+<th>Ülke</th>
+<th>Maaş</th></tr></thead>
+<tbody><tr><td>8</td>
+<td>Hans</td>
+<td>Müller</td>
+<td>30</td>
+<td>1</td>
+<td>Berlin</td>
+<td>Almanya</td>
+<td>4000</td></tr>
+<tr><td>9</td>
+<td>Frank</td>
+<td>Cesanne</td>
+<td>35</td>
+<td>1</td>
+<td>Paris</td>
+<td>Fransa</td>
+<td>3700</td></tr>
+<tr><td>2</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>1</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>6</td>
+<td>John</td>
+<td>Smith</td>
+<td>45</td>
+<td>1</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr></tbody></table>
+<p>Sonuç kümesine baktığımızda <em>ülke</em> alanı hariç diğer alanlar için gruba ait kayıtlardan ilkinin değerlerinin geldiğini görürüz. Bu da yukarıdaki tabloyu anlamsız kılıyor. Bütün bunları anlatmamın sebebi GROUP BY’ın kümeleme fonksiyonları ile nasıl anlamlı hale geldiğini göstermek. Örneğin ülkelerin ortalama maaşını görmek istesek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>4000.0000</td></tr>
+<tr><td>Fransa</td>
+<td>3700.0000</td></tr>
+<tr><td>Türkiye</td>
+<td>2414.2857</td></tr>
+<tr><td>USA</td>
+<td>3500.0000</td></tr></tbody></table>
+<p>Burada geri planda kayıtlar ülke değerlerine göre gruplandı ve her grubun maaş değerinin ortalaması hesaplanarak yukarıdaki sonuç kümesi elde edildi. Sonuç olarak GROUP BY kullanırken SELECT’ten sonra GROUP BY ile kullandığımız alanları ve kümeleme fonksiyonlarını kullanmamız gerekiyor. Eğer her ülkeden kaç çalışanın olduğunu görmek istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">AS</span> sayı <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>sayı</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>1</td></tr>
+<tr><td>Fransa</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>7</td></tr>
+<tr><td>USA</td>
+<td>2</td></tr></tbody></table>
+<p>Örneğin maaş ortalamasını bayanlar ve erkekler olarak görmek isteseydik:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> cinsiyet<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">AS</span> sayı <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> cinsiyet</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>cinsiyet</th>
+<th>sayı</th></tr></thead>
+<tbody><tr><td>0</td>
+<td>2880.0000</td></tr>
+<tr><td>1</td>
+<td>2866.6667</td></tr></tbody></table>
+<p><strong>GROUP BY ile birden fazla alan kullanımı</strong></p>
+<p>GROUP BY ifadesinden sonra birden fazla alan kullanabiliriz. Örneğin kayıtları önce ülkelere göre gruplayıp sonra her bir grubu kendi içinde şehirlere göre gruplamak istesek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> şehir <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke<span class="token punctuation">,</span> şehir</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>şehir</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>Berlin</td></tr>
+<tr><td>Fransa</td>
+<td>Paris</td></tr>
+<tr><td>Türkiye</td>
+<td>Adana</td></tr>
+<tr><td>Türkiye</td>
+<td>Ankara</td></tr>
+<tr><td>Türkiye</td>
+<td>Bolu</td></tr>
+<tr><td>Türkiye</td>
+<td>Hatay</td></tr>
+<tr><td>Türkiye</td>
+<td>İstanbul</td></tr>
+<tr><td>USA</td>
+<td>New York</td></tr></tbody></table>
+<p>Türkiye dışındaki gruplarda tek bir şehir varken, Türkiye grubunun da kendi içinde 5 gruba ayrıldığına dikkat edin. Her bir gruba ait kaç adet çalışan olduğunu görmek istersek sorguya ufak bir ekleme yapmamız yeterli olur:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> şehir<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke<span class="token punctuation">,</span> şehir</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>şehir</th>
+<th>COUNT(*)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>Berlin</td>
+<td>1</td></tr>
+<tr><td>Fransa</td>
+<td>Paris</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>Adana</td>
+<td>2</td></tr>
+<tr><td>Türkiye</td>
+<td>Ankara</td>
+<td>2</td></tr>
+<tr><td>Türkiye</td>
+<td>Bolu</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>Hatay</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>İstanbul</td>
+<td>1</td></tr>
+<tr><td>USA</td>
+<td>New York</td>
+<td></td></tr></tbody></table>
+<p>Şimdi de her ülke için bayan ve erkek çalışanların sayısını ve yaş ortalamalarını bulalım:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> cinsiyet<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke<span class="token punctuation">,</span> cinsiyet</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>cinsiyet</th>
+<th>AVG(yas)</th>
+<th>COUNT(*)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>1</td>
+<td>30.0000</td>
+<td>1</td></tr>
+<tr><td>Fransa</td>
+<td>1</td>
+<td>35.0000</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>0</td>
+<td>29.7500</td>
+<td>4</td></tr>
+<tr><td>Türkiye</td>
+<td>1</td>
+<td>22.6667</td>
+<td>3</td></tr>
+<tr><td>USA</td>
+<td>0</td>
+<td>40.0000</td>
+<td>1</td></tr>
+<tr><td>USA</td>
+<td>1</td>
+<td>45.0000</td>
+<td>1</td></tr></tbody></table>
+<p>Yukarıdaki tablodan mesela, Türkiye’den 4 bayan, 3 erkek çalışanın olduğunun ve bayanların yaş ortalamalarının 29.7 erkeklerinkinin ise 22.6 olduğunu okuyabiliriz. </p>
+<p><strong>GROUP BY İfadesini  WHERE ifadesi ile birlikte kullanmak</strong></p>
+<p>Öncelikle WHERE ifadesinin sorguda her zaman group by’dan önce geldiğini belirtelim. Örneğin yukarıdaki sorguya maaşı 2000’den büyük olanlar gibi bir koşul ekleyelim.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> cinsiyet<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">WHERE</span> maaş <span class="token operator">></span> <span class="token number">2000</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke<span class="token punctuation">,</span> cinsiyet</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>cinsiyet</th>
+<th>AVG(yas)</th>
+<th>COUNT(*)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>1</td>
+<td>30.0000</td>
+<td>1</td></tr>
+<tr><td>Fransa</td>
+<td>1</td>
+<td>35.0000</td>
+<td>1</td></tr>
+<tr><td>Türkiye</td>
+<td>0</td>
+<td>28.0000</td>
+<td>3</td></tr>
+<tr><td>USA</td>
+<td>0</td>
+<td>40.0000</td>
+<td>1</td></tr>
+<tr><td>USA</td>
+<td>1</td>
+<td>45.0000</td>
+<td>1</td></tr></tbody></table>
+<p>Bu sorgu biraz karışık görünse de aslında oldukça basit. Geri planda önce maaşı 2000’den küçük olan kayıtlar elendi. Yani önce sorgunun WHERE kısmı çalıştırıldı. Sonra kalan kayıtlar üzerinde sorgunun geri kalanı çalıştırıldı. Yani asında bir önceki sorgu tüm tablo yerine tablonun alt kümesi (maaşı 2000’den büyük olanlar) üzerinde çalıştırılmış oldu. </p>
+<p>Umarım yeterince açık izah edebildim meseleyi. Bir sonraki yazıda yalnızca GROUP BY ile birlikte kullanılan HAVING anahtar sözcüğünü anlatacağım. Yazıda anlayamadığınız ya da “şöyle olsaydı daha anlaşılır olurdu” diyebileceğiniz yerler var ise yorumlara çekinmeden yazın. En kısa zamanda bir tepki veririm.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2">SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2</a></li>
+<li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li>
+<li><a href="/sql-16-having-ifadesi">SQL 16: HAVING İfadesi</a></li>
+<li><a href="/sql-17-ornek-okul-veritabani">SQL 17: Örnek Okul Veritabanı</a></li></ul>
+
+  <p>1 Ocak 1888 Pazar tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="m2anqn">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="m2anqn"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

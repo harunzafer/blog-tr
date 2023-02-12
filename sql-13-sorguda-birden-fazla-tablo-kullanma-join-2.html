@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>İki veya daha fazla tablonun belirli kolonları arasındaki ilişkilere dayanarak bu tablolardan veri çekme işlemine JOIN denir. Bu işlem için JOIN anahtar kelimesi kullanılır ama zorunlu değildir. Bir önceki yazıda ilişkili 2 tablo için yazdığımız join sorgularımızın hiçbirinde JOIN anahtar sözcüğünü kullanmamıştık. Bu yazıda hem JOIN anahtar sözcüğünün kullanımını hem de ilişkili 3 tablo için sorgu yazılışını anlatmaya çalışacağım.</p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<p>Ama önce biraz ısınmak için tabloları ve sorgumuzu hatırlayalım. Bu iki tablo arasındaki ilişkiyi yayınevleri tablosundaki <strong>no</strong> alanı ile Kitaplar tablosundaki <strong>yv_no</strong> (yayınevi no) alanlarının sağladığını tekrar hatırlatalım. Aslında <code>yv_no</code> alanı Yayınevleri tablosunun <strong>birincil anahtarı</strong> (primary key) olan no alanını referans göstermektedir. Bir tabloda, başka bir tablonun birincil anahtar alanını referans gösteren alanlara <strong>yabancı anahtar</strong> (foreign key) diyoruz. Burada da <code>yv_no</code> alanı yabancı anahtar konumunda. Örneğin Yayınevleri tablosunda 5 nolu bir yayınevi olmadığına göre Kitaplar tablosundaki <code>yv_no</code> alanı değerini alamaz. <code>yv_no</code> alanının bu örnekte alabileceği değerler 1, 2 ve 3’tür. Ancak 5 nolu bir yayınevi Yayınevleri tablosuna eklendikten sonra <code>yv_no</code> alanı da 5 değerini alabilir. </p>
+<p>Yukarıdaki paragrafın Türkçesi: 5 nolu bir yayınevi olmadığına göre 5 nolu yayınevi tarafından basılmış kitap/kitaplar da olamaz. </p>
+<p><strong>Yayınevleri</strong></p>
+<table><thead><tr><th><strong>no</strong></th>
+<th><strong>isim</strong></th>
+<th><strong>sehir</strong></th></tr></thead>
+<tbody><tr><td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr>
+<tr><td>3</td>
+<td>C</td>
+<td>İzmir</td></tr></tbody></table>
+<p><strong>Kitaplar</strong></p>
+<table><thead><tr><th><strong>no</strong></th>
+<th><strong>isim</strong></th>
+<th><strong>yv_no</strong></th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td></tr></tbody></table>
+<p>Hangi kitabın hangi yayınevi tarafından basıldığını gösteren sorgu (JOIN anahtar sözcüğünü kullanmadan)</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K<span class="token punctuation">,</span> yayinevleri Y <span class="token keyword">WHERE</span> K<span class="token punctuation">.</span>yv_no <span class="token operator">=</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıdaki soru ile tamamen aynı işi yapan bu sorguda ise JOIN anahtar sözcüğünü kullanalım:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> yayınevleri Y <span class="token keyword">ON</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span> <span class="token operator">=</span> K<span class="token punctuation">.</span>yv_no</code><!-- HTML_TAG_END --></pre>
+<p>Her iki sorgunun da çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>isim</th>
+<th>isim</th></tr></thead>
+<tbody><tr><td>5 dakkada Java</td>
+<td>A</td></tr>
+<tr><td>5 bilemedin 6 saatte SQL</td>
+<td>A</td></tr>
+<tr><td>Hakiki SQL</td>
+<td>B</td></tr></tbody></table>
+<p>Birbiri ile ilişkili 3 tablo için join sorgularının nasıl yazılacağına bakmadan önce bize 3 tablo gerekiyor. </p>
+<p>Bu yüzden veritabanımıza yazarları da dahil edelim. Ancak bir yazarın birden fazla kitabı olabileceği gibi bir kitabın da birden fazla yazarı olabilir. Bu da kitap ve yazar tabloları arasında <strong>çoğa-çok</strong> ilişki olduğunu gösteriyor. Oysa kitap ile yayınevi tabloları arasındaki ilişki <strong>bire-çok</strong> şeklindedir. Yani bir yayınevi birden fazla kitap basabilir ancak bir kitap yalnızca bir yayınevi tarafından basılabilir.</p>
+<p>Çoğa-çok ilişkili varlıkları ifade edebilmek için veritabanına <strong>3. bir tablo</strong> eklememiz gerekiyor. Burada bu tablonun adı KitapYazar.  KitapYazar tablosuna şöyle bir baktığımızda 1 nolu kitabı 2 nolu yazarın yazdığını, 3 nolu kitabı 1 ve 2 nolu yazarların yazdığını ya da 2 nolu yazarın 1 ve 3 nolu kitapların yazarı olduğunu görebiliyoruz.</p>
+<p><strong>Kitaplar</strong></p>
+<table><thead><tr><th>no</th>
+<th>isim</th>
+<th>yv_no</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td></tr></tbody></table>
+<p><strong>KitapYazar</strong></p>
+<table><thead><tr><th>kno</th>
+<th>yno</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>2</td></tr>
+<tr><td>2</td>
+<td>3</td></tr>
+<tr><td>3</td>
+<td>1</td></tr>
+<tr><td>3</td>
+<td>2</td></tr></tbody></table>
+<p><strong>Yazarlar</strong></p>
+<table><thead><tr><th>no</th>
+<th>isim</th>
+<th>ulke</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>Nihat Veritabanı</td>
+<td>Türkiye</td></tr>
+<tr><td>2</td>
+<td>Muharrem Nesnel</td>
+<td>Türkiye</td></tr>
+<tr><td>3</td>
+<td>Taylan Esquel</td>
+<td>Meksika</td></tr></tbody></table>
+<p>Hangi kitabı hangi yazarın yazdığını isim isim listelemek istememiz durumunda 3 tabloyu da kullanan bir JOIN sorugusu yazmamız gerekir.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kitaplar K <span class="token punctuation">,</span> yazarlar Y<span class="token punctuation">,</span> kitapyazar KY <span class="token keyword">WHERE</span> K<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span>KY<span class="token punctuation">.</span>kno <span class="token operator">AND</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span>KY<span class="token punctuation">.</span>yno</code><!-- HTML_TAG_END --></pre>
+<p>veya</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kitaplar K <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> kitapyazar KY <span class="token keyword">ON</span> K<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span> KY<span class="token punctuation">.</span>kno <span class="token keyword">INNER</span> <span class="token keyword">JOIN</span> yazarlar Y <span class="token keyword">ON</span> KY<span class="token punctuation">.</span>yno<span class="token operator">=</span>Y<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Her iki sorgunun da çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>no</th>
+<th>isim</th>
+<th>yv_no</th>
+<th>kno</th>
+<th>yno</th>
+<th>no</th>
+<th>isim</th>
+<th>ulke</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+<td>Muharrem Nesnel</td>
+<td>Türkiye</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>Taylan Esquel</td>
+<td>Meksika</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>3</td>
+<td>1</td>
+<td>1</td>
+<td>Nihat Veritabanı</td>
+<td>Türkiye</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>Muharrem Nesnel</td>
+<td>Türkiye</td></tr></tbody></table>
+<p>Sonuç tablosunu daha sade istersek sorgularımızı yalnızca isim alanlarını getirecek şekilde düzenleyebiliriz:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span>  Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K <span class="token punctuation">,</span> yazarlar Y<span class="token punctuation">,</span> kitapyazar KY <span class="token keyword">WHERE</span> K<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span>KY<span class="token punctuation">.</span>kno <span class="token operator">AND</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span>KY<span class="token punctuation">.</span>yno</code><!-- HTML_TAG_END --></pre>
+<p>veya</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K <span class="token keyword">JOIN</span> kitapyazar KY <span class="token keyword">ON</span> K<span class="token punctuation">.</span><span class="token keyword">no</span><span class="token operator">=</span> KY<span class="token punctuation">.</span>kno <span class="token keyword">JOIN</span> yazarlar Y <span class="token keyword">ON</span> KY<span class="token punctuation">.</span>yno<span class="token operator">=</span>Y<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Dikkat ederseniz bu sorguda <strong>INNER</strong> anahtar sözcüğünü kullanmadım çünkü aksini belirtmedikçe (yani INNER yerine outer, right, left anahtar sözcükleri ile join’in türünü belirtmedikçe) varsayılan olarak INNER JOIN işlemi yapılacaktır. Başka bir ifade ile “abi ben OUTER, RIGHT, LEFT join nedir bilmem, bana bildiğimiz JOIN lazım diyorsanız” ben de “kardeş INNER yazmasan da olur” diyorum. </p>
+<p>Her iki sorgunun da çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>isim</th>
+<th>isim</th></tr></thead>
+<tbody><tr><td>5 dakkada Java</td>
+<td>Muharrem Nesnel</td></tr>
+<tr><td>5 bilemedin 6 saatte SQL</td>
+<td>Taylan Esquel</td></tr>
+<tr><td>Hakiki SQL</td>
+<td>Nihat Veritabanı</td></tr>
+<tr><td>Hakiki SQL</td>
+<td>Muharrem Nesnel</td></tr></tbody></table>
+<p>Sonuç olarak bu yazı beni pek tatmin etmedi. Daha samimi bir ifade ile “içime sinmedi”. Çünkü JOIN konusu veritabanı tasarımı ile doğrudan alakalı ve birincil anahtar, yabancı anahtar, tablo ilişkileri gibi bir çok kavramın önceden anlaşılmış olması gerekiyor ki bu konu tam olarak anlaşılabilsin. Yukarıda biraz bahsetmeye çalıştım ama aslında 4-5 makale ile ayrıntılı ele alınması gereken ve SQL çalışmaya başlamadan önce öğrenilmesi gereken konular bunlar. </p>
+<p>İnşaallah bu yazı faydalı olmuştur ve umarım vaktim olur da veritabanı tasarımı konusunu detaylı olarak ele alabilirim. Herkese Kolay Gelsin</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-11-as-sozcugu-ve-takma-isimler-alias">SQL 11: AS Sözcüğü ve Takma İsimler (Alias)</a></li>
+<li><a href="/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1">SQL 12: Sorguda Birden Fazla Tablo Kullanma: Join-1</a></li>
+<li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li>
+<li><a href="/sql-15-group-by-ifadesi">SQL 15: GROUP BY İfadesi</a></li></ul>
+
+  <p>18 Mart 2010 Perşembe tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="116y5ct">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="116y5ct"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>Nüve ile Türkçe Cümle Sonu Tespiti</h1></div>
+	
+	
+	<p>Önceki yazımda Türkî diller için bir doğal dil işleme kütüphanesi olan <a href="http://www.hrzafer.com/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve" rel="nofollow">Nüve</a>‘den bahsetmiştim. Nüve <a href="https://www.nuget.org/packages/Nuve/" rel="nofollow">1.1 versiyonu</a> ile birlikte cümle sonu tespit yeteneği de kazanmış durumda. Nüve’nin cümleleme modülü kural tabanlı çalışıyor ve mükemmel olduğu söylenemez ancak bir çok metin için iş görecek kadar başarılı olduğunu söyleyebilirim. Kullanacak arkadaşlar da gördükleri hataları bildirirerek başarımın artmasına yardımcı olabilir ve projeye katkıda bulunabilirler. </p>
+<p>Nüve’yi projenize 2 şekilde ekleyebilirsiniz. </p>
+<p>1-Visual Studio-&gt;Tools-&gt;Library Package Manager-&gt;Package Manager Console yolu ile açılan pencerede</p>
+<pre class="language-undefined"><!-- HTML_TAG_START --><code class="language-undefined">PM&gt; Install-Package Nuve</code><!-- HTML_TAG_END --></pre>
+<p>komutunu girmek. </p>
+<p>2- Solution Explorer’da projenizin References düğümüne sağ tıklayarak Manage Nuget packages’ı seçmek ve sağ üstteki arama çubuğuna Nuve yazarak “Install” düğmesine basmak. Nüve için cümleleme kod örneği ise şu şekilde:</p>
+<pre class="language-csharp"><!-- HTML_TAG_START --><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> paragraph <span class="token operator">=</span> <span class="token string">"Prof. Dr. Ahmet Bey 1.6 oranında artış var dedi 2. kez. E-posta adresi ahmet.bilir@prof.dr imiş! Doğru mu?"</span><span class="token punctuation">;</span>
+<span class="token class-name">Splitter</span> splitter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">RegexSplitter</span><span class="token punctuation">(</span>RegexSplitter<span class="token punctuation">.</span>ClassicPattern<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> segmenter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">TokenBasedSentenceSegmenter</span><span class="token punctuation">(</span>splitter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name"><span class="token keyword">var</span></span> sentences <span class="token operator">=</span> segmenter<span class="token punctuation">.</span><span class="token function">GetSentences</span><span class="token punctuation">(</span>paragraph<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> sentence <span class="token keyword">in</span> sentences<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+   Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>sentence<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code><!-- HTML_TAG_END --></pre>
+<p>Faydalı olması dileğiyle. </p>
+<p>Herkese kolay gelsin</p>
+
+  <p>19 Temmuz 2014 Cumartesi tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="1i1ge8a">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="1i1ge8a"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

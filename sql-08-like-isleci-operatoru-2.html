@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 08: LIKE İşleci (Operatörü) – 2</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<h3>Joker Karakterler (Wildcards)</h3>
+<p>Bir veya birden fazla karakterin yerine geçebilen karakterlere <strong>joker karakter</strong> diyoruz. Aslında joker karakter kavramı bilgisayar dünyasında sıkça kullanılan bir kavramdır. Ortama göre  (kullandığınız programlama dilinden tutun da, işletim sistemine kadar pek çok şey olabilir bu ortam) gösterimde ufak tefek değişiklikler olsa da genel mantığı aynıdır. SQL dilinde joker karakterleri yalnızca <code>LIKE</code> işleci ile birlikte kullanıyoruz. SQL için tanımlanmış joker karakterler aşağıdaki gibidir:  </p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<table><thead><tr><th><strong>Joker Karakter</strong></th>
+<th><strong>Açıklama</strong></th></tr></thead>
+<tbody><tr><td>% (MS Access için * kullanılır)</td>
+<td>Sıfır, bir veya daha fazla sayıda karakterin yerine geçebilir.</td></tr>
+<tr><td>_ (MS Access için ? kullanılır)</td>
+<td>Bir adet karakterin yerine geçebilir.</td></tr>
+<tr><td>[liste]</td>
+<td>Listedeki karakterlerden herhangi biri</td></tr>
+<tr><td>[^liste]Veya [!liste]</td>
+<td>Listedede olmayan karakterlerden  herhangi biri Ya da listede olan karakterlerden hiçbirisi. (iki açıklama da aynı kapıya çıkıyor)</td></tr></tbody></table>
+<p>Yazı boyunca örnek olarak kullanacağımız <code>Uyeler</code> tablosu aşağıdaki gibidir.</p>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>hrzafer</td>
+<td>Harun Reşit</td>
+<td>Zafer</td>
+<td><a href="mailto:hrzafer@hrzafer.com">hrzafer@hrzafer.com</a></td>
+<td>E</td></tr>
+<tr><td>derya.z</td>
+<td>Derya</td>
+<td>Zaimoğlu</td>
+<td><a href="mailto:derya.z@derya.com">derya.z@derya.com</a></td>
+<td>K</td></tr>
+<tr><td>meryem1990</td>
+<td>Meryem</td>
+<td>Arkadaş</td>
+<td><a href="mailto:meryem1990@nospam.com">meryem1990@nospam.com</a></td>
+<td>K</td></tr>
+<tr><td>eaydin</td>
+<td>Emir</td>
+<td>Aydın</td>
+<td><a href="mailto:ea@biracayipadam.com">ea@biracayipadam.com</a></td>
+<td>E</td></tr>
+<tr><td>denizeri</td>
+<td>Levent</td>
+<td>Denizeri</td>
+<td><a href="mailto:levend@naval.com">levend@naval.com</a></td>
+<td>E</td></tr></tbody></table>
+<p>Bir önceki yazıda  % Joker karakterinin kullanımına dair örnekler yapmıştık. Bir örnek daha yapalım. Adı “M” ile başlayıp “m” ile biten üyeleri görmek istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler
+<span class="token keyword">WHERE</span> isim <span class="token operator">LIKE</span> <span class="token string">'M%m'</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgumuzun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>meryem1990</td>
+<td>Meryem</td>
+<td>Arkadaş</td>
+<td><a href="mailto:meryem1990@nospam.com">meryem1990@nospam.com</a></td>
+<td>K</td></tr></tbody></table>
+<br>
+<h4>_ veya ? Joker karakteri</h4>
+<p>Bu karakter standart SQL için <code>_</code> (alt-tire) MS Access için de <code>?</code> olarak tanımlanmıştır. Ben örneklerde <code>_</code> olarak kullanacağım. Şimdi aşağıdaki sorguyu ve çıktısını inceleyelim:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler
+<span class="token keyword">WHERE</span> uye_adi <span class="token operator">LIKE</span> <span class="token string">'h_zafer'</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>hrzafer</td>
+<td>Harun Reşit</td>
+<td>Zafer</td>
+<td><a href="mailto:hrzafer@hrzafer.com">hrzafer@hrzafer.com</a></td>
+<td>E</td></tr></tbody></table>
+<p>Eğer tablomuzda uye_adi alanında <code>hdzafer</code>, <code>hczafer</code>, <code>hazafer</code> gibi kayıtlar olsaydı, bunlar da bu sorgudan dönen tabloda yer alacaklardı. </p>
+<p><code>LIKE &#39;_a_&#39;</code>  : Üç harfli ortadaki harfi “a” olanlar. </p>
+<p><code>LIKE &#39; m_s_n&#39;</code> : <em>mısın, musun, müsün</em> veya <em>muson</em> gibi bir çok kelime bu desene uyuyor. Ancak <em>muusun</em> gibi bir kelime bu desene uymaz. Bu karakter yerine yalnızca bir adet karakter gelebileceğini tekrar hatırlatalım. </p>
+<p><strong>Karakter Listeleri</strong> Karakter listeleri ise yukarıdaki işlemleri yalnız bir grup karakter için tanımlamak istediğimizde kullanılır: </p>
+<p><code>LIKE &#39;c[ai]n&#39;</code>: Bu desen <em>can</em> ve <em>cin</em> kelimelerini kapsar. Örneğin ismi erhan, ercan, erkan veya erman olan üyeleri getirmek isteseydik:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler
+<span class="token keyword">WHERE</span> uye_adi <span class="token operator">LIKE</span> <span class="token string">'er[hckm]an'</span></code><!-- HTML_TAG_END --></pre>
+<p>sorgusu işimizi görürdü. Adı E veya K harfi ile <strong>başlamayan</strong> üyeleri seçmek isteseydik:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler
+<span class="token keyword">WHERE</span> uye_adi <span class="token operator">LIKE</span> <span class="token string">'[^EK]%'</span></code><!-- HTML_TAG_END --></pre>
+<p>sorgusu yeterli olurdu. Aynı sorguyu Access için yazmak istesek LIKE’tan sonraki kısım <code>[!EK]*</code> şeklinde olacaktı.</p>
+<p><strong>Önemli Not:</strong> Karakter listeleri MySQL’de LIKE ile çalışmıyor. Bunun yerine RLIKE (veya REGEXP) işleci kullanılıyor. Bu işleç bütün <strong>Düzenli İfadeler</strong> (Regular Expressions) ile çalışıyor.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-07-top-veya-limit-mysql">SQL 07: TOP veya LIMIT (mySQL)</a></li>
+<li><a href="/sql-08-like-1">SQL 08: LIKE İşleci (Operatörü) – 1</a></li>
+<li><a href="/sql-09-in-isleci">SQL 09: IN İşleci</a></li>
+<li><a href="/sql-10-between-isleci">SQL 10: BETWEEN İşleci</a></li></ul>
+
+  <p>6 Kasım 2009 Cuma tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="1iyg57y">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="1iyg57y"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

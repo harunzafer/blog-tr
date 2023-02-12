@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 12: Sorguda Birden Fazla Tablo Kullanma: Join-1</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Bundan önceki tüm sorguların içerisinde yalnızca bir tablo kullanmıştık. Bu sorgular temel SQL işleçleri için birer örnekti. Bu ders ile beraber SQL’in esaslı konularına giriş yapıyoruz. Gerçek hayatta ihtiyacımız olan bilgileri bize döndürecek olan sogular nadiren önceki derslerde anlatılanlar kadar basit olacak. </p>
+<p>Veritabanları çoğu zaman birden fazla tablo içerir.Ve bu tablolar birbiri ile <strong>ilişkilidir</strong>. Örneğin aşağıdaki <em>Yayinevleri</em> ve <em>Kitaplar</em> tablolarını inceleyelim. </p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<p><strong>Yayınevleri</strong></p>
+<table><thead><tr><th><strong>no</strong></th>
+<th><strong>isim</strong></th>
+<th><strong>sehir</strong></th></tr></thead>
+<tbody><tr><td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr>
+<tr><td>3</td>
+<td>C</td>
+<td>İzmir</td></tr></tbody></table>
+<p><strong>Kitaplar</strong></p>
+<table><thead><tr><th><strong>no</strong></th>
+<th><strong>isim</strong></th>
+<th><strong>yv_no</strong></th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td></tr></tbody></table>
+<p>Dikkat ederseniz <code>Kitaplar</code> tablosunda <code>yv_no</code> isimli bir alan göreceksiniz. Bu alan kitabın hangi yayınevi tarafından basıldığını göstermektedir. Buradan ilk 2 kitabın “A”, 3. kitabın ise “B” yayınevi tarafından basıldığını, “C” yayınevi tarafından ise basılmış bir kitabın bulunmadığı anlaşılmakta. Yani kitaplar tablosundaki <code>yv_no</code> isimli alan ile <code>Yayınevleri</code> tablosundaki <code>no</code> isimli alan ilişkilidir. </p>
+<p>Örneğin <code>Kitaplar</code> tablosuna yeni bir kitap eklemek istesek ve <code>yv_no</code> olarak 4 değerini versek, 4 nolu yayınevi mevcut olmadığından bunun mümkün olmadığını belirten bir hata mesajı ile karşılaşırız. Şimdi bu iki tabloyu kullanan (iki tabloyu <strong>join</strong> eden) sorgu örneklerine geçelim: </p>
+<p><strong>Not:</strong> MySQL’i bilgisayarınıza kurup benzer örnekleri bizzat uygulamak isterseniz <a href="http://www.hrzafer.com/mysql-kurulumu-ve-kullanimi-goruntulu-anlatim" rel="nofollow">bu videoyu</a> izleyebilirsiniz.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kitaplar <span class="token punctuation">,</span> yayinevleri</code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>no</th>
+<th>isim</th>
+<th>yv_no</th>
+<th>no</th>
+<th>isim</th>
+<th>sehir</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td>
+<td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td>
+<td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td>
+<td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td>
+<td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr>
+<tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td>
+<td>3</td>
+<td>C</td>
+<td>İzmir</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td>
+<td>3</td>
+<td>C</td>
+<td>İzmir</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>3</td>
+<td>C</td>
+<td>İzmir</td></tr></tbody></table>
+<p>Bu tablonun ilk bakışta ne kadar anlamsız göründüğünü biliyorum. Ama aslında o kadar da değil. Bu tablo yukarıdaki 2 tablonun <strong>kartezyen çarpım</strong>ı. Her iki tabloda da 3’er kayıt var. Bu tabloda ise 3x3=9 kayıt (satır) mevcut. Şimdi sorgumuzu aşağıdaki gibi değiştirelim:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kitaplar<span class="token punctuation">,</span> yayinevleri <span class="token keyword">WHERE</span> kitaplar<span class="token punctuation">.</span>yv_no <span class="token operator">=</span> yayinevleri<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Yukarıda <em>Kitaplar</em> tablosundaki <em>yv_no</em> ile <em>Yayinevleri</em> tablosundaki <em>no</em> alanlarının ilişkili olduğunu söylemiştik. <code>WHERE kitaplar.yv_no = yayinevleri.no</code> ifadesiile bu ilişkiyi sorgumuzda kullanmış olduk. Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>no</th>
+<th>isim</th>
+<th>yv_no</th>
+<th>no</th>
+<th>isim</th>
+<th>sehir</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>5 dakkada Java</td>
+<td>1</td>
+<td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>2</td>
+<td>5 bilemedin 6 saatte SQL</td>
+<td>1</td>
+<td>1</td>
+<td>A</td>
+<td>Ankara</td></tr>
+<tr><td>3</td>
+<td>Hakiki SQL</td>
+<td>2</td>
+<td>2</td>
+<td>B</td>
+<td>İstanbul</td></tr></tbody></table>
+<p>Evet bu sonuç kümesi hangi kitabın, hangi yayınevi tarafından basıldığını gösteren <strong>anlamlı</strong> bir tablo oldu. Aslında bu tablo yukarıdaki 9 satırlı tabloda <em>yv_no</em> ile <em>no</em> alanları eşit olmayan satırlar <strong>elenerek</strong> elde edildi geri planda. Kısacası tüm veritabanı işlemleri matematiksel fomül ve fonksiyonlara dayanır. İlgilenen arkadaşlar <strong>ilişkisel cebir</strong> ve <strong>ilişkisel hesap</strong> konularını inceleyebilirler. </p>
+<p>Sorgumuzu aşağıdaki gibi değiştirerek daha sade ve anlaşılır bir sonuç kümesi elde edelim:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> kitaplar<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> yayinevleri<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar<span class="token punctuation">,</span> yayinevleri <span class="token keyword">WHERE</span> kitaplar<span class="token punctuation">.</span>yv_no <span class="token operator">=</span> yayinevleri<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Sonuç kümesi aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>isim</th>
+<th>isim</th></tr></thead>
+<tbody><tr><td>5 dakkada Java</td>
+<td>A</td></tr>
+<tr><td>5 bilemedin 6 saatte SQL</td>
+<td>A</td></tr>
+<tr><td>Hakiki SQL</td>
+<td>B</td></tr></tbody></table>
+<p>Şimdi de sorgumuzu <a href="http://www.hrzafer.com/sql-11-as-sozcugu-ve-takma-isimler-alias" rel="nofollow">bir önceki derste</a> öğrendiklerimizden faydalanarak daha okunur hale getirelim.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K<span class="token punctuation">,</span> yayinevleri Y <span class="token keyword">WHERE</span> K<span class="token punctuation">.</span>yv_no <span class="token operator">=</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>İşlev açısından yukarıdaki ile tamamen aynı olan sorgumuzu, takma isimlerden (alias) yaralanarak yalnızca sadeleştirdik.</p>
+<p>Dersi bir soru ile bitirelim: Aynı sorguyu neden aşağıdaki gibi yazamazdık?</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> isim<span class="token punctuation">,</span> isim <span class="token keyword">FROM</span> kitaplar<span class="token punctuation">,</span> yayinevleri <span class="token keyword">WHERE</span> yv_no <span class="token operator">=</span> <span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-10-between-isleci">SQL 10: BETWEEN İşleci</a></li>
+<li><a href="/sql-11-as-sozcugu-ve-takma-isimler-alias">SQL 11: AS Sözcüğü ve Takma İsimler (Alias)</a></li>
+<li><a href="/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2">SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2</a></li>
+<li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li></ul>
+
+  <p>13 Şubat 2010 Cumartesi tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="16qejw5">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="16qejw5"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

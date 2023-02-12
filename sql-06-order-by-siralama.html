@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 06: ORDER BY (Sıralama)</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>SELECT sorgusu ile çektiğimiz kayıtları (sonuç kümesini) sıralamak için ORDER BY anahtar kelimesini kullanırız. Bu sıralama belirtilen kolona göre yapılır. Ve varsayılan olarak artan (küçükten büyüğe) sıradadır. <code>ORDER BY</code> için sözdizimi (syntax - sintaks) aşağıdaki gibidir:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> kolon_adı<span class="token punctuation">(</span>ları<span class="token punctuation">)</span>
+<span class="token keyword">FROM</span> tablo_adı
+<span class="token keyword">ORDER</span> <span class="token keyword">BY</span> kolon_adı<span class="token punctuation">(</span>ları<span class="token punctuation">)</span> <span class="token keyword">ASC</span><span class="token operator">|</span><span class="token keyword">DESC</span></code><!-- HTML_TAG_END --></pre>
+<p>Burada sıralamanın azalan (büyükten küçüğe) şekilde olmasını istiyorsak <code>DESC</code> anahtar kelimesini kullanırız. Artan şekilde olması için ASC yazmamız veya hiç bir şey yazmamamız yeterlidir. </p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<p>Örnek sorgularımız için kullanacağımız <code>Uyeler</code> tablosu:</p>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>hrzafer</td>
+<td>Harun Reşit</td>
+<td>Zafer</td>
+<td><a href="mailto:hrzafer@hrzafer.com">hrzafer@hrzafer.com</a></td>
+<td>E</td></tr>
+<tr><td>derya.z</td>
+<td>Derya</td>
+<td>Zaimoğlu</td>
+<td><a href="mailto:derya.z@derya.com">derya.z@derya.com</a></td>
+<td>K</td></tr>
+<tr><td>meryem1990</td>
+<td>Meryem</td>
+<td>Arkadaş</td>
+<td><a href="mailto:meryem1990@nospam.co">meryem1990@nospam.co</a></td>
+<td>K</td></tr>
+<tr><td>eaydin</td>
+<td>Emir</td>
+<td>Aydın</td>
+<td><a href="mailto:ea@biracayipadam.com">ea@biracayipadam.com</a></td>
+<td>E</td></tr>
+<tr><td>denizeri</td>
+<td>Levent</td>
+<td>Denizeri</td>
+<td><a href="mailto:levend@naval.com">levend@naval.com</a></td>
+<td>E</td></tr></tbody></table>
+<p> </p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> isim<span class="token punctuation">,</span> soyisim <span class="token keyword">FROM</span> uyeler <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> isim</code><!-- HTML_TAG_END --></pre>
+<br>
+<table><thead><tr><th>isim</th>
+<th>soyisim</th></tr></thead>
+<tbody><tr><td>Derya</td>
+<td>Zaimoğlu</td></tr>
+<tr><td>Emir</td>
+<td>Aydın</td></tr>
+<tr><td>Harun Reşit</td>
+<td>Zafer</td></tr>
+<tr><td>Levent</td>
+<td>Denizeri</td></tr>
+<tr><td>Meryem</td>
+<td>Arkadaş</td></tr></tbody></table>
+<p>Görüldüğü gibi sonuç kümesi <strong><em>isim</em></strong> kolonuna küçükten büyüğe göre sıralandı.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> isim<span class="token punctuation">,</span> soyisim <span class="token keyword">FROM</span> uyeler <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> soyisim <span class="token keyword">DESC</span></code><!-- HTML_TAG_END --></pre>
+<table><thead><tr><th>isim</th>
+<th>soyisim</th></tr></thead>
+<tbody><tr><td>Derya</td>
+<td>Zaimoğlu</td></tr>
+<tr><td>Harun Reşit</td>
+<td>Zafer</td></tr>
+<tr><td>Levent</td>
+<td>Denizeri</td></tr>
+<tr><td>Emir</td>
+<td>Aydın</td></tr>
+<tr><td>Meryem</td>
+<td>Arkadaş</td></tr></tbody></table>
+<p>Bu sorgu ile de  sonuç kümesini <em><strong>soyisim</strong></em> kolonuna göre azalan (büyükten küçüğe) şekilde sıralamış olduk. Aşağıdaki sorguyu da Personel tablomuz için yazalım:</p>
+<table><thead><tr><th>per_no</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>yas</th>
+<th>cinsiyet</th>
+<th>kent</th>
+<th>ulke</th>
+<th>maas</th></tr></thead>
+<tbody><tr><td>1</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>E</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>2</td>
+<td>Mehmet</td>
+<td>Efe</td>
+<td>22</td>
+<td>E</td>
+<td>Bolu</td>
+<td>Türkiye</td>
+<td>1800</td></tr>
+<tr><td>3</td>
+<td>Ayşe</td>
+<td>Can</td>
+<td>23</td>
+<td>K</td>
+<td>İstanbul</td>
+<td>Türkiye</td>
+<td>2500</td></tr>
+<tr><td>4</td>
+<td>Fatma</td>
+<td>Ak</td>
+<td>35</td>
+<td>K</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2800</td></tr>
+<tr><td>5</td>
+<td>John</td>
+<td>Smith</td>
+<td>45</td>
+<td>E</td>
+<td>New York</td>
+<td>ABD</td>
+<td>3500</td></tr>
+<tr><td>6</td>
+<td>Ellen</td>
+<td>Smith</td>
+<td>40</td>
+<td>K</td>
+<td>New York</td>
+<td>ABD</td>
+<td>3000</td></tr>
+<tr><td>7</td>
+<td>Hans</td>
+<td>Müller</td>
+<td>30</td>
+<td>E</td>
+<td>Berlin</td>
+<td>Almanya</td>
+<td>4000</td></tr>
+<tr><td>8</td>
+<td>Frank</td>
+<td>Cesanne</td>
+<td>35</td>
+<td>E</td>
+<td>Paris</td>
+<td>Fransa</td>
+<td>3700</td></tr>
+<tr><td>9</td>
+<td>Abbas</td>
+<td>Demir</td>
+<td>26</td>
+<td>E</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>1500</td></tr>
+<tr><td>10</td>
+<td>Hatice</td>
+<td>Yılmaz</td>
+<td>26</td>
+<td>K</td>
+<td>İstanbul</td>
+<td>Türkiye</td>
+<td>3000</td></tr></tbody></table>
+<p>Erkeklerden Türkiye’de olanları aldıkları maaşa göre artan şekilde sıralayan sorgu:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> personel 
+<span class="token keyword">WHERE</span> cinsiyet<span class="token operator">=</span><span class="token string">'E'</span> <span class="token operator">AND</span> ulke<span class="token operator">=</span><span class="token string">'Türkiye'</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> maas</code><!-- HTML_TAG_END --></pre>
+<table><thead><tr><th>per_no</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>yas</th>
+<th>cinsiyet</th>
+<th>kent</th>
+<th>ulke</th>
+<th>maas</th></tr></thead>
+<tbody><tr><td>9</td>
+<td>Abbas</td>
+<td>Demir</td>
+<td>26</td>
+<td>E</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>1500</td></tr>
+<tr><td>2</td>
+<td>Mehmet</td>
+<td>Efe</td>
+<td>22</td>
+<td>E</td>
+<td>Bolu</td>
+<td>Türkiye</td>
+<td>1800</td></tr>
+<tr><td>1</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>E</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr></tbody></table>
+<p>Görüldüğü gibi <code>ORDER BY</code> anahtar kelimesi her zaman sorgunun sonuna geliyor. Çünkü sorgunun kendisi sonuç kümesini belirlerken <code>ORDER BY</code> yalnızca bu sonuç kümesini sıralıyor.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-04-and-ve-or-islecleri">SQL 04: AND ve OR İşleçleri</a></li>
+<li><a href="/sql-05-karmasik-and-ve-or-sorgulari">SQL 05: Karmaşık AND ve OR sorguları</a></li>
+<li><a href="/sql-07-top-veya-limit-mysql">SQL 07: TOP veya LIMIT (mySQL)</a></li>
+<li><a href="/sql-08-like-1">SQL 08: LIKE İşleci (Operatörü) – 1</a></li></ul>
+
+  <p>13 Ağustos 2009 Perşembe tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="154y4e3">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="154y4e3"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 04: AND ve OR İşleçleri</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Bir önceki <a href="http://www.hrzafer.com/sql-where-clause" rel="nofollow">yazıda</a> SQL sorgularına nasıl koşul koyacağımızı öğrenmiştik. Bu yazıda ise birden fazla koşul tanımlamak istediğimizde bize yardımcı olacak 2 temel işleci (operatörü) çalışalım.</p>
+<p style="margin-top:50px"></p><ul><li>AND işlecinin bir kaydı getirmesi için <strong>her iki koşulun da</strong> doğru olması gerekir.</li>
+<li>OR işlecinin bir kaydı getirmesi için iki koşuldan <strong>en az birinin</strong> doğru olması yeterlidir.</li></ul>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<p><strong>AND İşleci Örneği</strong></p>
+<p>Aşağıdaki tabloda ismi “Derya” <strong>ve</strong> cinsiyeti “K” olanları seçelim.</p>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>hrzafer</td>
+<td>Harun Reşit</td>
+<td>Zafer</td>
+<td><a href="mailto:hrzafer@hrzafer.com">hrzafer@hrzafer.com</a></td>
+<td>E</td></tr>
+<tr><td>derya.z</td>
+<td>Derya</td>
+<td>Zaimoğlu</td>
+<td><a href="mailto:derya.z@derya.com">derya.z@derya.com</a></td>
+<td>K</td></tr>
+<tr><td>meryem1990</td>
+<td>Meryem</td>
+<td>Arkadaş</td>
+<td><a href="mailto:meryem1990@nospam.co">meryem1990@nospam.co</a></td>
+<td>K</td></tr>
+<tr><td>eaydin</td>
+<td>Emir</td>
+<td>Aydın</td>
+<td><a href="mailto:ea@biracayipadam.com">ea@biracayipadam.com</a></td>
+<td>E</td></tr>
+<tr><td>denizeri</td>
+<td>Levent</td>
+<td>Denizeri</td>
+<td><a href="mailto:levend@naval.com">levend@naval.com</a></td>
+<td>E</td></tr></tbody></table>
+<p></p><pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler <span class="token keyword">WHERE</span> isim <span class="token operator">=</span> <span class="token string">'Derya'</span> <span class="token operator">AND</span> cinsiyet <span class="token operator">=</span> <span class="token string">'K'</span></code><!-- HTML_TAG_END --></pre>
+<p></p><table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>derya.z</td>
+<td>Derya</td>
+<td>Zaimoğlu</td>
+<td><a href="mailto:derya.z@derya.com">derya.z@derya.com</a></td>
+<td>K</td></tr></tbody></table>
+<p>Tabloda her iki koşula da uyan tek kayıt getirildi. <strong>OR İşleci Örneği</strong> Yine yukarıdaki tablodan ismi “Derya” <strong>veya</strong> cinsiyeti “K” olanları seçelim.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler <span class="token keyword">WHERE</span> isim <span class="token operator">=</span> <span class="token string">'Derya'</span> <span class="token operator">OR</span> cinsiyet <span class="token operator">=</span> <span class="token string">'K'</span></code><!-- HTML_TAG_END --></pre>
+<table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>derya.z</td>
+<td>Derya</td>
+<td>Zaimoğlu</td>
+<td><a href="mailto:derya.z@derya.com">derya.z@derya.com</a></td>
+<td>K</td></tr>
+<tr><td>meryem1990</td>
+<td>Meryem</td>
+<td>Arkadaş</td>
+<td><a href="mailto:meryem1990@nospam.co">meryem1990@nospam.co</a></td>
+<td>K</td></tr></tbody></table>
+<p>Bu defa tabloda iki koşuldan her hangi birine uyan kayıtlar getirildi. Örneğin 2. kaydın isim alanı “Meryem” olsa da cinsiyet alanının “K” olması yeterli oldu. Eğer tablomuzda ismi “Derya” olan ancak cinsiyeti “E” olan bir kayıt olsaydı, o da bu sorgu sonucunda dönen kayıtlar arasında olacaktı. </p>
+<p><strong>AND ve OR İşleçlerini Beraber Kullanma</strong></p>
+<p>Cinsiyeti “E” olan ve soyismi “Aydın” veya “Zafer” olan kayıtları getirmek istersek:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> uyeler 
+<span class="token keyword">WHERE</span> cinsiyet <span class="token operator">=</span> <span class="token string">'E'</span> <span class="token operator">AND</span> 
+<span class="token punctuation">(</span>soyisim <span class="token operator">=</span> <span class="token string">'Aydın'</span> <span class="token operator">OR</span> soyisim <span class="token operator">=</span> <span class="token string">'Zafer'</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
+<p></p><table><thead><tr><th>uye_adi</th>
+<th>isim</th>
+<th>soyisim</th>
+<th>e-posta</th>
+<th>cinsiyet</th></tr></thead>
+<tbody><tr><td>hrzafer</td>
+<td>Harun Reşit</td>
+<td>Zafer</td>
+<td><a href="mailto:hrzafer@hrzafer.com">hrzafer@hrzafer.com</a></td>
+<td>E</td></tr>
+<tr><td>eaydin</td>
+<td>Emir</td>
+<td>Aydın</td>
+<td><a href="mailto:ea@biracayipadam.com">ea@biracayipadam.com</a></td>
+<td>E</td></tr></tbody></table>
+<p>Bir kaydın bu koşula uyabilmesi için hem cinsiyeti “E” hem de soyismi “Zafer” veya “Aydın” değerlerinden birisi olmak zorunda. <code>AND</code> ve <code>OR</code> işleçlerini kullanırken parantezlerin hayati önem taşıdığını unutmayın. </p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-dersleri">SQL Dersleri</a></li>
+<li><a href="/sql-distinct-ifadesi">SQL 02: Distinct İfadesi</a></li>
+<li><a href="/sql-where-clause">SQL 03: WHERE Yan Cümlesi (Clause)</a></li>
+<li><a href="/veritabanina-genel-bakis">Veritabanına Genel Bakış</a></li></ul>
+
+  <p>10 Ağustos 2009 Pazartesi tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="mlxsx8">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="mlxsx8"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

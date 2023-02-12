@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>Java ve SQLite: Örnek Veritabanı Uygulaması – 4</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/sqlite.png">
+<p>Bundan önceki <a href="http://www.hrzafer.com/netbeans-java-mysql-ornek-veritabani-uygulamasi-1" rel="nofollow">üç makale</a> MySql veritabanı kullanan küçük masaüstü uygulamalarıydı. Ancak MySql aslında masaüstü uygulamalarında kullanılmak için tasarlanmış bir veritabanı yönetim sistemi değil. Daha çok web ve dağıtık uygulamalar için kullanılan bir çözüm. Bu nedenle veritabanı bir sunucu üzerinden hizmet veriyor ve veritabanını kullanacak olan tüm uygulamalar veriye bu <a href="http://www.hrzafer.com/veritabani-tasarimi-ve-sql-01-veritabanina-genel-bakis" rel="nofollow">sunucu üzerinden</a> ulaşıyor. Bir masaüstü uygulamasının ihtiyaç duyacağı <strong>yerel</strong> bilgileri MySql veritabanı kullanarak sakladığımızda, o uygulamayı kuracağımız her bilgisayara bir de mysql sunucu kurmamız, hatta veritabanını da sunucuda yeniden oluşturmamız gerekiyor. Sözün kısası uzun zamandır bu problemle ilgili sorular geliyordu ve çözüm olarak Sqlite’i öneriyordum. Bu yazıda bu önerimi örnek bir uygulama ile pekiştireceğim. Bu arada Sqlite veritabanını kullanan uygulama ve işletim sistemlerinden bazılarının Firefox, Opera, Chrome, Skype, Dropbox, Windows Phone 8, Apple iOS, Symbian Os, Google Android vs. olduğunu hatırlatalım.</p>
+<p>Bu yazıda ayrıntılı bir anlatım yapmak yerine kısaca önceki makalelerde yaptığımız çalışmayı SQLite’e uyarladım. Çünkü önceki makaleler yeterince ayrıntılı. Bu uyarlamayı Netbeans projesi olarak yazının sonundaki bağlantıdan indirebilirsiniz. Java ve veritabanı konusunda hiç tecrübeniz yoksa önce <a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-1">ilk üç makaleyi</a> çalışmanızı tavsiye ederim. </p>
+<h3>1- SQLite veritabanı oluşturma**</h3>
+<p>Öncelikle yapmamız gereken kullanacağımız veritabanını tasarlamak ve oluşturmak olacak. Bunun için de bize bir SQLite yönetici uygulaması gerekiyor. Bu uygulama bizlere yeni veritabanı oluşturma, tablo ekleme/silme/güncelleme gibi işlemleri rahatça yapabileceğimiz bir arayüz sunmalı.  Mysql için PhpMyAdmin, MySQL manager gibi bir çok benzer uygulama mevcuttu hatırlarsanız. Google’da “sqlite manager” şeklinde bir arama yaptığınızda pek çok sonuç çıkıyor. Bunları tek tek incelemeye vaktim olmadı. Ancak ilk sırada gelen ve bir Firefox eklentisi olan <a href="https://addons.thunderbird.net/en-us/firefox/addon/sqlite-manager/" rel="nofollow">Firefox Sqlite Manager</a>‘ın son derece kullanışlı ve yeterli olduğunu söyleyebilirim. Tek dezavantajı Firefox ile birlikte kullanmanız gerektiği. </p>
+<p>Yeni veritabanımızı oluşturalım. Bu veritabanı “kisiler” isminde tek bir tablo içerecek: </p>
+<ul><li>Menüden Database-&gt;New database seçeneğini tıklayın. </li>
+<li>Açılan pencerede yeni veritabanının ismini girin, sonuna sqlite uzantısı otomatik olarak eklenecektir. </li></ul>
+<p><img src="img/blog/new_db.png" alt="new db"></p>
+<ul><li>Veritabanına tablo eklemek için, sol paneldeki “tables” üzerine sağ tıklayıp “create table” seçeneğine tıklayın. Açılan pencerede tablo alanlarını aşağıdaki gibi oluşturun. </li></ul>
+<p><img src="img/blog/new_table.png" title="new_table"></p>
+<ul><li>Alternatif olarak soldaki sekmelerden “Execute SQL” ismindekini seçip, tabloyu aşağıdaki SQL sorgusunu çalıştırarak oluşturabilirsiniz.</li></ul>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token string">"kisiler"</span> <span class="token punctuation">(</span><span class="token string">"id"</span> <span class="token keyword">INTEGER</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span>  AUTOINCREMENT  <span class="token operator">NOT</span> <span class="token boolean">NULL</span> <span class="token punctuation">,</span> <span class="token string">"ad"</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">,</span> <span class="token string">"soyad"</span> <span class="token keyword">VARCHAR</span><span class="token punctuation">,</span> <span class="token string">"yas"</span> <span class="token keyword">INTEGER</span><span class="token punctuation">,</span> <span class="token string">"cinsiyet"</span> <span class="token keyword">BOOL</span><span class="token punctuation">)</span></code><!-- HTML_TAG_END --></pre>
+<p><img src="img/blog/new_table_sql.png" title="new_table_sql"></p>
+<ul><li>Oluşturulan tabloya kayıt girişi de aynı şekilde el ile veya SQL sorgusu çalıştırarak olabilir. El ile girişi “Browse &amp; Search” isimli sekmeden “Add” butonuna tıklayarak yapabilirsiniz. Kayıtlar eklendikten sonra görünüm aşağıdakine benzer olacaktır. </li></ul>
+<p><img src="img/blog/add_record.png" title="add_record"></p>
+<ul><li>Kayıtları aşağıdaki sorguyu çalıştırarak da girebilirsiniz. Bunu yukarıda yaptığımız gibi “Execute SQL” sekmesinden yapabilirsiniz.</li></ul>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token string">"kisiler"</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'Harun Reşit'</span><span class="token punctuation">,</span><span class="token string">'Zafer'</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token string">"kisiler"</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'Derya'</span><span class="token punctuation">,</span><span class="token string">'Deniz'</span><span class="token punctuation">,</span><span class="token number">24</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token string">"kisiler"</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Emir'</span><span class="token punctuation">,</span><span class="token string">'Aydın'</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token string">"kisiler"</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'Levent'</span><span class="token punctuation">,</span><span class="token string">'Denizeri'</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> <span class="token string">"kisiler"</span> <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token string">'Abbas'</span><span class="token punctuation">,</span><span class="token string">'Yolcu'</span><span class="token punctuation">,</span><span class="token number">25</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code><!-- HTML_TAG_END --></pre>
+<br>
+<h3>2- Java ile veritabanına bağlantı</h3>
+<p>Hatırlarsanız Java ile MySQL’e bağlanırken projemize “MySQL JDBC Driver” isimli kütüphaneyi eklememiz gerekiyordu. Aynı şekilde SQLite için de çeşitli JDBC sürücüleri mevcut. Ancak MySQL sürücüsü Netbeans ile birlikte hazır bir kütüphane olarak geliyor ve projeye eklenmesi daha kolay. SQLite için ise ilgili <strong>jar</strong> dosyasını indirip projemize eklememiz gerekecek. Aşağıdaki bağlantılardan sürücüyü, kaynak kodlarını ve döküman kodlarını indirebilirsiniz.</p>
+<ul><li><p><a href="http://www.xerial.org/maven/repository/artifact/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2.jar" rel="nofollow">sqlite-jdbc-3.7.2.jar</a></p></li>
+<li><p><a href="http://www.xerial.org/maven/repository/artifact/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2-javadoc.jar" rel="nofollow">sqlite-jdbc-3.7.2-javadoc.jar</a></p></li>
+<li><p><a href="http://www.xerial.org/maven/repository/artifact/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2-sources.jar" rel="nofollow">sqlite-jdbc-3.7.2-sources.jar</a></p></li>
+<li><p>Netbeans projenizin ana dizinine “db” ve “lib” isimli iki yeni klasör açmanızı ve jar dosyalarını “lib” klasörünün içerisine, “vt.sqlite” ya da benzer isimli veritabanı dosyanızı da “db” isimli klasörün altına kopyalamanızı öneririm.</p></li>
+<li><p>Veritabanına bağlantı parametreleri ise aşağıdaki gibi olacaktır.</p></li></ul>
+<pre class="language-java"><!-- HTML_TAG_START --><code class="language-java"><span class="token keyword">private</span> <span class="token class-name">Connection</span> conn <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">//Bağlantı nesnemiz</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> url <span class="token operator">=</span> <span class="token string">"jdbc:sqlite"</span><span class="token punctuation">;</span><span class="token comment">//veritabanının adresi ve portu</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> dbName <span class="token operator">=</span> <span class="token string">":db/vt.sqlite"</span><span class="token punctuation">;</span> <span class="token comment">//veritabanının dosya yolu</span>
+<span class="token keyword">private</span> <span class="token class-name">String</span> driver <span class="token operator">=</span> <span class="token string">"org.sqlite.JDBC"</span><span class="token punctuation">;</span><span class="token comment">//SQLite ile Java arasındaki bağlantıyı sağlayan JDBC sürücüsü</span></code><!-- HTML_TAG_END --></pre>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Yazılar</h3>
+<ul><li><a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-1">Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 1</a></li>
+<li><a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-2">Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 2</a></li>
+<li><a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-3">Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 3</a></li></ul>
+
+  <p>17 Eylül 2012 Pazartesi tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="c47908">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="c47908"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>

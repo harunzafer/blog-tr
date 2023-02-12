@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+		<link href="/css/styles.css" rel="stylesheet" />
+		<link href="/css/prism.css" rel="stylesheet" />
+		<meta name="viewport" content="width=device-width" />
+		<meta http-equiv="content-security-policy" content="">
+		<link rel="modulepreload" href="./_app/immutable/start-36b1c3a7.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_layout.svelte-1882f82f.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav"><div class="container px-4 px-lg-5"><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu
+			<i class="fas fa-bars"></i></button>
+		<div class="collapse navbar-collapse" id="navbarResponsive"><ul class="navbar-nav ms-auto py-4 py-lg-0"><li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/hakkinda">Hakkında</a></li>
+				<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/iletisim">İletişim</a></li></ul></div></div></nav>
+
+<header class="masthead" style="background-image: url('/img/home-bg.jpg')"><div class="container position-relative px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><div class="site-heading"><h1>Harun Reşit Zafer</h1>
+					<span class="subheading">Bâki kalan bu kubbede bir hoş sadâ imiş</span></div></div></div></div></header>
+
+<main><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7">
+
+
+<article class="mb-4"><div class="post-header"><h1>SQL 16: HAVING İfadesi</h1></div>
+	
+	
+	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
+<p>Son iki yazımda SQL kümeleme fonksiyonlarını ve GROUP BY ifadesini anlatmıştım. HAVING ifadesi bu iki yazıda anlatılanların devamı, çünkü sadece GROUP BY ifadesi ile birlikte kullanılan bir ifade. Aslında HAVING ifadesinin işlevi WHERE ifadesininkine çok benziyor. Ancak kümeleme fonksiyonları ile WHERE ifadesi birlikte kullanılamadığından HAVING ifadesine ihtiyaç duyulmuştur. Meseleyi daha iyi izah edebilmek için hemen örneklere geçelim.</p>
+<p><strong>Not:</strong> Bu arada diğer SQL derslerine <a href="/sql-dersleri">buradan ulaşabilirsiniz</a></p>
+<p>Öncelikle bir önceki makalede de kullandığımız aşağıdaki <em>kisiler</em> tablosunu inceleyelim. Sonra bu tablo üzerinden örneklerle konuyu inceleyeceğiz.</p>
+<table><thead><tr><th>id</th>
+<th>Ad</th>
+<th>Soyad</th>
+<th>Yas</th>
+<th>Cinsiyet</th>
+<th>Şehir</th>
+<th>Ülke</th>
+<th>Maaş</th></tr></thead>
+<tbody><tr><td>2</td>
+<td>Ahmet</td>
+<td>Yılmaz</td>
+<td>20</td>
+<td>1</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>3</td>
+<td>Mehmet</td>
+<td>Efe</td>
+<td>22</td>
+<td>1</td>
+<td>Bolu</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>4</td>
+<td>Ayşe</td>
+<td>Can</td>
+<td>23</td>
+<td>0</td>
+<td>İstanbul</td>
+<td>Türkiye</td>
+<td>3500</td></tr>
+<tr><td>5</td>
+<td>Fatma</td>
+<td>Ak</td>
+<td>35</td>
+<td>0</td>
+<td>Ankara</td>
+<td>Türkiye</td>
+<td>3200</td></tr>
+<tr><td>6</td>
+<td>John</td>
+<td>Smith</td>
+<td>45</td>
+<td>1</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>7</td>
+<td>Ellen</td>
+<td>Smith</td>
+<td>40</td>
+<td>0</td>
+<td>New York</td>
+<td>USA</td>
+<td>3500</td></tr>
+<tr><td>8</td>
+<td>Hans</td>
+<td>Müller</td>
+<td>30</td>
+<td>1</td>
+<td>Berlin</td>
+<td>Almanya</td>
+<td>4000</td></tr>
+<tr><td>9</td>
+<td>Frank</td>
+<td>Cesanne</td>
+<td>35</td>
+<td>1</td>
+<td>Paris</td>
+<td>Fransa</td>
+<td>3700</td></tr>
+<tr><td>10</td>
+<td>Abbas</td>
+<td>Demir</td>
+<td>26</td>
+<td>1</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr>
+<tr><td>11</td>
+<td>Hatice</td>
+<td>Topçu</td>
+<td>26</td>
+<td>0</td>
+<td>Hatay</td>
+<td>Türkiye</td>
+<td>2200</td></tr>
+<tr><td>12</td>
+<td>Gülsüm</td>
+<td>Demir</td>
+<td>35</td>
+<td>0</td>
+<td>Adana</td>
+<td>Türkiye</td>
+<td>2000</td></tr></tbody></table>
+<p>Öncelikle aşağıdaki 2 sorgu örneğini inceleyelim:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Bu sorgu ülkelere göre maaş ortalamasını verir ve çıktısı aşağıdaki gibidir:</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>4000.0000</td></tr>
+<tr><td>Fransa</td>
+<td>3700.0000</td></tr>
+<tr><td>Türkiye</td>
+<td>2414.2857</td></tr>
+<tr><td>USA</td>
+<td>3500.0000</td></tr></tbody></table>
+<p> </p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">WHERE</span> yas <span class="token operator">></span> <span class="token number">30</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke</code><!-- HTML_TAG_END --></pre>
+<p>Dikkat ederseniz bu sorgunun bir öncekinden tek farkı “WHERE yas &gt; 30” kısmı. Sorgu yine ülkelere göre maaş ortalamasını hesaplıyor ama bu hesaba yalnızca yaşı 30’dan büyük olan çalışanları katıyor. Sorgunun çıktısı aşağıdaki gibidir:</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Fransa</td>
+<td>3700.0000</td></tr>
+<tr><td>Türkiye</td>
+<td>2600.0000</td></tr>
+<tr><td>USA</td>
+<td>3500.0000</td></tr></tbody></table>
+<p>Şimdi de yaş ortalaması 30’un üzerinde olan ülkelerin maaş ortalamalarını getiren sorguyu yazmaya çalışalım. Burada 30 yaş üstü koşulu çalışanlar için değil ülkeler için (yani gruplar) geçerli. O halde yine yukarıdaki sorgularda olduğu gibi ülkelere göre gruplama yapacağız ama bu sefer koşulu gruplar için yazacağız.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke <span class="token keyword">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>yas<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">30</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Fransa</td>
+<td>3700.0000</td></tr>
+<tr><td>USA</td>
+<td>3500.0000</td></tr></tbody></table>
+<p>Sorgunun döndürdüğü sonuç kümesine bakarak iki ülkenin (Türkiye ve Almanya) yaş ortalamalarının 30’dan küçük olduğunu söyleyebiliriz. Şimdi de çalışan sayısı 1’den fazla olan şehirleri ve çalışan sayılarını getiren sorguyu yazalım.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> şehir<span class="token punctuation">,</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> şehir <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır.</p>
+<table><thead><tr><th>şehir</th>
+<th>COUNT(*)</th></tr></thead>
+<tbody><tr><td>Adana</td>
+<td>2</td></tr>
+<tr><td>Ankara</td>
+<td>2</td></tr>
+<tr><td>New York</td>
+<td>2</td></tr></tbody></table>
+<p> Şimdi yazacağımız sorgunun açıklaması şöyle: Maaş ortalaması 3000’den fazla olan ülkelerdeki erkek çalışanların maaş ortalaması. Burada gruplamanın ülkelere göre yapılacağı ve yalnızca erkek çalışanların hesaba katılacağı açık.</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">WHERE</span> Cinsiyet<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke <span class="token keyword">HAVING</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">3000</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibidir. Bu sorguda WHERE ve HAVING ifadeleri birlikte kullandığımızdan farklarını rahatça görebiliyoruz.</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Almanya</td>
+<td>4000.0000</td></tr>
+<tr><td>Fransa</td>
+<td>3700.0000</td></tr>
+<tr><td>USA</td>
+<td>3500.0000</td></tr></tbody></table>
+<p>Yukarıdaki sorguyu biraz değiştirelim: Erkek çalışanların sayısı 1’den fazla olan ülkelerin maaş ortalamasını getiren sorgu:</p>
+<pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ülke<span class="token punctuation">,</span> <span class="token function">AVG</span><span class="token punctuation">(</span>maaş<span class="token punctuation">)</span> <span class="token keyword">FROM</span> <span class="token punctuation">&#96;</span>kisiler<span class="token punctuation">&#96;</span> <span class="token keyword">WHERE</span> Cinsiyet<span class="token operator">=</span><span class="token number">1</span> <span class="token keyword">GROUP</span> <span class="token keyword">BY</span> ülke <span class="token keyword">HAVING</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1</span></code><!-- HTML_TAG_END --></pre>
+<p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
+<table><thead><tr><th>ülke</th>
+<th>AVG(maaş)</th></tr></thead>
+<tbody><tr><td>Türkiye</td>
+<td>2000.0000</td></tr></tbody></table>
+<p>Sorguları ve “ne yaptıklarını” dikkatle incelerseniz konuyu daha iyi anlayacaksınız. Bitirmeden önce WHERE ifadesinin her zaman GROUP BY ifadesinden önce geldiğini HAVING’in ise her zaman sonra geldiğini hatırlatalım.</p>
+<p>Benim tavsiyem sorguları makalenin başındaki <em>kisiler</em> tablosunu kullanarak zihninizden çalıştırmanız. Sorguların sonuç sonuç kümelerini (çıktılarını) yazmaya çalışın ve buradakilerle karşılaştırın. Bu şekilde sorguların çalışma mantığını daha iyi anlar ve benzer sorguları daha rahat yazmaya başlarsınız.</p>
+<p>Herkese kolay gelsin</p>
+<h3>İlgili Diğer Makaleler</h3>
+<ul><li><a href="/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2">SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2</a></li>
+<li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li>
+<li><a href="/sql-15-group-by-ifadesi">SQL 15: GROUP BY İfadesi</a></li>
+<li><a href="/sql-17-ornek-okul-veritabani">SQL 17: Örnek Okul Veritabanı</a></li>
+<li><a href="/sql-18-join-turleri">SQL 18: Join Türleri</a></li></ul>
+
+  <p>1 Ocak 1888 Pazar tarihinde yayınlandı.</p></article></div></div></div></main>
+
+<footer class="border-top"><div class="container px-4 px-lg-5"><div class="row gx-4 gx-lg-5 justify-content-center"><div class="col-md-10 col-lg-8 col-xl-7"><ul class="list-inline text-center"><li class="list-inline-item"><a href="https://www.linkedin.com/in/hrzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i></span></a></li>
+                    <li class="list-inline-item"><a href="https://github.com/harunzafer"><span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i></span></a></li></ul>
+                <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
+
+
+		<script type="module" data-sveltekit-hydrate="jqs12d">
+			import { start } from "./_app/immutable/start-36b1c3a7.js";
+
+			start({
+				env: {},
+				paths: {"base":"","assets":""},
+				target: document.querySelector('[data-sveltekit-hydrate="jqs12d"]').parentNode,
+				version: "1676182411773",
+				hydrate: {
+					node_ids: [0, 3],
+					data: [null,null],
+					form: null
+				}
+			});
+		</script>
+	</div>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="/js/scripts.js"></script>
+	</body>
+</html>
