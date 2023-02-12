@@ -10,7 +10,7 @@ Programlama dillerinde olduğu gibi SQL'de de bir çok yerleşik (built-in) fonk
 
 Kümeleme fonksiyonları tablodaki bir kolon (alan) üzerindeki değerler için belli matematiksel hesaplamalar yapar ve sonuç döndürürler. Örneğin AVG (average-ortalama) fonksiyonu bir kolondaki tüm değerlerin ortalamasını hesaplamamıza yardımcı olur. Makale boyunca örnek sorgular aşağıdaki _kisiler_ tablosu üzerinde işletilecektir. Tabloya söyle bir göz atıp devam edelim. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 | id  | Ad  | Soyad | Yas | Cinsiyet | Şehir | Ülke | Maaş |
 | --- | --- | --- | --- | --- | --- | --- | --- |

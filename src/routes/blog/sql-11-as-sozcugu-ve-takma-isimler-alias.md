@@ -8,7 +8,7 @@ subtitle: 'Bu yazı SQL''in daha karmaşık bölümlerine geçmeden önceki son 
 
 Bu yazı SQL'in daha karmaşık bölümlerine geçmeden önceki son yazı. Bundan önceki 10 (aslında 11) yazıda SQL için temel sayılabilecek konuları ele aldık. Bu yazıda ise karmaşık SQL sorgularında çok işimize yarayacak olan "takma isimler" (alias) konusunu işleyeceğiz. Takma isimler önceki konular göz önünde bulundurulduğunda çok da gerekli gibi görünmeyebilir ancak bundan sonraki konularda ne kadar gerekli hatta bazı durumlarda zorunlu olduğunu göreceğiz. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri) 
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri) 
 
 **Not:** Alias kelimesi için sözlükte bir çok karşılık var. Bana "takma isim" uygun gibi geldi, ama daha iyi bir önerisi olan varsa yazıyı güncelleyebilirim. 
 

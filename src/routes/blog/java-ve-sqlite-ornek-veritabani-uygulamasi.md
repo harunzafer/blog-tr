@@ -51,7 +51,7 @@ INSERT INTO "kisiler" VALUES(5,'Abbas','Yolcu',25,1);
 
 ### 2- Java ile veritabanına bağlantı
 
-Hatırlarsanız Java ile MySQL'e bağlanırken projemize "MySQL JDBC Driver" isimli kütüphaneyi eklememiz gerekiyordu. Aynı şekilde SQLite için de çeşitli JDBC sürücüleri mevcut. Ancak MySQL sürücüsü Netbeans ile birlikte hazır bir kütüphane olarak geliyor ve projeye eklenmesi daha kolay. SQLite için ise ilgili **jar** dosyasını indirip projemize eklememiz gerekecek. Aşağıdaki bağlantılardan sürücüyü, kaynak kodlarını ve döküman kodlarını indirebilirsiniz. Bunları projenize nasıl ekleyeceğinizi bilmiyorsanız [şu makale](/java-kutuphaneleri-1-projenize-kutuphane-eklemek) yardımcı olacaktır. 
+Hatırlarsanız Java ile MySQL'e bağlanırken projemize "MySQL JDBC Driver" isimli kütüphaneyi eklememiz gerekiyordu. Aynı şekilde SQLite için de çeşitli JDBC sürücüleri mevcut. Ancak MySQL sürücüsü Netbeans ile birlikte hazır bir kütüphane olarak geliyor ve projeye eklenmesi daha kolay. SQLite için ise ilgili **jar** dosyasını indirip projemize eklememiz gerekecek. Aşağıdaki bağlantılardan sürücüyü, kaynak kodlarını ve döküman kodlarını indirebilirsiniz.
 
 - [sqlite-jdbc-3.7.2.jar](http://www.xerial.org/maven/repository/artifact/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2.jar) 
 - [sqlite-jdbc-3.7.2-javadoc.jar](http://www.xerial.org/maven/repository/artifact/org/xerial/sqlite-jdbc/3.7.2/sqlite-jdbc-3.7.2-javadoc.jar) 

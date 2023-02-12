@@ -8,7 +8,7 @@ subtitle: 'İki veya daha fazla tablonun belirli kolonları arasındaki ilişkil
 
 İki veya daha fazla tablonun belirli kolonları arasındaki ilişkilere dayanarak bu tablolardan veri çekme işlemine JOIN denir. Bu işlem için JOIN anahtar kelimesi kullanılır ama zorunlu değildir. Bir önceki yazıda ilişkili 2 tablo için yazdığımız join sorgularımızın hiçbirinde JOIN anahtar sözcüğünü kullanmamıştık. Bu yazıda hem JOIN anahtar sözcüğünün kullanımını hem de ilişkili 3 tablo için sorgu yazılışını anlatmaya çalışacağım.
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 Ama önce biraz ısınmak için tabloları ve sorgumuzu hatırlayalım. Bu iki tablo arasındaki ilişkiyi yayınevleri tablosundaki **no** alanı ile Kitaplar tablosundaki **yv_no** (yayınevi no) alanlarının sağladığını tekrar hatırlatalım. Aslında `yv_no` alanı Yayınevleri tablosunun **birincil anahtarı** (primary key) olan no alanını referans göstermektedir. Bir tabloda, başka bir tablonun birincil anahtar alanını referans gösteren alanlara **yabancı anahtar** (foreign key) diyoruz. Burada da `yv_no` alanı yabancı anahtar konumunda. Örneğin Yayınevleri tablosunda 5 nolu bir yayınevi olmadığına göre Kitaplar tablosundaki `yv_no` alanı değerini alamaz. `yv_no` alanının bu örnekte alabileceği değerler 1, 2 ve 3'tür. Ancak 5 nolu bir yayınevi Yayınevleri tablosuna eklendikten sonra `yv_no` alanı da 5 değerini alabilir. 
 

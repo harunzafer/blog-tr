@@ -6,7 +6,6 @@ export const fetchMarkdownPosts = async () => {
       iterablePostFiles.map(async ([path, resolver]) => {
         const { metadata } = await resolver();
         const postPath = path.slice(17, -3);
-        console.log(postPath, metadata);
         return {
           meta: metadata,
           path: postPath,

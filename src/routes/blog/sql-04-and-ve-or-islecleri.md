@@ -13,7 +13,7 @@ Bir önceki [yazıda](http://www.hrzafer.com/sql-where-clause) SQL sorgularına 
 * AND işlecinin bir kaydı getirmesi için **her iki koşulun da** doğru olması gerekir.
 * OR işlecinin bir kaydı getirmesi için iki koşuldan **en az birinin** doğru olması yeterlidir.
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri) 
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri) 
 
 **AND İşleci Örneği** 
 

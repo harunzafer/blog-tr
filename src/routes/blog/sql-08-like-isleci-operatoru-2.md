@@ -9,7 +9,7 @@ subtitle: 'Bir veya birden fazla karakterin yerine geçebilen karakterlere **jok
 ### Joker Karakterler (Wildcards)
 Bir veya birden fazla karakterin yerine geçebilen karakterlere **joker karakter** diyoruz. Aslında joker karakter kavramı bilgisayar dünyasında sıkça kullanılan bir kavramdır. Ortama göre  (kullandığınız programlama dilinden tutun da, işletim sistemine kadar pek çok şey olabilir bu ortam) gösterimde ufak tefek değişiklikler olsa da genel mantığı aynıdır. SQL dilinde joker karakterleri yalnızca `LIKE` işleci ile birlikte kullanıyoruz. SQL için tanımlanmış joker karakterler aşağıdaki gibidir:  
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 | **Joker Karakter** | **Açıklama** |
 | --- | --- |

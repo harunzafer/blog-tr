@@ -8,7 +8,7 @@ subtitle: 'Başlık gözünüzü korkutmasın. Bir önceki yazıda AND ve OR iş
 
 Başlık gözünüzü korkutmasın. Bir [önceki yazıda](http://www.hrzafer.com/sql-04-and-ve-or-islecleri) AND ve OR işleçlerinin (operatör) kullanımına genel olarak değinmiştik ama AND ve OR kavramlarının daha iyi anlaşılması için farklı sorgu örnekleri vermek istedim. Sorguları aşağıdaki tablo için yazacağız. 
 
- **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+ **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
  
  **Personel Tablosu**
 

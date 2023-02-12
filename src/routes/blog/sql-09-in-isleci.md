@@ -11,7 +11,7 @@ subtitle: 'WHERE ifadesi içinde birden fazla değeri koşul olarak belirlemek i
 
 Örnekler için aşağıdaki _personel_ tablosunu kullanacağız. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 | per_no | isim | soyisim | yas | cinsiyet | kent | ulke | maas |
 | --- | --- | --- | --- | --- | --- | --- | --- |

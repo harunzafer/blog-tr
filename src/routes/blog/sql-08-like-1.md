@@ -18,7 +18,7 @@ WHERE kolan_adı LIKE 'desen' (pattern)
 
 Yukarıda geçen desen (pattern) kavramını örneklerden sonra daha iyi anlayacaksınız. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 Örnek sorgularımız için kullanacağımız `Uyeler` tablosu:
 

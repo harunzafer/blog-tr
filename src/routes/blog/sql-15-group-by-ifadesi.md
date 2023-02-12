@@ -8,7 +8,7 @@ subtitle: 'Bir önceki makalede SQL kümeleme fonksiyonlarını anlatmıştık. 
 
 [Bir önceki makalede](http://www.hrzafer.com/sql-14-kumeleme-fonksiyonlari) SQL kümeleme fonksiyonlarını anlatmıştık. Çünkü kümeleme fonksiyonları genelde GROUP BY ifadesi ile birlikte kullanılır. Adından da anlaşılacağı üzere GROUP BY ifadesi gruplama yapar. Yani sonuç kümesini bir veya birden fazla kolona göre gruplar. Öncelikle bir önceki makalede de kullandığımız aşağıdaki _kisiler_ tablosunu inceleyelim. Sonra bu tablo üzerinde biraz gruplama yapacağız. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 | id  | Ad  | Soyad | Yas | Cinsiyet | Şehir | Ülke | Maaş |
 | --- | --- | --- | --- | --- | --- | --- | --- |

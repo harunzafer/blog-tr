@@ -11,7 +11,7 @@ Bundan önceki tüm sorguların içerisinde yalnızca bir tablo kullanmıştık.
 
 Veritabanları çoğu zaman birden fazla tablo içerir.Ve bu tablolar birbiri ile **ilişkilidir**. Örneğin aşağıdaki _Yayinevleri_ ve _Kitaplar_ tablolarını inceleyelim. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri) 
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri) 
 
 **Yayınevleri**
 

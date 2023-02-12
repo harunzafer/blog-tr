@@ -21,7 +21,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; <a href="hrzafer.com">Harun Reşit Zafer</a> 2023</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; <a href="/">Harun Reşit Zafer</a> 2023</div>
             </div>
         </div>
     </div>

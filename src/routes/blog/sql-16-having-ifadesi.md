@@ -8,7 +8,7 @@ subtitle: 'Son iki yazımda SQL kümeleme fonksiyonlarını ve GROUP BY ifadesin
 
 Son iki yazımda SQL kümeleme fonksiyonlarını ve GROUP BY ifadesini anlatmıştım. HAVING ifadesi bu iki yazıda anlatılanların devamı, çünkü sadece GROUP BY ifadesi ile birlikte kullanılan bir ifade. Aslında HAVING ifadesinin işlevi WHERE ifadesininkine çok benziyor. Ancak kümeleme fonksiyonları ile WHERE ifadesi birlikte kullanılamadığından HAVING ifadesine ihtiyaç duyulmuştur. Meseleyi daha iyi izah edebilmek için hemen örneklere geçelim.
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri) 
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri) 
 
 Öncelikle bir önceki makalede de kullandığımız aşağıdaki _kisiler_ tablosunu inceleyelim. Sonra bu tablo üzerinden örneklerle konuyu inceleyeceğiz.
 

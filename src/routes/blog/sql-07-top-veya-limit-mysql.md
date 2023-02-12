@@ -10,7 +10,7 @@ SELECT sorgusu ile dönen kayıtların belli bir sayıda olmasını istememiz ha
 
 **Not:** TOP özelliği SQL server, MySQL ve Oracle'da farklı anahtar sözcükler ile ifade edildiğinden söz-dizimde de farklılıklar var.  
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 Örnek sorgularımız için kullanacağımız `Uyeler` tablosu:
 

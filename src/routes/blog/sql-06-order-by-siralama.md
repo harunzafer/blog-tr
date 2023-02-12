@@ -16,7 +16,7 @@ ORDER BY kolon_adı(ları) ASC|DESC
 
 Burada sıralamanın azalan (büyükten küçüğe) şekilde olmasını istiyorsak `DESC` anahtar kelimesini kullanırız. Artan şekilde olması için ASC yazmamız veya hiç bir şey yazmamamız yeterlidir. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 
 Örnek sorgularımız için kullanacağımız `Uyeler` tablosu:
 

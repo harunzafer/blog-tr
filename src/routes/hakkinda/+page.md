@@ -2,11 +2,11 @@
 
 ## Site Hakkında
 
-[hrzafer.com](hrzafer.com) ile 2009 yılından beri, mesleğim gereği zaman içinde edindiğim tecrübeleri paylaşmaya çalıştım. İnternetteki nitelikli Türkçe kaynak miktarına katkıda bulunmak istedim. Sitede kurallara uygun ve anlaşılır bir Türkçe kullanmaya gayret ettim. Ancak uzun zamandır yeni yazı ekleyemiyorum. Yine de eski makaleler hala ilgi görüyor. Bu nedenle siteyi yayında tutuyorum. Belki ileride yeniden eski heyecanımı, movivasyonumu bulur ve düzenli olarak yeni şeyler paylaşırım 🙂.
+[hrzafer.com](/) ile 2009 yılından beri, mesleğim gereği zaman içinde edindiğim tecrübeleri paylaşmaya çalıştım. İnternetteki nitelikli Türkçe kaynak miktarına katkıda bulunmak istedim. Sitede kurallara uygun ve anlaşılır bir Türkçe kullanmaya gayret ettim. Ancak uzun zamandır yeni yazı ekleyemiyorum. Yine de eski makaleler hala ilgi görüyor. Bu nedenle siteyi yayında tutuyorum. Belki ileride yeniden eski heyecanımı, movivasyonumu bulur ve düzenli olarak yeni şeyler paylaşırım 🙂.
 
 ## Benim Hakkımda
 
-Uzun zamandır yazılım geliştirme alanında çalışıyorum. [harunzafer.com](harunzafer.com) adresinde ise İngilizce olarak yazdığım bloğum mevcut. [LinkedIn](https://www.linkedin.com/in/hrzafer). [GitHub](https://github.com/harunzafer/).
+Uzun zamandır yazılım geliştirme alanında çalışıyorum. [harunzafer.com](https://harunzafer.com/) adresinde ise İngilizce olarak yazdığım bloğum mevcut. [LinkedIn](https://www.linkedin.com/in/hrzafer). [GitHub](https://github.com/harunzafer/).
 
 ## Telif Hakları ve Kullanım Şartları
 
