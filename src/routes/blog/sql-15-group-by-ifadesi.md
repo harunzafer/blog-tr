@@ -6,7 +6,7 @@ subtitle: 'Bir önceki makalede SQL kümeleme fonksiyonlarını anlatmıştık. 
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
-[Bir önceki makalede](http://www.hrzafer.com/sql-14-kumeleme-fonksiyonlari) SQL kümeleme fonksiyonlarını anlatmıştık. Çünkü kümeleme fonksiyonları genelde GROUP BY ifadesi ile birlikte kullanılır. Adından da anlaşılacağı üzere GROUP BY ifadesi gruplama yapar. Yani sonuç kümesini bir veya birden fazla kolona göre gruplar. Öncelikle bir önceki makalede de kullandığımız aşağıdaki _kisiler_ tablosunu inceleyelim. Sonra bu tablo üzerinde biraz gruplama yapacağız. 
+[Bir önceki makalede](/sql-14-kumeleme-fonksiyonlari) SQL kümeleme fonksiyonlarını anlatmıştık. Çünkü kümeleme fonksiyonları genelde GROUP BY ifadesi ile birlikte kullanılır. Adından da anlaşılacağı üzere GROUP BY ifadesi gruplama yapar. Yani sonuç kümesini bir veya birden fazla kolona göre gruplar. Öncelikle bir önceki makalede de kullandığımız aşağıdaki _kisiler_ tablosunu inceleyelim. Sonra bu tablo üzerinde biraz gruplama yapacağız. 
 
 **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
 

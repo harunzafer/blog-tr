@@ -22,6 +22,6 @@ Tüm içerik Creative Commons Attribution-Noncommercial 3.0 Unported License ile
 
 Örnek:
 
-> Not: Bu yazıda hrzafer.com sitesindeki yayınlanmış “Makale ismi” isimli makaleden alıntı yapılmıştır.
+> Not: Bu yazıda [hrzafer.com](/) sitesindeki yayınlanmış “Makale ismi” isimli makaleden alıntı yapılmıştır.
 
 Yukarıdaki örneğe uygun bir not, gönül rahatlığı ile bilgi paylaşımına katkıda bulunmanız için yeterlidir. Site sahibine haber vermenize gerek yoktur.

@@ -6,7 +6,7 @@ subtitle: 'Bir önceki yazıda SQL sorgularına nasıl koşul koyacağımızı �
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
-Bir önceki [yazıda](http://www.hrzafer.com/sql-where-clause) SQL sorgularına nasıl koşul koyacağımızı öğrenmiştik. Bu yazıda ise birden fazla koşul tanımlamak istediğimizde bize yardımcı olacak 2 temel işleci (operatörü) çalışalım.
+Bir önceki [yazıda](/sql-where-clause) SQL sorgularına nasıl koşul koyacağımızı öğrenmiştik. Bu yazıda ise birden fazla koşul tanımlamak istediğimizde bize yardımcı olacak 2 temel işleci (operatörü) çalışalım.
 
 <p style='margin-top:50px'>
 

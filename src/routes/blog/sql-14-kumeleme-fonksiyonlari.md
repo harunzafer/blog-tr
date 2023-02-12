@@ -108,7 +108,7 @@ Sorgunun çıktısı aşağıdaki gibi olacaktır:
 
 **COUNT (DISTINCT kolon_adı) Kullanımı** 
 
-DISTINCT ifadesini [bu makalede](http://www.hrzafer.com/sql-distinct-ifadesi) anlatmıştım. Eğer bilmiyorsanız önce o kısa makaleyi okumanızı öneririm. Eğer bir kolondaki farklı değerlerin sayısını öğrenmek istiyorsak COUNT ifadesini `COUNT (DISTINCT kolon_adı)` şeklinde kullanırız. Örneğin kaç farklı ülkeden çalışan olduğunu hesaplamak istersek:
+DISTINCT ifadesini [bu makalede](/sql-distinct-ifadesi) anlatmıştım. Eğer bilmiyorsanız önce o kısa makaleyi okumanızı öneririm. Eğer bir kolondaki farklı değerlerin sayısını öğrenmek istiyorsak COUNT ifadesini `COUNT (DISTINCT kolon_adı)` şeklinde kullanırız. Örneğin kaç farklı ülkeden çalışan olduğunu hesaplamak istersek:
 
 ```sql
 SELECT COUNT(Distinct ülke) as ÜlkeSayısı FROM kisiler
@@ -137,7 +137,7 @@ Ancak bu MySQL First fonksiyonunu desteklemez. Aynı işi yapan sorgu MySQL'de a
 ```sql
 SELECT ad as ilkİsim FROM kisiler LIMIT 1
 ```
-Bu arada Limit konusu [bu makalede](http://www.hrzafer.com/sql-07-top-veya-limit-mysql) anlatıldı. Bilmiyorsanız bir göz atmanızda fayda var.   
+Bu arada Limit konusu [bu makalede](/sql-07-top-veya-limit-mysql) anlatıldı. Bilmiyorsanız bir göz atmanızda fayda var.   
 
 **LAST() Fonksiyonu** 
 

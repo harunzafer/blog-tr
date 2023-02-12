@@ -6,11 +6,11 @@ subtitle: 'Önceki iki yazıda SQL''deki temel join sorguları üzerinde durmuş
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
-Önceki [iki yazıda](http://www.hrzafer.com/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1) SQL'deki temel join sorguları üzerinde durmuştuk. O yazılarda anlatılan join’in en çok kullanılan türü olan inner join'di. Bu yazıda ise genel olarak inner, outer, left, right, full gibi join türlerinin benzer ve farklı yönlerini örneklerle açıklamaya çalışacağım. Eğer join konusuna tamamen yeni iseniz öncelikle ilk iki makaleyi çalışmanızı öneririm. 
+Önceki [iki yazıda](/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1) SQL'deki temel join sorguları üzerinde durmuştuk. O yazılarda anlatılan join’in en çok kullanılan türü olan inner join'di. Bu yazıda ise genel olarak inner, outer, left, right, full gibi join türlerinin benzer ve farklı yönlerini örneklerle açıklamaya çalışacağım. Eğer join konusuna tamamen yeni iseniz öncelikle ilk iki makaleyi çalışmanızı öneririm. 
 
 Bildiğiniz gibi üzerinde çalıştığımız veritabanları için kullanılan genel isim "**ilişkisel** veritabanı"dır. Yani tablolar birbiri ile ilişkilidir ve bu ilişki bir tablodaki birincil anahtar (primary key) ile diğer tablodaki yabancı anahtar (foreign key) üzerinden kurulur. Aşağıdaki okul veritabanında bu tablolar arasındaki ilişkiler açıkça görülüyor. 
 
-![okul_vt_hrzafer](http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_hrzafer.png) 
+![okul_vt_hrzafer](/img/blog/okul_vt_hrzafer.png)
 
 Join türlerini örneklendirmek için yukarıdaki tablolardan Öğrenci ve Bölüm tablolarını kullanalım: 
 
@@ -24,11 +24,11 @@ SELECT * FROM bolum b inner join ogrenci o on b.bid = o.bid
 ```
 Sorgunun sonuç kümesi aşağıdaki gibi olacaktır. 
 
-![bolum_ogrenci_inner](http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_inner.png) 
+![bolum_ogrenci_inner](/img/blog/bolum_ogrenci_inner.png) 
 
 Sonuç kümesindeki ilk 4 kolon bölüm tablosunda sonraki 5 kolon ise öğrenci tablosuna aittir. Her iki tablonun bid alanlarına bakarsanız bire-bir eşleştiklerini görürsünüz. Yani sorgu iki tablonun kesişimini döndürmüş oluyor. 
 
-![kümeler_inner](http://www.hrzafer.com/wp-content/uploads/2013/01/kümeler_inner.png)
+![kümeler_inner](/img/blog/kümeler_inner.png)
 
 **Left ve Right Outer join** 
 
@@ -38,11 +38,11 @@ Eğer bir tablodaki tüm kayıtlar ile diğer tablodaki birleştirme koşulunu s
 ```sql
 SELECT * FROM bolum b left join ogrenci o on b.bid = o.bid
 ```
-![bolum_ogrenci_left_outer](http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_left_outer.png) 
+![bolum_ogrenci_left_outer](/img/blog/bolum_ogrenci_left_outer.png) 
 
 Son kayıda dikkat ederseniz hiç öğrencisi olmayan bölüm de sonuç kümesinde mevcut.  Yani soldaki tablodan (bölüm) tüm kayıtlar, sağdaki tablodan ise sadece kesişen kayıtlar gelmiş oldu. 
 
-![kumeler_left_outer](http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_left_outer.png)
+![kumeler_left_outer](/img/blog/kumeler_left_outer.png)
 
 Yukarıdaki sorguyuda  left (sol) yerine right (sağ) sözcüğünü kullanmış olsaydık, tüm öğrenciler ile en az bir öğrencisi olan bölümler seçilirdi. Yani left ve right tüm kayıtların seçileceği tablonun sağdaki mi yoksa soldaki mi olacağını belirtiyor yalnzıca.
 
@@ -58,7 +58,7 @@ SELECT * FROM ogrenci o right join bolum b  on b.bid = o.bid
 ```
 Sadece sonuç kümesinde tabloların yeri değişmiş olur. Aşağıda görüldüğü gibi: 
 
-![bolum_ogrenci_right_outer](http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_right_outer.png) 
+![bolum_ogrenci_right_outer](/img/blog/bolum_ogrenci_right_outer.png) 
 
 Eğer yalnızca hiç öğrencisi olmayan bölümleri seçmek istersek **where** ifadesi ile öğrenci tablosundaki tüm kayıtları aşağıdaki gibi eleyebiliriz.
 
@@ -66,11 +66,11 @@ Eğer yalnızca hiç öğrencisi olmayan bölümleri seçmek istersek **where** 
 ```sql
 SELECT * FROM bolum b left join ogrenci o ON b.bid = o.bid where o.bid is null
 ```
-![bolum_ogrenci_left_only](http://www.hrzafer.com/wp-content/uploads/2013/01/bolum_ogrenci_left_only.png) 
+![bolum_ogrenci_left_only](/img/blog/bolum_ogrenci_left_only.png) 
 
 Yaptığımız işlemi Venn şeması ile gösterecek olursak: 
 
-![kumeler_left_only](http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_left_only.png)
+![kumeler_left_only](/img/blog/kumeler_left_only.png)
 
 **Full Outer Join** 
 
@@ -91,7 +91,7 @@ Select * FROM bolum b right join ogrenci o on b.bid = o.bid
 
 Yaptığımız işlemi Venn şeması ile gösterecek olursak: 
 
-![kumeler_full_outer](http://www.hrzafer.com/wp-content/uploads/2013/01/kumeler_full_outer.png) 
+![kumeler_full_outer](/img/blog/kumeler_full_outer.png) 
 
 **Sintaks**
 
@@ -112,7 +112,7 @@ Ancak gerçek hayatta Natural Join kullanımı sakıncalıdır.  Çünkü Natur
 ```sql
 SELECT * FROM bolum b right join ogrenci o on b.bid = o.bid AND o.adi=b.adi
 ```
-Kısacası natural join sorgusunda tam olarak hangi alanların karşılaştırıldığı belli değildir ve bu hata riskini artırtığı için profesyoneller tarafından tercih edilmez. [Buradan](http://www.hrzafer.com/sql-17-ornek-okul-veritabani) okul veritabanını indirerek bu ve benzeri sorguları denemenizi öneririm. Umarım bu yazı sizler için faydalı olmuştur.
+Kısacası natural join sorgusunda tam olarak hangi alanların karşılaştırıldığı belli değildir ve bu hata riskini artırtığı için profesyoneller tarafından tercih edilmez. [Buradan](/sql-17-ornek-okul-veritabani) okul veritabanını indirerek bu ve benzeri sorguları denemenizi öneririm. Umarım bu yazı sizler için faydalı olmuştur.
 
 Herkese kolay gelsin
 

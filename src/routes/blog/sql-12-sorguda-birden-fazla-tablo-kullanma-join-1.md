@@ -33,8 +33,6 @@ Dikkat ederseniz `Kitaplar` tablosunda `yv_no` isimli bir alan göreceksiniz. Bu
 
 Örneğin `Kitaplar` tablosuna yeni bir kitap eklemek istesek ve `yv_no` olarak 4 değerini versek, 4 nolu yayınevi mevcut olmadığından bunun mümkün olmadığını belirten bir hata mesajı ile karşılaşırız. Şimdi bu iki tabloyu kullanan (iki tabloyu **join** eden) sorgu örneklerine geçelim: 
 
-**Not:** MySQL'i bilgisayarınıza kurup benzer örnekleri bizzat uygulamak isterseniz [bu videoyu](http://www.hrzafer.com/mysql-kurulumu-ve-kullanimi-goruntulu-anlatim) izleyebilirsiniz.
-
 ```sql
 SELECT * FROM kitaplar , yayinevleri
 ```
@@ -83,7 +81,7 @@ Sonuç kümesi aşağıdaki gibi olacaktır:
 | 5 bilemedin 6 saatte SQL | A   |
 | Hakiki SQL | B   |
 
-Şimdi de sorgumuzu [bir önceki derste](http://www.hrzafer.com/sql-11-as-sozcugu-ve-takma-isimler-alias) öğrendiklerimizden faydalanarak daha okunur hale getirelim.
+Şimdi de sorgumuzu [bir önceki derste](/sql-11-as-sozcugu-ve-takma-isimler-alias) öğrendiklerimizden faydalanarak daha okunur hale getirelim.
 
 ```sql
 SELECT K.isim, Y.isim FROM kitaplar K, yayinevleri Y WHERE K.yv_no = Y.no

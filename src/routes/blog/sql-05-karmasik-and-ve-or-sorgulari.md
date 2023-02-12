@@ -6,7 +6,7 @@ subtitle: 'Başlık gözünüzü korkutmasın. Bir önceki yazıda AND ve OR iş
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
-Başlık gözünüzü korkutmasın. Bir [önceki yazıda](http://www.hrzafer.com/sql-04-and-ve-or-islecleri) AND ve OR işleçlerinin (operatör) kullanımına genel olarak değinmiştik ama AND ve OR kavramlarının daha iyi anlaşılması için farklı sorgu örnekleri vermek istedim. Sorguları aşağıdaki tablo için yazacağız. 
+Başlık gözünüzü korkutmasın. Bir [önceki yazıda](/sql-04-and-ve-or-islecleri) AND ve OR işleçlerinin (operatör) kullanımına genel olarak değinmiştik ama AND ve OR kavramlarının daha iyi anlaşılması için farklı sorgu örnekleri vermek istedim. Sorguları aşağıdaki tablo için yazacağız. 
 
  **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](/sql-dersleri)
  
