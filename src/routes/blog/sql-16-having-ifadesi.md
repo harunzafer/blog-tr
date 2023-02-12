@@ -68,7 +68,7 @@ Sorgunun çıktısı aşağıdaki gibi olacaktır:
 
 Sorgunun döndürdüğü sonuç kümesine bakarak iki ülkenin (Türkiye ve Almanya) yaş ortalamalarının 30'dan küçük olduğunu söyleyebiliriz. Şimdi de çalışan sayısı 1'den fazla olan şehirleri ve çalışan sayılarını getiren sorguyu yazalım.
 
-```
+```sql
 SELECT şehir, COUNT(*) FROM \`kisiler\` GROUP BY şehir HAVING COUNT(*) > 1
 ```
 Sorgunun çıktısı aşağıdaki gibi olacaktır.
@@ -81,7 +81,7 @@ Sorgunun çıktısı aşağıdaki gibi olacaktır.
 
  Şimdi yazacağımız sorgunun açıklaması şöyle: Maaş ortalaması 3000'den fazla olan ülkelerdeki erkek çalışanların maaş ortalaması. Burada gruplamanın ülkelere göre yapılacağı ve yalnızca erkek çalışanların hesaba katılacağı açık.
 
-```
+```sql
 SELECT ülke, AVG(maaş) FROM \`kisiler\` WHERE Cinsiyet=1 GROUP BY ülke HAVING AVG(maaş) > 3000
 ```
 Sorgunun çıktısı aşağıdaki gibidir. Bu sorguda WHERE ve HAVING ifadeleri birlikte kullandığımızdan farklarını rahatça görebiliyoruz.
@@ -111,8 +111,9 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
+- [SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2](/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2)
+- [SQL 14: Kümeleme Fonksiyonları](/sql-14-kumeleme-fonksiyonlari)
+- [SQL 15: GROUP BY İfadesi](/sql-15-group-by-ifadesi)
+- [SQL 17: Örnek Okul Veritabanı](/sql-17-ornek-okul-veritabani)
+- [SQL 18: Join Türleri](/sql-18-join-turleri)
 

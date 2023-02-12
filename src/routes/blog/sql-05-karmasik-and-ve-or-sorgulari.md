@@ -81,8 +81,9 @@ Herkese Kolay Gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
+
 - [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
 - [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 04: AND ve OR İşleçleri](/sql-04-and-ve-or-islecleri)
+sql-05-karmasik-and-ve-or-sorgulari)
+- [SQL 06: ORDER BY (Sıralama)](/sql-06-order-by-siralama)

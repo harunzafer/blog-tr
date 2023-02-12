@@ -101,8 +101,9 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
+- [SQL 10: BETWEEN İşleci](/sql-10-between-isleci)
+- [SQL 11: AS Sözcüğü ve Takma İsimler (Alias)](/sql-11-as-sozcugu-ve-takma-isimler-alias)
+- [SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2](/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2)
+- [SQL 14: Kümeleme Fonksiyonları](/sql-14-kumeleme-fonksiyonlari)
+
 

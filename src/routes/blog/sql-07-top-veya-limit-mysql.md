@@ -81,8 +81,8 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 05: Karmaşık AND ve OR sorguları](/sql-05-karmasik-and-ve-or-sorgulari)
+- [SQL 06: ORDER BY (Sıralama)](/sql-06-order-by-siralama)
+- [SQL 08: LIKE İşleci (Operatörü) – 1](/sql-08-like-1)
+- [SQL 08: LIKE İşleci (Operatörü) – 2](/sql-08-like-isleci-operatoru-2)
+- [SQL 09: IN İşleci](/sql-09-in-isleci)

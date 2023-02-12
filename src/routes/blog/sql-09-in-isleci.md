@@ -74,8 +74,8 @@ Herkese Kolay Gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 07: TOP veya LIMIT (mySQL)](/sql-07-top-veya-limit-mysql)
+- [SQL 08: LIKE İşleci (Operatörü) – 1](/sql-08-like-1)
+- [SQL 08: LIKE İşleci (Operatörü) – 2](/sql-08-like-isleci-operatoru-2)
+- [SQL 10: BETWEEN İşleci](/sql-10-between-isleci)
+- [SQL 11: AS Sözcüğü ve Takma İsimler (Alias)](/sql-11-as-sozcugu-ve-takma-isimler-alias)

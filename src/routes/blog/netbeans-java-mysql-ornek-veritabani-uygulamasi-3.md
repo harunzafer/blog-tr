@@ -6,7 +6,7 @@ subtitle: 'İlk iki yazıyı okuduğunuzu kabul ederek başlıyorum. İlk yazıd
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/netbeans-java-mySQL.jpg">
 
-İlk iki yazıyı okuduğunuzu kabul ederek başlıyorum. İlk yazıda veritabanı bağlantısını en başta açmış, en sonda da kapamıştık. Program çalıştığı müddetçe veritabanı bağlantısı açık kalmıştı. Bunun yanında yine programın en başında yalnızca bir defa ResultSet nesnemizi _"SELECT * FROM kisiler"_ SQL sorgusunu kullanarak, kisiler tablosundaki tüm kayıtlar ile doldurmuş ve programın kalanındaki ekle/sil/güncelle gibi işlemleri SQL sorgusu yazmadan gerçekleştirmiştik. 
+İlk iki yazıyı okuduğunuzu kabul ederek başlıyorum. İlk yazıda veritabanı bağlantısını en başta açmış, en sonda da kapamıştık. Program çalıştığı müddetçe veritabanı bağlantısı açık kalmıştı. Bunun yanında yine programın en başında yalnızca bir defa ResultSet nesnemizi `SELECT * FROM kisiler` SQL sorgusunu kullanarak, kisiler tablosundaki tüm kayıtlar ile doldurmuş ve programın kalanındaki ekle/sil/güncelle gibi işlemleri SQL sorgusu yazmadan gerçekleştirmiştik. 
 
 İkinci örnekte ise seç/ekle/sil/güncelle gibi her veritabanı işlemi için gereken sorguyu kendimiz yazmış, her sorguyu çalıştırmadan önce veritabanı bağlantısını açıp sorgu çalıştıktan hemen sonra bağlantıyı kapatmıştık. 
 
@@ -51,7 +51,7 @@ public void preparedKayitEkle(String ad, String soyad, String yas, String cinsiy
 }
 ```
 
-Gördüğünüz gibi SQL sorgusunu String olarak yazmak çok daha kolay. Değer alanlarını birer "?" karakteri ile belirtip aşağıda sırası ile hangi soru işareti yerine hangi değerin geleceğini belirtiyoruz.
+Gördüğünüz gibi SQL sorgusunu String olarak yazmak çok daha kolay. Değer alanlarını birer `?` karakteri ile belirtip aşağıda sırası ile hangi soru işareti yerine hangi değerin geleceğini belirtiyoruz.
 
 Yukarıdaki kodda Java'nın PreparedStatement (hazır ifade) sınıfını kullandık. PreparedStatement sınıfını kullanabilmemiz için `baglantıAc()` metodumuzda ufak bir değişiklik yapmamız gerekiyor:
 
@@ -65,3 +65,9 @@ public PreparedStatement baglantiAc(String sql) throws Exception {
 ```
 
 Herkese Kolay Gelsin
+
+### İlgili Yazılar
+
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 1](/netbeans-java-mysql-ornek-veritabani-uygulamasi-1)
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 2](/netbeans-java-mysql-ornek-veritabani-uygulamasi-2)
+- [Java ve SQLite: Örnek Veritabanı Uygulaması – 4](/java-ve-sqlite-ornek-veritabani-uygulamasi)

@@ -51,3 +51,7 @@ Hunspell-tr projesi geliştikçe, kullanıcı geri bildirimleri geldikçe ve sö
 ### Mevcut Durum ve Yapılacaklar
 
 Sözlük dosyaları yeterince büyük olmayan bir derlemdeki kelimeler analiz edilerek üretildiklerinden, bazı doğru kelimeler yanlış olarak tanımlanabiliyor. Yukarıdaki eklentileri kullanıyorsanız bu tür kelimeleri [bildirerek](http://www.hrzafer.com/iletisim) katkıda bulunabilirsiniz. Mevcut sözlük dosyaları yanlış tespitinde başarılı sayılabilir. Ancak yanlış kelimeler için yapılan öneriler konusunda biraz daha mesafe almak gerekiyor. Hunspell OpenOffice gibi metin düzenleme araçları için "eş ve yakın anlamlı kelimeler" ve "kesme işareti" desteği de veriyor. Bunlar için bahsedilen 2 sözlük dosyasından ayrı olarak birer dosya hazırlanması gerekiyor.
+
+### İlgili Yazılar
+
+- [Türkçe İmla Denetimi Üzerine](/turkce-imla-denetimi-uzerine)

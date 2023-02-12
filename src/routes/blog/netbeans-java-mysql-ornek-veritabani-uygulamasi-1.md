@@ -21,7 +21,7 @@ CREATE DATABASE IF NOT EXISTS vt;
 USE vt;
 ```
 
-Kisiler Tablosunu oluşturmak için:
+`Kisiler` Tablosunu oluşturmak için:
 
 ```sql
 DROP TABLE IF EXISTS `kisiler`;
@@ -35,7 +35,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 ```
 
-Kisiler Tablosuna örnek kayıtları eklemek için:
+`Kisiler` Tablosuna örnek kayıtları eklemek için:
 
 ```sql
 INSERT INTO `kisiler` (`id`,`Ad`,`Soyad`,`Yas`,`Cinsiyet`) VALUES
@@ -45,8 +45,11 @@ INSERT INTO `kisiler` (`id`,`Ad`,`Soyad`,`Yas`,`Cinsiyet`) VALUES
 (4,'Levent','Denizeri',25,1),
 (5,'Abbas','Yolcu',25,1);
 ```
+<br>
 
 ### Veritabanına Bağlantı
+
+<br>
 
 ```java
 private Connection conn = null; //Bağlantı nesnemiz
@@ -74,7 +77,7 @@ public Statement baglantiAc() throws Exception {
 }
 ```
 
-Yukarıda ResultSet.CONCUR_UPDATABLE yerine ResultSet.CONCUR_READ_ONLY yazarsak veritabanı salt okunur olarak açılır. Bu durumda kayıtları okuyabiliriz ama kayıt ekle/sil/güncelle işlemlerini yapamayız.
+Yukarıda `ResultSet.CONCUR_UPDATABLE` yerine `ResultSet.CONCUR_READ_ONLY` yazarsak veritabanı salt okunur olarak açılır. Bu durumda kayıtları okuyabiliriz ama kayıt ekle/sil/güncelle işlemlerini yapamayız.
 
 ```java
 public void baglantiKapat() throws Exception {
@@ -91,9 +94,9 @@ st = baglantiAc(); //veritabanına bağlanılıyor
 res = st.executeQuery("SELECT * FROM  kisiler"); //tablodaki kayıtlar getiriliyor
 ```
 
-Yukarıdaki sorgunun sonuç kümesi (bu sorgu için tablonun tamamı) res isimli ResultSet nesnesine aktarılıyor. Bu işlem bir kere programın başında yapılıyor. Programın geri kalanında hep res isimli ResltSet nesnemizi kullanarak veritabanı işlemlerini gerçekleştireceğiz. 
+Yukarıdaki sorgunun sonuç kümesi (bu sorgu için tablonun tamamı) res isimli ResultSet nesnesine aktarılıyor. Bu işlem bir kere programın başında yapılıyor. Programın geri kalanında hep `res` isimli `ResultSet` nesnemizi kullanarak veritabanı işlemlerini gerçekleştireceğiz. 
 
-### Kayıtların Metin Kutularına Yazılması**
+### Kayıtların Metin Kutularına Yazılması
 
 ```java
 res.next(); //tablonun ilk kaydını göster.
@@ -108,6 +111,7 @@ else{
     cinsiyetComboBox.setSelectedIndex(1);
 }
 ```
+<br>
 
 ### Kayıtlar Arasında Gezinme
 
@@ -119,6 +123,8 @@ res.first(); //ilk kayıta git
 res.last(); //son kayıta git
 res.absolute(3); //3. kayıta git.
 ```
+
+<br>
 
 ### Kayıt Ekleme
 
@@ -138,6 +144,8 @@ else
 res.updateBoolean("cinsiyet",cns); //cinsiyet alanına 1 veya 0 değeri ekleniyor
 res.insertRow(); //Kaydı (satırı) tabloya ekle
 ```
+
+<br>
 
 ### Kayıt Güncelleme
 
@@ -159,8 +167,14 @@ Peki neden bağlantıyı yalnızca bir defa açıp kapamak için iki metod yazd�
 
 ### Peki ama hangi yaklaşım daha iyi?
 
-Elbette 2. örneği de görüp anlamadan bu soruya cevap aramak anlamsız.  Kodların tamamını NetBeans projesi olarak  [buradan](download/vt_hrzafer.zip) indirebilirsiniz. 
+Elbette ikinci örneği de görüp anlamadan bu soruya cevap aramak anlamsız.  Kodların tamamını NetBeans projesi olarak  [buradan](download/vt_hrzafer.zip) indirebilirsiniz. 
 
 **Not:** Yaklaşık 1,5 yıl sonra kodda bir hata (Türkçe karakter problemi) farkettim ve yukarıdaki koda "properties" adında bir string daha ekledim. Bu değişikliği kodların bulunduğu proje dosyasında yapmadım. Bunu da ödev olarak size bırakıyorum 🙂.
 
 Herkese kolay gelsin
+
+### İlgili Yazılar
+
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 2](/netbeans-java-mysql-ornek-veritabani-uygulamasi-2)
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 3](/netbeans-java-mysql-ornek-veritabani-uygulamasi-3)
+- [Java ve SQLite: Örnek Veritabanı Uygulaması – 4](/java-ve-sqlite-ornek-veritabani-uygulamasi)

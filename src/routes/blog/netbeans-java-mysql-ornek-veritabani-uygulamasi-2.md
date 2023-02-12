@@ -21,7 +21,7 @@ Eğer birinci örneği bilgisayarınızda uyguladıysanız zaten veritabanınız
 
 ### Veritabanına Bağlantı
 
-Bu kısım da birinci yazıdaki ile aynı. Yalnız arada önemli bir fark var. Birinci örnekte _baglantıAc()_ ve _baglantıKapat()_ metodlarını yalnızca bir defa kullanmıştık. Burada ise her veritabanı işlemi için kullanacağız. Zaten bağlantı açma ve kapama işlemlerini birer metod (fonksiyon) haline getirmemizin esas sebebi de bu örnekti.
+Bu kısım da birinci yazıdaki ile aynı. Yalnız arada önemli bir fark var. Birinci örnekte `baglantıAc()` ve `baglantıKapat()` metodlarını yalnızca bir defa kullanmıştık. Burada ise her veritabanı işlemi için kullanacağız. Zaten bağlantı açma ve kapama işlemlerini birer metod (fonksiyon) haline getirmemizin esas sebebi de bu örnekti.
 
 ### _DBConnection_ ve _myTableModel_ Sınıfları
 
@@ -46,6 +46,8 @@ public void TabloDoldur() {
     }
 }
 ```
+
+<br>
 
 ### Kayıt Ekleme
 
@@ -94,6 +96,7 @@ private void ekleButtonActionPerformed(java.awt.event.ActionEvent evt) {
     KayitEkle(ad, soyad, yas, cinsiyet);
 }
 ```
+<br>
 
 ### Kayıt Silme
 
@@ -120,6 +123,7 @@ private void silButtonActionPerformed(java.awt.event.ActionEvent evt) {
     KayitSil(ID);
 }
 ```
+<br>
 
 ### Kayıt Güncelleme
 
@@ -166,6 +170,8 @@ private void guncelleButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
 ```
 
+<br>
+
 ### Tabloda Tıklanan Satırın Bilgilerinin Forma Gelmesi
 
 Tabloda bir satıra tıkladığımızda o satırdaki bilgilerin forma yansıması aşağıdaki olay işleyici metod ile oluyor. Bu metod tabloya ait bir metod ve imleç tablo üzerindeyken fareye her basıldığında çağrılıyor.
@@ -186,9 +192,16 @@ private void jTable1MousePressed(java.awt.event.MouseEvent evt) {
    }
 }
 ```
+<br>
 
 ### Sonuç
 
 Birinci örnekteki yaklaşıma göre bu örneğin iki avantajı var. Birincisi yalnızca gerektiğinde bağlantı açılıyor ve iş bitince hemen kapanıyor. Aynı veritabanını birden fazla uygulama kullanıyorsa, örneğin bir web sitesi veritabanı, veritabanı gereksiz yere meşgul edilmemiş oluyor. İkincisi ise bu yaklaşım bence daha esnek. SQL kodlarına daha hakim olmamızı sağlıyor. Dezavantaj olarak ise SQL kodlarını String olarak yazarken sıkça yapılan,  zaman ve sabır kaybına neden olan hatalar. Benzer kodları kendiniz yazdığınızda ne demek istediğimi daha iyi anlayacaksınız. Bir sonraki örnekte aynı yaklaşımı kullanan ama bahsettiğim zaman ve sabır kaybına neden olan hataları daha az yapmamıza olanak veren bir yöntemden bahsedeceğim. Kodların tamamını NetBeans projesi olarak [buradan](download/vt_2_hrzafer.zip) indirebilirsiniz. 
 
 Herkese kolay gelsin
+
+### İlgili Yazılar
+
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 1](/netbeans-java-mysql-ornek-veritabani-uygulamasi-1)
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 3](/netbeans-java-mysql-ornek-veritabani-uygulamasi-3)
+- [Java ve SQLite: Örnek Veritabanı Uygulaması – 4](/java-ve-sqlite-ornek-veritabani-uygulamasi)

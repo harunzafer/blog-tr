@@ -1,6 +1,6 @@
 ---
 title: 'SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2'
-date: '1888-01-01'
+date: '2010-03-18'
 subtitle: 'İki veya daha fazla tablonun belirli kolonları arasındaki ilişkilere dayanarak bu tablolardan veri çekme işlemine JOIN denir. Bu işlem için JOIN anahtar kelimesi kullanılır ama zorunlu değildir.'
 ---
 
@@ -10,7 +10,7 @@ subtitle: 'İki veya daha fazla tablonun belirli kolonları arasındaki ilişkil
 
 **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
 
-Ama önce biraz ısınmak için tabloları ve sorgumuzu hatırlayalım. Bu iki tablo arasındaki ilişkiyi yayınevleri tablosundaki **no** alanı ile Kitaplar tablosundaki **yv_no** (yayınevi no) alanlarının sağladığını tekrar hatırlatalım. Aslında `yv_no` alanı Yayınevleri tablosunun **birincil anahtarı** (primary key) olan no alanını referans göstermektedir. Bir tabloda, başka bir tablonun birincil anahtar alanını referans gösteren alanlara **yabancı anahtar** (foreign key) diyoruz. Burada da yv\_no alanı yabancı anahtar konumunda. Örneğin Yayınevleri tablosunda 5 nolu bir yayınevi olmadığına göre Kitaplar tablosundaki yv\_no alanı değerini alamaz. yv\_no alanının bu örnekte alabileceği değerler 1, 2 ve 3'tür. Ancak 5 nolu bir yayınevi Yayınevleri tablosuna eklendikten sonra yv\_no alanı da 5 değerini alabilir. 
+Ama önce biraz ısınmak için tabloları ve sorgumuzu hatırlayalım. Bu iki tablo arasındaki ilişkiyi yayınevleri tablosundaki **no** alanı ile Kitaplar tablosundaki **yv_no** (yayınevi no) alanlarının sağladığını tekrar hatırlatalım. Aslında `yv_no` alanı Yayınevleri tablosunun **birincil anahtarı** (primary key) olan no alanını referans göstermektedir. Bir tabloda, başka bir tablonun birincil anahtar alanını referans gösteren alanlara **yabancı anahtar** (foreign key) diyoruz. Burada da `yv_no` alanı yabancı anahtar konumunda. Örneğin Yayınevleri tablosunda 5 nolu bir yayınevi olmadığına göre Kitaplar tablosundaki `yv_no` alanı değerini alamaz. `yv_no` alanının bu örnekte alabileceği değerler 1, 2 ve 3'tür. Ancak 5 nolu bir yayınevi Yayınevleri tablosuna eklendikten sonra `yv_no` alanı da 5 değerini alabilir. 
 
 Yukarıdaki paragrafın Türkçesi: 5 nolu bir yayınevi olmadığına göre 5 nolu yayınevi tarafından basılmış kitap/kitaplar da olamaz. 
 
@@ -127,8 +127,7 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 11: AS Sözcüğü ve Takma İsimler (Alias)](/sql-11-as-sozcugu-ve-takma-isimler-alias)
+- [SQL 12: Sorguda Birden Fazla Tablo Kullanma: Join-1](/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1)
+- [SQL 14: Kümeleme Fonksiyonları](/sql-14-kumeleme-fonksiyonlari)
+- [SQL 15: GROUP BY İfadesi](/sql-15-group-by-ifadesi)

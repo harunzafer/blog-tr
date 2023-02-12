@@ -211,8 +211,7 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 12: Sorguda Birden Fazla Tablo Kullanma: Join-1](/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1)
+- [SQL 13: Sorguda Birden Fazla Tablo Kullanma: Join-2](/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2)
+- [SQL 15: GROUP BY İfadesi](/sql-15-group-by-ifadesi)
+- [SQL 16: HAVING İfadesi](/sql-16-having-ifadesi)

@@ -16,7 +16,7 @@ ORDER BY kolon_adı(ları) ASC|DESC
 
 Burada sıralamanın azalan (büyükten küçüğe) şekilde olmasını istiyorsak `DESC` anahtar kelimesini kullanırız. Artan şekilde olması için ASC yazmamız veya hiç bir şey yazmamamız yeterlidir. 
 
-**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri) 
+**Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
 
 Örnek sorgularımız için kullanacağımız `Uyeler` tablosu:
 
@@ -27,11 +27,12 @@ Burada sıralamanın azalan (büyükten küçüğe) şekilde olmasını istiyors
 | meryem1990 | Meryem | Arkadaş | meryem1990@nospam.co | K   |
 | eaydin | Emir | Aydın | ea@biracayipadam.com | E   |
 | denizeri | Levent | Denizeri | levend@naval.com | E   |
-
  
 ```sql
 SELECT isim, soyisim FROM uyeler ORDER BY isim
 ```
+
+<br>
 
 | isim | soyisim |
 | --- | --- |
@@ -90,8 +91,7 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 04: AND ve OR İşleçleri](/sql-04-and-ve-or-islecleri)
+- [SQL 05: Karmaşık AND ve OR sorguları](/sql-05-karmasik-and-ve-or-sorgulari)
+- [SQL 07: TOP veya LIMIT (mySQL)](/sql-07-top-veya-limit-mysql)
+- [SQL 08: LIKE İşleci (Operatörü) – 1](/sql-08-like-1)

@@ -1,7 +1,7 @@
 ---
-title: 'Türkçe ve Diğer Türkî Diller için Cümle Çözümleyici'
-date: '2021-09-05'
-subtitle: 'BGeçenlerde üzerinde çalıştığım bir proje gereği kapsamlı bir Türkçe kelime listesine ihtiyaç duydum.'
+title: 'Türkçe İmla Denetimi Üzerine'
+date: '2012-09-05'
+subtitle: 'Geçenlerde üzerinde çalıştığım bir proje gereği kapsamlı bir Türkçe kelime listesine ihtiyaç duydum.'
 ---
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/spellcheck.png">
@@ -19,8 +19,8 @@ Aslında çoğu imla denetim sistemi bir dildeki mümkün bütün kelimeleri ür
 
 Hunspell bir dilde imla denetimi yapabilmek, yani o dildeki mümkün olan tüm kelimeleri oluşturabilmek için 2 dosyaya ihtiyaç duyuyor. Bunlar: 
 
-1- Sözlük (.dic uzantılı dictionary dosyası) 
-2- Ekler (.aff uzantılı affix dosyası) 
+1. Sözlük (.dic uzantılı dictionary dosyası)
+2. Ekler (.aff uzantılı affix dosyası)
 
 Mesela bir dil için sözlük dosyamız aşağıdaki gibi olsun:
 
@@ -59,3 +59,7 @@ Mevcut Hunspell dil paketini incelemek, üzerinde çalışmak ve başarımını 
 Yazıyı bitirirken, Türkçe için imla denetimi yapan mevcut yazılımlar içerisinde en oturmuş olanın yine de MS Word olduğunu belirtelim. Zemberek ise onun hemen ardından geliyor. Aralarındaki temel farklılık Zemberek’in teorikte mümkün olan tüm kelimeleri doğru kabul etme eğiliminde yatıyor. Zembereğin [saçmala](http://zemberek-web.appspot.com/) butonuna bastığınızda bu teorikte doğru ama çoğu pratikte kullanılmayan yeterince kelime göreceksiniz. Mesela “bardaklaşmak” kelimesini MS Word yanlış kabul ederken Zemberek doğru kabul ediyor. Ben birinci yaklaşımın gerçek hayatta daha çok işe yarayacağını düşünüyorum ama Zemberek’in sadece bir imla denetim yazılımı olmadığını ve pek çok bilimsel çalışmada kullanıldığını hatırlatalım. Yani Zemberek için ikinci yaklaşım daha doğru aslında.
 
 Umarım faydalı bir yazı olmuştur. Herkese kolay gelsin.
+
+### İlgili Yazılar
+
+- [Hunspell-tr Nedir](/hunspell-tr)

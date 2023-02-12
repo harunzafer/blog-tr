@@ -112,13 +112,13 @@ Ancak gerçek hayatta Natural Join kullanımı sakıncalıdır.  Çünkü Natur
 ```sql
 SELECT * FROM bolum b right join ogrenci o on b.bid = o.bid AND o.adi=b.adi
 ```
-Kısacası natural join sorgusunda tam olarak hangi alanların karşılaştırıldığı belli değildir ve bu hata riskini artırtığı için profesyonel programcılar tarafından tercih edilmez. [Buradan](http://www.hrzafer.com/sql-17-ornek-okul-veritabani) okul veritabanını indirerek bu ve benzeri sorguları denemenizi öneririm. Umarım bu yazı sizler için faydalı olmuştur.
+Kısacası natural join sorgusunda tam olarak hangi alanların karşılaştırıldığı belli değildir ve bu hata riskini artırtığı için profesyoneller tarafından tercih edilmez. [Buradan](http://www.hrzafer.com/sql-17-ornek-okul-veritabani) okul veritabanını indirerek bu ve benzeri sorguları denemenizi öneririm. Umarım bu yazı sizler için faydalı olmuştur.
 
 Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
+- [SQL 14: Kümeleme Fonksiyonları](/sql-14-kumeleme-fonksiyonlari)
+- [SQL 15: GROUP BY İfadesi](/sql-15-group-by-ifadesi)
+- [SQL 16: HAVING İfadesi](/sql-16-having-ifadesi)
+- [SQL 17: Örnek Okul Veritabanı](/sql-17-ornek-okul-veritabani)

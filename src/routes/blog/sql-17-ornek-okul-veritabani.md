@@ -36,9 +36,9 @@ Bu tabloda mesela birinci satır 1 no'lu öğrencinin 1 id'li dersi aldığını
 
 **Veritabanını phpmyadmin üzerinden yüklemek için:** 
 
-1- okul\_vt\_hrzafer isimli bir veritabanı oluşturun. 
-2- içeri aktar (import) seçeneğine tıklayın. 
-3- Daha sonra gözat butonuna tıklayarak sql uzantılı veritabanı dosyasını yükleyin. 
+1. `okul_vt_hrzafer` isimli bir veritabanı oluşturun. 
+2. içeri aktar (import) seçeneğine tıklayın. 
+3. Daha sonra gözat butonuna tıklayarak sql uzantılı veritabanı dosyasını yükleyin. 
 
 Veritabanını [buradan](http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_hrzafer.zip) indirebilirsiniz.
 
@@ -46,8 +46,7 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 14: Kümeleme Fonksiyonları](/sql-14-kumeleme-fonksiyonlari)
+- [SQL 15: GROUP BY İfadesi](/sql-15-group-by-ifadesi)
+- [SQL 16: HAVING İfadesi](/sql-16-having-ifadesi)
+- [SQL 18: Join Türleri](/sql-18-join-turleri)

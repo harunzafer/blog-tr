@@ -44,7 +44,7 @@ Sorgumuzun çıktısı aşağıdaki gibi olacaktır:
 | hrzafer | Harun Reşit | Zafer | hrzafer@hrzafer.com | E   |
 | derya.z | Derya | Zaimoğlu | derya.z@derya.com | K   |
 
-Burada desen olarak Z% ifadesini kullandık. Ve bu ifadeyi **tek tırnak içerisinde** yazdık. Bu desenin anlamı avamca "ilk harfi büyük Z olmalı gerisi ise herşey olabilir" demek. 
+Burada desen olarak `Z%` ifadesini kullandık. Ve bu ifadeyi **tek tırnak içerisinde** yazdık. Bu desenin anlamı avamca "ilk harfi büyük Z olmalı gerisi ise herşey olabilir" demek. 
 
 **Örnek-2:** Adının son harfi "t" olan üyeleri seçelim:
 
@@ -73,7 +73,7 @@ Sorgumuzun çıktısı aşağıdaki gibi olacaktır:
 | derya.z | Derya | Zaimoğlu | derya.z@derya.com | K   |
 | meryem1990 | Meryem | Arkadaş | meryem1990@nospam.com | K   |
 
-'%' karakterinin sıfır, bir yada daha çok karakterin yerine geçebilen bir **joker karakter** (wildcard) olduğu herhalde örneklerden anlaşılmıştır. 
+`%` karakterinin sıfır, bir yada daha çok karakterin yerine geçebilen bir **joker karakter** (wildcard) olduğu herhalde örneklerden anlaşılmıştır. 
 
 **Örnek-4:** Şimdi de isminin içerisinde "er" ifadesi **geçmeyen** üyeleri bulalım:
 
@@ -81,21 +81,22 @@ Sorgumuzun çıktısı aşağıdaki gibi olacaktır:
 SELECT * FROM uyeler
 WHERE isim NOT LIKE '%er%'
 ```
+<br>
+
 | uye_adi | isim | soyisim | e-posta | cinsiyet |
 | --- | --- | --- | --- | --- |
 | hrzafer | Harun Reşit | Zafer | hrzafer@hrzafer.com | E   |
 | eaydin | Emir | Aydın | ea@biracayipadam.com | E   |
 | denizeri | Levent | Denizeri | levend@naval.com | E   |
 
-Görüldüğü gibi NOT ifadesi **seçimi tersine çevirmek** için yeterli oluyor. Buraya kadar LIKE operatörüne genel bir giriş yapmış olduk. Bir sonraki yazıda LIKE ile **joker karakterlerin** (wildcards) kullanımına ayrıntılı olarak bakacağız. 
+Görüldüğü gibi `NOT` ifadesi **seçimi tersine çevirmek** için yeterli oluyor. Buraya kadar LIKE operatörüne genel bir giriş yapmış olduk. Bir sonraki yazıda LIKE ile **joker karakterlerin** (wildcards) kullanımına ayrıntılı olarak bakacağız. 
 
 
 Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 07: TOP veya LIMIT (mySQL)](/sql-07-top-veya-limit-mysql)
+- [SQL 08: LIKE İşleci (Operatörü) – 2](/sql-08-like-isleci-operatoru-2)
+- [SQL 09: IN İşleci](/sql-09-in-isleci)
+- [SQL 10: BETWEEN İşleci](/sql-10-between-isleci)

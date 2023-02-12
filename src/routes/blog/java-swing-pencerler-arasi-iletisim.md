@@ -37,19 +37,19 @@ public CocukPencere(AnaPencere ata){
 sınıfında çocuk pencerenin açıldığı kod kesimi:
 
 ```java
-new ÇocukPencere(this).setVisible(true);
+new CocukPencere(this).setVisible(true);
 ```
 
 Çocuk pencereden ana pencere üzerindeki yazının değiştirildiği kod kesimi:
 
 ```java
-ataPencere.getAnaYazıLabel().setText(anaTextField.getText());
+ataPencere.getAnaYaziLabel().setText(anaTextField.getText());
 ```
 
 Son olarak şunu hatırlatmakta fayda var. Bir pencererin kapama simgesine tıklanıldığında aşağıdakilerden biri yapılır.
 
 ```
-EXIT\_ON\_CLOSE // tüm programı kapat
+EXIT_ON_CLOSE // tüm programı kapat
 
 DISPOSE // Sadece ilgili pencereyi kapat
 
@@ -58,10 +58,10 @@ HIDE // pencereyi gizle
 DO_NOTHING // hiç birşey yapma
 ```
 
-Bu projede Ana pencere için bu ayar EXIT\_ON\_CLOSE şeklinde. Yani ana pencere kapandığında tüm pencereler kapanıyor ve program sonlanıyor. Diğer pencereler için ise DISPOSE olarak ayarlı. Pencereleri Netbeans'te çizerek oluşturuyorsanız bu ayarı properties penceresi üzerinden yapmanız gerekiyor. Eğer doğrudan kodluyorsanız ilgili kod aşağıdaki gibidir.
+Bu projede Ana pencere için bu ayar `EXIT_ON_CLOSE` şeklinde. Yani ana pencere kapandığında tüm pencereler kapanıyor ve program sonlanıyor. Diğer pencereler için ise `DISPOSE` olarak ayarlı. Pencereleri Netbeans'te çizerek oluşturuyorsanız bu ayarı properties penceresi üzerinden yapmanız gerekiyor. Eğer doğrudan kodluyorsanız ilgili kod aşağıdaki gibidir.
 
 ```java
-setDefaultCloseOperation(javax.swing.WindowConstants.EXIT\_ON\_CLOSE);
+setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 ```
 
 Umarım faydalı olmuştur, herkese iyi çalışmalar.

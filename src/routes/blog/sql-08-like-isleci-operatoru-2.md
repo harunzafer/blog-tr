@@ -6,7 +6,7 @@ subtitle: 'Bir veya birden fazla karakterin yerine geçebilen karakterlere **jok
 
 <img align="left" style="margin-right: 30px;margin-bottom: 0px;"  src="img/blog/Schema-SQL1.jpg">
 
-**Joker Karakterler (Wildcards)** 
+### Joker Karakterler (Wildcards)
 Bir veya birden fazla karakterin yerine geçebilen karakterlere **joker karakter** diyoruz. Aslında joker karakter kavramı bilgisayar dünyasında sıkça kullanılan bir kavramdır. Ortama göre  (kullandığınız programlama dilinden tutun da, işletim sistemine kadar pek çok şey olabilir bu ortam) gösterimde ufak tefek değişiklikler olsa da genel mantığı aynıdır. SQL dilinde joker karakterleri yalnızca `LIKE` işleci ile birlikte kullanıyoruz. SQL için tanımlanmış joker karakterler aşağıdaki gibidir:  
 
 **Not:** Bu arada diğer SQL derslerine [buradan ulaşabilirsiniz](http://www.hrzafer.com/sql-dersleri)
@@ -41,13 +41,15 @@ Sorgumuzun çıktısı aşağıdaki gibi olacaktır:
 | --- | --- | --- | --- | --- |
 | meryem1990 | Meryem | Arkadaş | meryem1990@nospam.com | K   |
 
-**_ veya ? Joker karakteri** 
+<br>
 
-Bu karakter standart SQL için "_" (alt-tire) MS Access için de "?" olarak tanımlanmıştır. Ben örneklerde "_" olarak kullanacağım. Şimdi aşağıdaki sorguyu ve çıktısını inceleyelim:
+#### _ veya ? Joker karakteri
+
+Bu karakter standart SQL için `_` (alt-tire) MS Access için de `?` olarak tanımlanmıştır. Ben örneklerde `_` olarak kullanacağım. Şimdi aşağıdaki sorguyu ve çıktısını inceleyelim:
 
 ```sql
 SELECT * FROM uyeler
-WHERE uye\_adi LIKE 'h\_zafer'
+WHERE uye_adi LIKE 'h_zafer'
 ```
 
 Sorgunun çıktısı aşağıdaki gibi olacaktır:
@@ -56,15 +58,15 @@ Sorgunun çıktısı aşağıdaki gibi olacaktır:
 | --- | --- | --- | --- | --- |
 | hrzafer | Harun Reşit | Zafer | hrzafer@hrzafer.com | E   |
 
-Eğer tablomuzda uye\_adi alanında `hdzafer`, `hczafer`, `hazafer` gibi kayıtlar olsaydı, bunlar da bu sorgudan dönen tabloda yer alacaklardı. 
+Eğer tablomuzda uye_adi alanında `hdzafer`, `hczafer`, `hazafer` gibi kayıtlar olsaydı, bunlar da bu sorgudan dönen tabloda yer alacaklardı. 
 
-LIKE '\_a_'  : Üç harfli ortadaki harfi "a" olanlar. 
+`LIKE '_a_'`  : Üç harfli ortadaki harfi "a" olanlar. 
 
-LIKE ' m\_s\_n' : _mısın, musun, müsün_ veya _muson_ gibi bir çok kelime bu desene uyuyor. Ancak _muusun_ gibi bir kelime bu desene uymaz. Bu karakter yerine yalnızca bir adet karakter gelebileceğini tekrar hatırlatalım. 
+`LIKE ' m_s_n'` : _mısın, musun, müsün_ veya _muson_ gibi bir çok kelime bu desene uyuyor. Ancak _muusun_ gibi bir kelime bu desene uymaz. Bu karakter yerine yalnızca bir adet karakter gelebileceğini tekrar hatırlatalım. 
 
 **Karakter Listeleri** Karakter listeleri ise yukarıdaki işlemleri yalnız bir grup karakter için tanımlamak istediğimizde kullanılır: 
 
-LIKE 'c\[ai\]n': Bu desen _can_ ve _cin_ kelimelerini kapsar. Örneğin ismi erhan, ercan, erkan veya erman olan üyeleri getirmek isteseydik:
+`LIKE 'c[ai]n'`: Bu desen _can_ ve _cin_ kelimelerini kapsar. Örneğin ismi erhan, ercan, erkan veya erman olan üyeleri getirmek isteseydik:
 
 ```sql
 SELECT * FROM uyeler
@@ -78,7 +80,7 @@ SELECT * FROM uyeler
 WHERE uye_adi LIKE '\[^EK\]%'
 ```
 
-sorgusu yeterli olurdu. Aynı sorguyu Access için yazmak istesek LIKE'tan sonraki kısım '\[!EK\]*' şeklinde olacaktı.
+sorgusu yeterli olurdu. Aynı sorguyu Access için yazmak istesek LIKE'tan sonraki kısım `[!EK]*` şeklinde olacaktı.
 
 **Önemli Not:** Karakter listeleri MySQL'de LIKE ile çalışmıyor. Bunun yerine RLIKE (veya REGEXP) işleci kullanılıyor. Bu işleç bütün **Düzenli İfadeler** (Regular Expressions) ile çalışıyor.
 
@@ -86,8 +88,7 @@ Herkese kolay gelsin
 
 ### İlgili Diğer Makaleler
 
-- [SQL Dersleri](/sql-dersleri)
-- [SQL 02: Distinct İfadesi](/sql-distinct-ifadesi)
-- [SQL 03: WHERE Yan Cümlesi (Clause)](/sql-where-clause)
-- [Veritabanına Genel Bakış](/veritabanina-genel-bakis)
-
+- [SQL 07: TOP veya LIMIT (mySQL)](/sql-07-top-veya-limit-mysql)
+- [SQL 08: LIKE İşleci (Operatörü) – 1](/sql-08-like-1)
+- [SQL 09: IN İşleci](/sql-09-in-isleci)
+- [SQL 10: BETWEEN İşleci](/sql-10-between-isleci)

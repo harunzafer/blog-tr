@@ -68,3 +68,9 @@ private String driver = "org.sqlite.JDBC";//SQLite ile Java arasındaki bağlant
 ```
 
 Herkese kolay gelsin
+
+### İlgili Yazılar
+
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 1](/netbeans-java-mysql-ornek-veritabani-uygulamasi-1)
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 2](/netbeans-java-mysql-ornek-veritabani-uygulamasi-2)
+- [Netbeans, Java, MySQL: Örnek Veritabanı Uygulaması – 3](/netbeans-java-mysql-ornek-veritabani-uygulamasi-3)
