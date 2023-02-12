@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
@@ -12,7 +12,7 @@
 		<link href="/css/prism.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="./_app/immutable/start-580822ee.js">
+		<link rel="modulepreload" href="./_app/immutable/start-fc731654.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
@@ -20,8 +20,8 @@
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-2cd7e843.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-54d84615.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -44,7 +44,7 @@
 	
 	
 	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/sqlite.png">
-<p>Bundan önceki <a href="http://www.hrzafer.com/netbeans-java-mysql-ornek-veritabani-uygulamasi-1" rel="nofollow">üç makale</a> MySql veritabanı kullanan küçük masaüstü uygulamalarıydı. Ancak MySql aslında masaüstü uygulamalarında kullanılmak için tasarlanmış bir veritabanı yönetim sistemi değil. Daha çok web ve dağıtık uygulamalar için kullanılan bir çözüm. Bu nedenle veritabanı bir sunucu üzerinden hizmet veriyor ve veritabanını kullanacak olan tüm uygulamalar veriye bu <a href="http://www.hrzafer.com/veritabani-tasarimi-ve-sql-01-veritabanina-genel-bakis" rel="nofollow">sunucu üzerinden</a> ulaşıyor. Bir masaüstü uygulamasının ihtiyaç duyacağı <strong>yerel</strong> bilgileri MySql veritabanı kullanarak sakladığımızda, o uygulamayı kuracağımız her bilgisayara bir de mysql sunucu kurmamız, hatta veritabanını da sunucuda yeniden oluşturmamız gerekiyor. Sözün kısası uzun zamandır bu problemle ilgili sorular geliyordu ve çözüm olarak Sqlite’i öneriyordum. Bu yazıda bu önerimi örnek bir uygulama ile pekiştireceğim. Bu arada Sqlite veritabanını kullanan uygulama ve işletim sistemlerinden bazılarının Firefox, Opera, Chrome, Skype, Dropbox, Windows Phone 8, Apple iOS, Symbian Os, Google Android vs. olduğunu hatırlatalım.</p>
+<p>Bundan önceki <a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-1">üç makale</a> MySql veritabanı kullanan küçük masaüstü uygulamalarıydı. Ancak MySql aslında masaüstü uygulamalarında kullanılmak için tasarlanmış bir <a href="/veritabanina-genel-bakis">veritabanı yönetim sistemi</a> değil. Daha çok web ve dağıtık uygulamalar için kullanılan bir çözüm. Bu nedenle veritabanı bir sunucu üzerinden hizmet veriyor ve veritabanını kullanacak olan tüm uygulamalar veriye bu sunucu üzerinden ulaşıyor. Bir masaüstü uygulamasının ihtiyaç duyacağı <strong>yerel</strong> bilgileri MySql veritabanı kullanarak sakladığımızda, o uygulamayı kuracağımız her bilgisayara bir de mysql sunucu kurmamız, hatta veritabanını da sunucuda yeniden oluşturmamız gerekiyor. Sözün kısası uzun zamandır bu problemle ilgili sorular geliyordu ve çözüm olarak Sqlite’i öneriyordum. Bu yazıda bu önerimi örnek bir uygulama ile pekiştireceğim. Bu arada Sqlite veritabanını kullanan uygulama ve işletim sistemlerinden bazılarının Firefox, Opera, Chrome, Skype, Dropbox, Windows Phone 8, Apple iOS, Symbian Os, Google Android vs. olduğunu hatırlatalım.</p>
 <p>Bu yazıda ayrıntılı bir anlatım yapmak yerine kısaca önceki makalelerde yaptığımız çalışmayı SQLite’e uyarladım. Çünkü önceki makaleler yeterince ayrıntılı. Bu uyarlamayı Netbeans projesi olarak yazının sonundaki bağlantıdan indirebilirsiniz. Java ve veritabanı konusunda hiç tecrübeniz yoksa önce <a href="/netbeans-java-mysql-ornek-veritabani-uygulamasi-1">ilk üç makaleyi</a> çalışmanızı tavsiye ederim. </p>
 <h3>1- SQLite veritabanı oluşturma**</h3>
 <p>Öncelikle yapmamız gereken kullanacağımız veritabanını tasarlamak ve oluşturmak olacak. Bunun için de bize bir SQLite yönetici uygulaması gerekiyor. Bu uygulama bizlere yeni veritabanı oluşturma, tablo ekleme/silme/güncelleme gibi işlemleri rahatça yapabileceğimiz bir arayüz sunmalı.  Mysql için PhpMyAdmin, MySQL manager gibi bir çok benzer uygulama mevcuttu hatırlarsanız. Google’da “sqlite manager” şeklinde bir arama yaptığınızda pek çok sonuç çıkıyor. Bunları tek tek incelemeye vaktim olmadı. Ancak ilk sırada gelen ve bir Firefox eklentisi olan <a href="https://addons.thunderbird.net/en-us/firefox/addon/sqlite-manager/" rel="nofollow">Firefox Sqlite Manager</a>‘ın son derece kullanışlı ve yeterli olduğunu söyleyebilirim. Tek dezavantajı Firefox ile birlikte kullanmanız gerektiği. </p>
@@ -92,14 +92,14 @@
                 <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="1wvdjpx">
-			import { start } from "./_app/immutable/start-580822ee.js";
+		<script type="module" data-sveltekit-hydrate="1uvlg4l">
+			import { start } from "./_app/immutable/start-fc731654.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="1wvdjpx"]').parentNode,
-				version: "1676183651837",
+				target: document.querySelector('[data-sveltekit-hydrate="1uvlg4l"]').parentNode,
+				version: "1676185229061",
 				hydrate: {
 					node_ids: [0, 3],
 					data: [null,null],

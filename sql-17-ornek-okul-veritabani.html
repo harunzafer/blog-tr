@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
@@ -12,7 +12,7 @@
 		<link href="/css/prism.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="./_app/immutable/start-580822ee.js">
+		<link rel="modulepreload" href="./_app/immutable/start-fc731654.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
@@ -20,8 +20,8 @@
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-2cd7e843.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-54d84615.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -45,24 +45,24 @@
 	
 	<img align="left" style="margin-right: 30px;margin-bottom: 0px;" src="img/blog/Schema-SQL1.jpg">
 <p>Bundan sonraki SQL derslerinde üzerinde çeşitli sorgular çalıştırabileceğimiz, sade, anlaşılır ve yeterince veri içeren bir veritabanına ihtiyacımız olacak. Okul veritabanını temelde bu amaçla hazırladım. Ayrıca Java ve PHP ile ileride yapacağım örnek veritabanı uygulamalarında da aynı veritabanını kullanmayı düşünüyorum. Sonuç olarak eğitim amaçlı ideal bir veritabanı oldu. Okul veritabanının bu ilk versiyonu 6 tablodan oluşuyor. Tabloların açıklamaları ve ilişkileri aşağıdaki gibidir.</p>
-<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_hrzafer.png" alt="okul_vt_hrzafer"></p>
+<p><img src="/img/blog/okul_vt_hrzafer.png" alt="okul_vt_hrzafer"></p>
 <p>Öğrenci ile Bölüm arasında bire-çok ilişki vardır. Yani bir öğrencinin <strong>bir ve yalnız bir</strong> bölümü olur. Aynı şekilde Ders ile Bölüm arasında ve Öğretmen ile Bölüm arasında da bire-çok ilişki var. Yani her ders ve öğretmen bir bölüme ait olmak zorunda. Öğrenci ile Ders arasında çoğa-çok ilişki vardır. Yani bir öğrenci birden fazla ders alabilir. Bir dersi de birden fazla öğrenci alabilir. Bu nedenle bu ilişki ögrenci_ders adındaki ayrı bir tabloda ele alındı. Aynı şekilde Öğretmen ile Ders arasında da çoğa çok ilişki vardır. Yani bir dersi birden fazla öğretmen verebilir. Ve bir öğretmen birden fazla ders verebilir. Veritabanının yapısı (structure) bu şekilde. Bu yapıyı daha iyi anlamak için bazı tabloları girilen örnek verilerle birlikte görelim: </p>
 <p><strong>Bölüm Tablosu</strong></p>
-<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_tablo_bolum_hrzafer.png" alt="okul_vt_tablo_bolum_hrzafer"></p>
+<p><img src="/img/blog/okul_vt_tablo_bolum_hrzafer.png" alt="okul_vt_tablo_bolum_hrzafer"></p>
 <p><strong>Ders Tablosu</strong></p>
-<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_tablo_ders_hrzafer.png" alt="okul_vt_tablo_ders_hrzafer"></p>
+<p><img src="/img/blog/okul_vt_tablo_ders_hrzafer.png" alt="okul_vt_tablo_ders_hrzafer"></p>
 <p>Görüldüğü gibi bu tabloda son kolon dersin ait olduğu bölümün id’sini (bid) tutuyor. Yani yabancı anahtar. </p>
 <p><strong>Öğrenci Tablosu</strong></p>
-<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_tablo_ogrenci_hrzafer.png" alt="okul_vt_tablo_ogrenci_hrzafer"></p>
+<p><img src="/img/blog/okul_vt_tablo_ogrenci_hrzafer.png" alt="okul_vt_tablo_ogrenci_hrzafer"></p>
 <p>Bu tabloda da son kolon öğrencinin ait olduğu bölümü gösteren bir yabancı anahtar. </p>
 <p><strong>Öğrenci Ders Tablosu</strong></p>
-<p><img src="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_tablo_ogrenci_ders_hrzafer.png" alt="okul_vt_tablo_ogrenci_ders_hrzafer"></p>
+<p><img src="/img/blog/okul_vt_tablo_ogrenci_ders_hrzafer.png" alt="okul_vt_tablo_ogrenci_ders_hrzafer"></p>
 <p>Bu tabloda mesela birinci satır 1 no’lu öğrencinin 1 id’li dersi aldığını ve bu dersten notunun 3 olduğunu belirtiyor. </p>
 <p><strong>Veritabanını phpmyadmin üzerinden yüklemek için:</strong></p>
 <ol><li><code>okul_vt_hrzafer</code> isimli bir veritabanı oluşturun. </li>
 <li>içeri aktar (import) seçeneğine tıklayın. </li>
 <li>Daha sonra gözat butonuna tıklayarak sql uzantılı veritabanı dosyasını yükleyin. </li></ol>
-<p>Veritabanını <a href="http://www.hrzafer.com/wp-content/uploads/2012/05/okul_vt_hrzafer.zip" rel="nofollow">buradan</a> indirebilirsiniz.</p>
+<p>Veritabanını <a href="/download/okul_vt_hrzafer.zip">buradan</a> indirebilirsiniz.</p>
 <p>Herkese kolay gelsin</p>
 <h3>İlgili Diğer Makaleler</h3>
 <ul><li><a href="/sql-14-kumeleme-fonksiyonlari">SQL 14: Kümeleme Fonksiyonları</a></li>
@@ -79,14 +79,14 @@
                 <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="ckt5ue">
-			import { start } from "./_app/immutable/start-580822ee.js";
+		<script type="module" data-sveltekit-hydrate="1mi29j2">
+			import { start } from "./_app/immutable/start-fc731654.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="ckt5ue"]').parentNode,
-				version: "1676183651837",
+				target: document.querySelector('[data-sveltekit-hydrate="1mi29j2"]').parentNode,
+				version: "1676185229061",
 				hydrate: {
 					node_ids: [0, 3],
 					data: [null,null],

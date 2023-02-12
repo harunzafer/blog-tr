@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
@@ -12,7 +12,7 @@
 		<link href="/css/prism.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="./_app/immutable/start-580822ee.js">
+		<link rel="modulepreload" href="./_app/immutable/start-fc731654.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
@@ -20,8 +20,8 @@
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-2cd7e843.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-54d84615.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -75,7 +75,6 @@
 <td>2</td></tr></tbody></table>
 <p>Dikkat ederseniz <code>Kitaplar</code> tablosunda <code>yv_no</code> isimli bir alan göreceksiniz. Bu alan kitabın hangi yayınevi tarafından basıldığını göstermektedir. Buradan ilk 2 kitabın “A”, 3. kitabın ise “B” yayınevi tarafından basıldığını, “C” yayınevi tarafından ise basılmış bir kitabın bulunmadığı anlaşılmakta. Yani kitaplar tablosundaki <code>yv_no</code> isimli alan ile <code>Yayınevleri</code> tablosundaki <code>no</code> isimli alan ilişkilidir. </p>
 <p>Örneğin <code>Kitaplar</code> tablosuna yeni bir kitap eklemek istesek ve <code>yv_no</code> olarak 4 değerini versek, 4 nolu yayınevi mevcut olmadığından bunun mümkün olmadığını belirten bir hata mesajı ile karşılaşırız. Şimdi bu iki tabloyu kullanan (iki tabloyu <strong>join</strong> eden) sorgu örneklerine geçelim: </p>
-<p><strong>Not:</strong> MySQL’i bilgisayarınıza kurup benzer örnekleri bizzat uygulamak isterseniz <a href="http://www.hrzafer.com/mysql-kurulumu-ve-kullanimi-goruntulu-anlatim" rel="nofollow">bu videoyu</a> izleyebilirsiniz.</p>
 <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> kitaplar <span class="token punctuation">,</span> yayinevleri</code><!-- HTML_TAG_END --></pre>
 <p>Sorgunun çıktısı aşağıdaki gibi olacaktır:</p>
 <table><thead><tr><th>no</th>
@@ -177,7 +176,7 @@
 <td>A</td></tr>
 <tr><td>Hakiki SQL</td>
 <td>B</td></tr></tbody></table>
-<p>Şimdi de sorgumuzu <a href="http://www.hrzafer.com/sql-11-as-sozcugu-ve-takma-isimler-alias" rel="nofollow">bir önceki derste</a> öğrendiklerimizden faydalanarak daha okunur hale getirelim.</p>
+<p>Şimdi de sorgumuzu <a href="/sql-11-as-sozcugu-ve-takma-isimler-alias">bir önceki derste</a> öğrendiklerimizden faydalanarak daha okunur hale getirelim.</p>
 <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> K<span class="token punctuation">.</span>isim<span class="token punctuation">,</span> Y<span class="token punctuation">.</span>isim <span class="token keyword">FROM</span> kitaplar K<span class="token punctuation">,</span> yayinevleri Y <span class="token keyword">WHERE</span> K<span class="token punctuation">.</span>yv_no <span class="token operator">=</span> Y<span class="token punctuation">.</span><span class="token keyword">no</span></code><!-- HTML_TAG_END --></pre>
 <p>İşlev açısından yukarıdaki ile tamamen aynı olan sorgumuzu, takma isimlerden (alias) yaralanarak yalnızca sadeleştirdik.</p>
 <p>Dersi bir soru ile bitirelim: Aynı sorguyu neden aşağıdaki gibi yazamazdık?</p>
@@ -198,14 +197,14 @@
                 <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="z6aans">
-			import { start } from "./_app/immutable/start-580822ee.js";
+		<script type="module" data-sveltekit-hydrate="1jidj7q">
+			import { start } from "./_app/immutable/start-fc731654.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="z6aans"]').parentNode,
-				version: "1676183651837",
+				target: document.querySelector('[data-sveltekit-hydrate="1jidj7q"]').parentNode,
+				version: "1676185229061",
 				hydrate: {
 					node_ids: [0, 3],
 					data: [null,null],

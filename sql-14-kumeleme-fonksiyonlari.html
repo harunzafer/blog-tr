@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" href="./favicon.png" />
@@ -12,7 +12,7 @@
 		<link href="/css/prism.css" rel="stylesheet" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link rel="modulepreload" href="./_app/immutable/start-580822ee.js">
+		<link rel="modulepreload" href="./_app/immutable/start-fc731654.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index-c3577ca2.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/singletons-8a3cb1f1.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/preload-helper-41c905a7.js">
@@ -20,8 +20,8 @@
 		<link rel="modulepreload" href="./_app/immutable/modules/pages/_layout.js-9cbb603b.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout-da46b06b.js">
 		<link rel="modulepreload" href="./_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js">
-		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-d0d6c49a.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/_page-fc9910f0.js">
+		<link rel="modulepreload" href="./_app/immutable/modules/pages/_slug_/_page.js-2cd7e843.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_page-54d84615.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -180,7 +180,7 @@
 <table><thead><tr><th>Sayı</th></tr></thead>
 <tbody><tr><td>2</td></tr></tbody></table>
 <p><strong>COUNT (DISTINCT kolon_adı) Kullanımı</strong></p>
-<p>DISTINCT ifadesini <a href="http://www.hrzafer.com/sql-distinct-ifadesi" rel="nofollow">bu makalede</a> anlatmıştım. Eğer bilmiyorsanız önce o kısa makaleyi okumanızı öneririm. Eğer bir kolondaki farklı değerlerin sayısını öğrenmek istiyorsak COUNT ifadesini <code>COUNT (DISTINCT kolon_adı)</code> şeklinde kullanırız. Örneğin kaç farklı ülkeden çalışan olduğunu hesaplamak istersek:</p>
+<p>DISTINCT ifadesini <a href="/sql-distinct-ifadesi">bu makalede</a> anlatmıştım. Eğer bilmiyorsanız önce o kısa makaleyi okumanızı öneririm. Eğer bir kolondaki farklı değerlerin sayısını öğrenmek istiyorsak COUNT ifadesini <code>COUNT (DISTINCT kolon_adı)</code> şeklinde kullanırız. Örneğin kaç farklı ülkeden çalışan olduğunu hesaplamak istersek:</p>
 <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">COUNT</span><span class="token punctuation">(</span><span class="token keyword">Distinct</span> ülke<span class="token punctuation">)</span> <span class="token keyword">as</span> ÜlkeSayısı <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
 <p>Tabloda ülke alanında 4 farklı değer (Türkiye, USA, Fransa, Almanya) olduğundan çıktı aşağıdaki gibi olacaktır.</p>
 <table><thead><tr><th>ÜlkeSayısı</th></tr></thead>
@@ -193,7 +193,7 @@
 <tbody><tr><td>Ahmet</td></tr></tbody></table>
 <p>Ancak bu MySQL First fonksiyonunu desteklemez. Aynı işi yapan sorgu MySQL’de aşağıdaki gibidir.</p>
 <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> ad <span class="token keyword">as</span> ilkİsim <span class="token keyword">FROM</span> kisiler <span class="token keyword">LIMIT</span> <span class="token number">1</span></code><!-- HTML_TAG_END --></pre>
-<p>Bu arada Limit konusu <a href="http://www.hrzafer.com/sql-07-top-veya-limit-mysql" rel="nofollow">bu makalede</a> anlatıldı. Bilmiyorsanız bir göz atmanızda fayda var.   </p>
+<p>Bu arada Limit konusu <a href="/sql-07-top-veya-limit-mysql">bu makalede</a> anlatıldı. Bilmiyorsanız bir göz atmanızda fayda var.   </p>
 <p><strong>LAST() Fonksiyonu</strong></p>
 <p>Tahmin edebileceğiniz gibi en sondaki değeri döndürür. Ve yine tahmin edebileceğiniz gibi MySQL tarafından desteklenmez. Tablodaki son soyisim değerini döndüren sorgunun standart SQL ve MySQL versiyonları aşağıdaki gibidir:</p>
 <pre class="language-sql"><!-- HTML_TAG_START --><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token function">LAST</span><span class="token punctuation">(</span>Soyad<span class="token punctuation">)</span> <span class="token keyword">as</span> SonSoyad <span class="token keyword">FROM</span> kisiler</code><!-- HTML_TAG_END --></pre>
@@ -243,14 +243,14 @@
                 <div class="small text-center text-muted fst-italic">Copyright © <a href="/">Harun Reşit Zafer</a> 2023</div></div></div></div></footer>
 
 
-		<script type="module" data-sveltekit-hydrate="166hjx5">
-			import { start } from "./_app/immutable/start-580822ee.js";
+		<script type="module" data-sveltekit-hydrate="11rqyhl">
+			import { start } from "./_app/immutable/start-fc731654.js";
 
 			start({
 				env: {},
 				paths: {"base":"","assets":""},
-				target: document.querySelector('[data-sveltekit-hydrate="166hjx5"]').parentNode,
-				version: "1676183651837",
+				target: document.querySelector('[data-sveltekit-hydrate="11rqyhl"]').parentNode,
+				version: "1676185229061",
 				hydrate: {
 					node_ids: [0, 3],
 					data: [null,null],
