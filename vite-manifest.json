@@ -1,31 +1,33 @@
 {
-  ".svelte-kit/generated/nodes/5.js": {
-    "file": "_app/immutable/chunks/5-c128cac4.js",
-    "src": ".svelte-kit/generated/nodes/5.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/hakkinda/+page.md"
-    ]
-  },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-3fd31a33.js",
+    "file": "_app/immutable/chunks/1-f6675b97.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
     ]
   },
-  ".svelte-kit/generated/nodes/3.js": {
-    "file": "_app/immutable/chunks/3-078ffacb.js",
-    "src": ".svelte-kit/generated/nodes/3.js",
+  ".svelte-kit/generated/nodes/6.js": {
+    "file": "_app/immutable/chunks/6-8a475edc.js",
+    "src": ".svelte-kit/generated/nodes/6.js",
     "isDynamicEntry": true,
     "imports": [
-      "__page-0e551ea3.js",
-      "src/routes/[slug]/+page.svelte"
+      "src/routes/iletisim/+page.md"
     ]
   },
+  ".svelte-kit/generated/nodes/5.js": {
+    "file": "_app/immutable/chunks/5-f3d3e0d5.js",
+    "src": ".svelte-kit/generated/nodes/5.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/hakkinda/+page.md"
+    ]
+  },
+  "_preload-helper-41c905a7.js": {
+    "file": "_app/immutable/chunks/preload-helper-41c905a7.js"
+  },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "_app/immutable/chunks/2-2c91782f.js",
+    "file": "_app/immutable/chunks/2-768309cc.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
@@ -34,26 +36,15 @@
     ]
   },
   "src/routes/[slug]/+page.svelte": {
-    "file": "_app/immutable/components/pages/_slug_/_page.svelte-41d252fa.js",
+    "file": "_app/immutable/components/pages/_slug_/_page.svelte-db9f9605.js",
     "src": "src/routes/[slug]/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
-  "__page-a5e8a8ff.js": {
-    "file": "_app/immutable/chunks/_page-a5e8a8ff.js"
-  },
-  "src/routes/blog/nuve-ile-turkce-cumle-sonu-tespiti.md": {
-    "file": "_app/immutable/chunks/nuve-ile-turkce-cumle-sonu-tespiti-11917f4d.js",
-    "src": "src/routes/blog/nuve-ile-turkce-cumle-sonu-tespiti.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "__page-0e551ea3.js": {
-    "file": "_app/immutable/chunks/_page-0e551ea3.js",
+  "__page-54a63172.js": {
+    "file": "_app/immutable/chunks/_page-54a63172.js",
     "imports": [
       "_preload-helper-41c905a7.js"
     ],
@@ -93,28 +84,22 @@
       "src/routes/blog/yazilim-versiyon-numaralari.md"
     ]
   },
-  "_preload-helper-41c905a7.js": {
-    "file": "_app/immutable/chunks/preload-helper-41c905a7.js"
-  },
-  "src/routes/+layout.svelte": {
-    "file": "_app/immutable/components/pages/_layout.svelte-6a38629c.js",
-    "src": "src/routes/+layout.svelte",
+  "src/routes/+page.svelte": {
+    "file": "_app/immutable/components/pages/_page.svelte-1fb5e636.js",
+    "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
-  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-fd8a988f.js",
-    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
-    "isEntry": true,
+  "_singletons-f09f9066.js": {
+    "file": "_app/immutable/chunks/singletons-f09f9066.js",
     "imports": [
-      "_index-c3577ca2.js",
-      "_singletons-8a3cb1f1.js"
+      "_index-9681ceb5.js"
     ]
   },
   ".svelte-kit/generated/nodes/0.js": {
-    "file": "_app/immutable/chunks/0-a58310d0.js",
+    "file": "_app/immutable/chunks/0-6c4e8027.js",
     "src": ".svelte-kit/generated/nodes/0.js",
     "isDynamicEntry": true,
     "imports": [
@@ -122,39 +107,140 @@
       "src/routes/+layout.svelte"
     ]
   },
+  "src/routes/blog/nuve-ile-turkce-cumle-sonu-tespiti.md": {
+    "file": "_app/immutable/chunks/nuve-ile-turkce-cumle-sonu-tespiti-f8034ebd.js",
+    "src": "src/routes/blog/nuve-ile-turkce-cumle-sonu-tespiti.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
   "__layout-da46b06b.js": {
     "file": "_app/immutable/chunks/_layout-da46b06b.js"
   },
-  ".svelte-kit/generated/nodes/6.js": {
-    "file": "_app/immutable/chunks/6-4da69200.js",
-    "src": ".svelte-kit/generated/nodes/6.js",
+  ".svelte-kit/generated/nodes/3.js": {
+    "file": "_app/immutable/chunks/3-4ba1d58d.js",
+    "src": ".svelte-kit/generated/nodes/3.js",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/iletisim/+page.md"
+      "__page-54a63172.js",
+      "src/routes/[slug]/+page.svelte"
+    ]
+  },
+  "src/routes/iletisim/+page.md": {
+    "file": "_app/immutable/components/pages/iletisim/_page.md-7113b4b9.js",
+    "src": "src/routes/iletisim/+page.md",
+    "isEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "_app/immutable/components/error.svelte-3f07ffff.js",
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-9681ceb5.js",
+      "_singletons-f09f9066.js"
+    ]
+  },
+  "src/routes/blog/java-swing-pencerler-arasi-iletisim.md": {
+    "file": "_app/immutable/chunks/java-swing-pencerler-arasi-iletisim-56c7ffea.js",
+    "src": "src/routes/blog/java-swing-pencerler-arasi-iletisim.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/demo/+page.svelte": {
-    "file": "_app/immutable/components/pages/demo/_page.svelte-59bcd773.js",
+    "file": "_app/immutable/components/pages/demo/_page.svelte-51d94ea7.js",
     "src": "src/routes/demo/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
-  "src/routes/+page.svelte": {
-    "file": "_app/immutable/components/pages/_page.svelte-16ade14a.js",
-    "src": "src/routes/+page.svelte",
+  "src/routes/blog/java-ve-sqlite-ornek-veritabani-uygulamasi.md": {
+    "file": "_app/immutable/chunks/java-ve-sqlite-ornek-veritabani-uygulamasi-f60b1413.js",
+    "src": "src/routes/blog/java-ve-sqlite-ornek-veritabani-uygulamasi.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-3.md": {
+    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-3-b703c344.js",
+    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-3.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/+layout.svelte": {
+    "file": "_app/immutable/components/pages/_layout.svelte-ae19a0f4.js",
+    "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/pdf-dosyalarina-yer-imi-bookmark-eklemek.md": {
+    "file": "_app/immutable/chunks/pdf-dosyalarina-yer-imi-bookmark-eklemek-53a7e223.js",
+    "src": "src/routes/blog/pdf-dosyalarina-yer-imi-bookmark-eklemek.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "__page-a5e8a8ff.js": {
+    "file": "_app/immutable/chunks/_page-a5e8a8ff.js"
+  },
+  "src/routes/blog/hunspell-tr.md": {
+    "file": "_app/immutable/chunks/hunspell-tr-3a84c19d.js",
+    "src": "src/routes/blog/hunspell-tr.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  ".svelte-kit/generated/nodes/4.js": {
+    "file": "_app/immutable/chunks/4-42f6104f.js",
+    "src": ".svelte-kit/generated/nodes/4.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/routes/demo/+page.svelte"
     ]
   },
   "src/routes/hakkinda/+page.md": {
-    "file": "_app/immutable/components/pages/hakkinda/_page.md-3611b13a.js",
+    "file": "_app/immutable/components/pages/hakkinda/_page.md-4f43aae9.js",
     "src": "src/routes/hakkinda/+page.md",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-2.md": {
+    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-2-28c3f7d2.js",
+    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-2.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-1.md": {
+    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-1-016bc07d.js",
+    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-1.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-11-as-sozcugu-ve-takma-isimler-alias.md": {
+    "file": "_app/immutable/chunks/sql-11-as-sozcugu-ve-takma-isimler-alias-4bba8837.js",
+    "src": "src/routes/blog/sql-11-as-sozcugu-ve-takma-isimler-alias.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/+page.js": {
@@ -165,37 +251,110 @@
       "__page-a5e8a8ff.js"
     ]
   },
-  "src/routes/blog/turkce-fiil-cekimleri-uygulamasi.md": {
-    "file": "_app/immutable/chunks/turkce-fiil-cekimleri-uygulamasi-9c880715.js",
-    "src": "src/routes/blog/turkce-fiil-cekimleri-uygulamasi.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/iletisim/+page.md": {
-    "file": "_app/immutable/components/pages/iletisim/_page.md-4480557e.js",
-    "src": "src/routes/iletisim/+page.md",
+  "src/routes/[slug]/+page.js": {
+    "file": "_app/immutable/modules/pages/_slug_/_page.js-65e6c817.js",
+    "src": "src/routes/[slug]/+page.js",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_preload-helper-41c905a7.js",
+      "__page-54a63172.js"
     ]
   },
-  ".svelte-kit/generated/nodes/4.js": {
-    "file": "_app/immutable/chunks/4-9e22849c.js",
-    "src": ".svelte-kit/generated/nodes/4.js",
+  "src/routes/+layout.js": {
+    "file": "_app/immutable/modules/pages/_layout.js-9cbb603b.js",
+    "src": "src/routes/+layout.js",
+    "isEntry": true,
+    "imports": [
+      "__layout-da46b06b.js"
+    ]
+  },
+  "src/routes/blog/sql-18-join-turleri.md": {
+    "file": "_app/immutable/chunks/sql-18-join-turleri-c18e9321.js",
+    "src": "src/routes/blog/sql-18-join-turleri.md",
     "isDynamicEntry": true,
     "imports": [
-      "src/routes/demo/+page.svelte"
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-dersleri.md": {
+    "file": "_app/immutable/chunks/sql-dersleri-d547844a.js",
+    "src": "src/routes/blog/sql-dersleri.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-04-and-ve-or-islecleri.md": {
+    "file": "_app/immutable/chunks/sql-04-and-ve-or-islecleri-857222e0.js",
+    "src": "src/routes/blog/sql-04-and-ve-or-islecleri.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-07-top-veya-limit-mysql.md": {
+    "file": "_app/immutable/chunks/sql-07-top-veya-limit-mysql-db35bf7b.js",
+    "src": "src/routes/blog/sql-07-top-veya-limit-mysql.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-distinct-ifadesi.md": {
+    "file": "_app/immutable/chunks/sql-distinct-ifadesi-dc42cf71.js",
+    "src": "src/routes/blog/sql-distinct-ifadesi.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/turkce-imla-denetimi-uzerine.md": {
+    "file": "_app/immutable/chunks/turkce-imla-denetimi-uzerine-9fc7bbef.js",
+    "src": "src/routes/blog/turkce-imla-denetimi-uzerine.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/yazilim-versiyon-numaralari.md": {
+    "file": "_app/immutable/chunks/yazilim-versiyon-numaralari-96b8f6d0.js",
+    "src": "src/routes/blog/yazilim-versiyon-numaralari.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/veritabanina-genel-bakis.md": {
+    "file": "_app/immutable/chunks/veritabanina-genel-bakis-96427328.js",
+    "src": "src/routes/blog/veritabanina-genel-bakis.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-17-ornek-okul-veritabani.md": {
+    "file": "_app/immutable/chunks/sql-17-ornek-okul-veritabani-11879ef0.js",
+    "src": "src/routes/blog/sql-17-ornek-okul-veritabani.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve.md": {
+    "file": "_app/immutable/chunks/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve-229900c4.js",
+    "src": "src/routes/blog/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-ce85e4b9.js",
+    "file": "_app/immutable/start-19a29c2d.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
-      "_index-c3577ca2.js",
-      "_singletons-8a3cb1f1.js",
+      "_index-9681ceb5.js",
+      "_singletons-f09f9066.js",
       "_preload-helper-41c905a7.js"
     ],
     "dynamicImports": [
@@ -208,278 +367,119 @@
       ".svelte-kit/generated/nodes/6.js"
     ]
   },
-  "_singletons-8a3cb1f1.js": {
-    "file": "_app/immutable/chunks/singletons-8a3cb1f1.js",
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
+  "_index-9681ceb5.js": {
+    "file": "_app/immutable/chunks/index-9681ceb5.js"
   },
-  "src/routes/blog/pdf-dosyalarina-yer-imi-bookmark-eklemek.md": {
-    "file": "_app/immutable/chunks/pdf-dosyalarina-yer-imi-bookmark-eklemek-68acb600.js",
-    "src": "src/routes/blog/pdf-dosyalarina-yer-imi-bookmark-eklemek.md",
+  "src/routes/blog/turkce-fiil-cekimleri-uygulamasi.md": {
+    "file": "_app/immutable/chunks/turkce-fiil-cekimleri-uygulamasi-156ba56c.js",
+    "src": "src/routes/blog/turkce-fiil-cekimleri-uygulamasi.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/hunspell-tr.md": {
-    "file": "_app/immutable/chunks/hunspell-tr-950148f1.js",
-    "src": "src/routes/blog/hunspell-tr.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-dersleri.md": {
-    "file": "_app/immutable/chunks/sql-dersleri-ced44554.js",
-    "src": "src/routes/blog/sql-dersleri.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-3.md": {
-    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-3-799e6d7d.js",
-    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-3.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-1.md": {
-    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-1-60684725.js",
-    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-1.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-2.md": {
-    "file": "_app/immutable/chunks/netbeans-java-mysql-ornek-veritabani-uygulamasi-2-0c953128.js",
-    "src": "src/routes/blog/netbeans-java-mysql-ornek-veritabani-uygulamasi-2.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-distinct-ifadesi.md": {
-    "file": "_app/immutable/chunks/sql-distinct-ifadesi-f22df53c.js",
-    "src": "src/routes/blog/sql-distinct-ifadesi.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-07-top-veya-limit-mysql.md": {
-    "file": "_app/immutable/chunks/sql-07-top-veya-limit-mysql-049fd249.js",
-    "src": "src/routes/blog/sql-07-top-veya-limit-mysql.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-select-ifadesi.md": {
-    "file": "_app/immutable/chunks/sql-select-ifadesi-ed53478a.js",
+    "file": "_app/immutable/chunks/sql-select-ifadesi-6f438839.js",
     "src": "src/routes/blog/sql-select-ifadesi.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/+layout.js": {
-    "file": "_app/immutable/modules/pages/_layout.js-9cbb603b.js",
-    "src": "src/routes/+layout.js",
-    "isEntry": true,
-    "imports": [
-      "__layout-da46b06b.js"
-    ]
-  },
-  "src/routes/blog/sql-17-ornek-okul-veritabani.md": {
-    "file": "_app/immutable/chunks/sql-17-ornek-okul-veritabani-4ea979ad.js",
-    "src": "src/routes/blog/sql-17-ornek-okul-veritabani.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/java-swing-pencerler-arasi-iletisim.md": {
-    "file": "_app/immutable/chunks/java-swing-pencerler-arasi-iletisim-eff5639e.js",
-    "src": "src/routes/blog/java-swing-pencerler-arasi-iletisim.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/[slug]/+page.js": {
-    "file": "_app/immutable/modules/pages/_slug_/_page.js-703bc481.js",
-    "src": "src/routes/[slug]/+page.js",
-    "isEntry": true,
-    "imports": [
-      "_preload-helper-41c905a7.js",
-      "__page-0e551ea3.js"
-    ]
-  },
-  "src/routes/blog/sql-08-like-isleci-operatoru-2.md": {
-    "file": "_app/immutable/chunks/sql-08-like-isleci-operatoru-2-e19d9274.js",
-    "src": "src/routes/blog/sql-08-like-isleci-operatoru-2.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-09-in-isleci.md": {
-    "file": "_app/immutable/chunks/sql-09-in-isleci-8bc8d067.js",
+    "file": "_app/immutable/chunks/sql-09-in-isleci-3488e579.js",
     "src": "src/routes/blog/sql-09-in-isleci.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
-  "src/routes/blog/sql-04-and-ve-or-islecleri.md": {
-    "file": "_app/immutable/chunks/sql-04-and-ve-or-islecleri-11b905eb.js",
-    "src": "src/routes/blog/sql-04-and-ve-or-islecleri.md",
+  "src/routes/blog/sql-08-like-isleci-operatoru-2.md": {
+    "file": "_app/immutable/chunks/sql-08-like-isleci-operatoru-2-e1fde7df.js",
+    "src": "src/routes/blog/sql-08-like-isleci-operatoru-2.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "_index-c3577ca2.js": {
-    "file": "_app/immutable/chunks/index-c3577ca2.js"
-  },
-  "src/routes/blog/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve.md": {
-    "file": "_app/immutable/chunks/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve-25f11492.js",
-    "src": "src/routes/blog/turki-diller-icin-dogal-dil-isleme-kutuphanesi-nuve.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-08-like-1.md": {
-    "file": "_app/immutable/chunks/sql-08-like-1-49b8645d.js",
-    "src": "src/routes/blog/sql-08-like-1.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/turkce-imla-denetimi-uzerine.md": {
-    "file": "_app/immutable/chunks/turkce-imla-denetimi-uzerine-99aa4f4d.js",
-    "src": "src/routes/blog/turkce-imla-denetimi-uzerine.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/java-ve-sqlite-ornek-veritabani-uygulamasi.md": {
-    "file": "_app/immutable/chunks/java-ve-sqlite-ornek-veritabani-uygulamasi-44200107.js",
-    "src": "src/routes/blog/java-ve-sqlite-ornek-veritabani-uygulamasi.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/yazilim-versiyon-numaralari.md": {
-    "file": "_app/immutable/chunks/yazilim-versiyon-numaralari-3c2e41c3.js",
-    "src": "src/routes/blog/yazilim-versiyon-numaralari.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/veritabanina-genel-bakis.md": {
-    "file": "_app/immutable/chunks/veritabanina-genel-bakis-23c54455.js",
-    "src": "src/routes/blog/veritabanina-genel-bakis.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-10-between-isleci.md": {
-    "file": "_app/immutable/chunks/sql-10-between-isleci-d4b86155.js",
+    "file": "_app/immutable/chunks/sql-10-between-isleci-939144c7.js",
     "src": "src/routes/blog/sql-10-between-isleci.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-11-as-sozcugu-ve-takma-isimler-alias.md": {
-    "file": "_app/immutable/chunks/sql-11-as-sozcugu-ve-takma-isimler-alias-3befd32c.js",
-    "src": "src/routes/blog/sql-11-as-sozcugu-ve-takma-isimler-alias.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-18-join-turleri.md": {
-    "file": "_app/immutable/chunks/sql-18-join-turleri-4e64dd90.js",
-    "src": "src/routes/blog/sql-18-join-turleri.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2.md": {
-    "file": "_app/immutable/chunks/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2-a15514f2.js",
-    "src": "src/routes/blog/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1.md": {
-    "file": "_app/immutable/chunks/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1-15431f13.js",
+    "file": "_app/immutable/chunks/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1-79aa5edf.js",
     "src": "src/routes/blog/sql-12-sorguda-birden-fazla-tablo-kullanma-join-1.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-05-karmasik-and-ve-or-sorgulari.md": {
-    "file": "_app/immutable/chunks/sql-05-karmasik-and-ve-or-sorgulari-515decd7.js",
-    "src": "src/routes/blog/sql-05-karmasik-and-ve-or-sorgulari.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-where-clause.md": {
-    "file": "_app/immutable/chunks/sql-where-clause-a13e0d30.js",
-    "src": "src/routes/blog/sql-where-clause.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
-    ]
-  },
-  "src/routes/blog/sql-16-having-ifadesi.md": {
-    "file": "_app/immutable/chunks/sql-16-having-ifadesi-73294afe.js",
-    "src": "src/routes/blog/sql-16-having-ifadesi.md",
-    "isDynamicEntry": true,
-    "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-06-order-by-siralama.md": {
-    "file": "_app/immutable/chunks/sql-06-order-by-siralama-0e7022f5.js",
+    "file": "_app/immutable/chunks/sql-06-order-by-siralama-d6dfbb19.js",
     "src": "src/routes/blog/sql-06-order-by-siralama.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-05-karmasik-and-ve-or-sorgulari.md": {
+    "file": "_app/immutable/chunks/sql-05-karmasik-and-ve-or-sorgulari-7aaf2e8f.js",
+    "src": "src/routes/blog/sql-05-karmasik-and-ve-or-sorgulari.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-08-like-1.md": {
+    "file": "_app/immutable/chunks/sql-08-like-1-484cd709.js",
+    "src": "src/routes/blog/sql-08-like-1.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-where-clause.md": {
+    "file": "_app/immutable/chunks/sql-where-clause-e923e202.js",
+    "src": "src/routes/blog/sql-where-clause.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2.md": {
+    "file": "_app/immutable/chunks/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2-3bd079fb.js",
+    "src": "src/routes/blog/sql-13-sorguda-birden-fazla-tablo-kullanma-join-2.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
+    ]
+  },
+  "src/routes/blog/sql-16-having-ifadesi.md": {
+    "file": "_app/immutable/chunks/sql-16-having-ifadesi-86daf19b.js",
+    "src": "src/routes/blog/sql-16-having-ifadesi.md",
+    "isDynamicEntry": true,
+    "imports": [
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-14-kumeleme-fonksiyonlari.md": {
-    "file": "_app/immutable/chunks/sql-14-kumeleme-fonksiyonlari-3e596ef4.js",
+    "file": "_app/immutable/chunks/sql-14-kumeleme-fonksiyonlari-9ec617a4.js",
     "src": "src/routes/blog/sql-14-kumeleme-fonksiyonlari.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   },
   "src/routes/blog/sql-15-group-by-ifadesi.md": {
-    "file": "_app/immutable/chunks/sql-15-group-by-ifadesi-28f4f40c.js",
+    "file": "_app/immutable/chunks/sql-15-group-by-ifadesi-370b16eb.js",
     "src": "src/routes/blog/sql-15-group-by-ifadesi.md",
     "isDynamicEntry": true,
     "imports": [
-      "_index-c3577ca2.js"
+      "_index-9681ceb5.js"
     ]
   }
 }
