@@ -1,3 +1,7 @@
+<script>
+	const currentYear = new Date().getFullYear();
+</script>
+
 <!-- Footer-->
 <footer class="border-top">
     <div class="container px-4 px-lg-5">
@@ -21,7 +25,7 @@
                         </a>
                     </li>
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; <a href="/">Harun Reşit Zafer</a> 2023</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; <a href="/">Harun Reşit Zafer</a> {currentYear}</div>
             </div>
         </div>
     </div>
