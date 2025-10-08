@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "rm -rf build && vite build && touch build/.nojekyll && echo hrzafer.com >> build/CNAME",
-		"deploy": "npm run build && npx gh-pages -d build -t true",
+		"deploy": "npm run build && npx gh-pages -d build -t",
 		"preview": "vite preview",
 		"lint": "prettier --plugin-search-dir . --check .",
 		"format": "prettier --plugin-search-dir . --write ."
